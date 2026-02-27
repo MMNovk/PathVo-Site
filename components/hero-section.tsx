@@ -116,7 +116,7 @@ export default function HeroSection() {
                             initial={{ opacity: 0, y: 24 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-6xl md:text-7xl xl:text-8xl font-semibold tracking-tight leading-none text-foreground text-balance text-center"
+                            className="text-6xl md:text-7xl xl:text-8xl font-semibold tracking-tighter leading-none text-foreground text-balance text-center"
                             style={{
                                 textShadow: '0 0 40px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.9)'
                             }}
@@ -165,7 +165,7 @@ export default function HeroSection() {
                                 asChild
                                 size="lg"
                                 variant="outline"
-                                className="rounded-full px-8 text-base border-white/20 text-foreground hover:bg-white/5">
+                                className="rounded-full px-8 text-base border border-white/30 text-white/90 hover:bg-white/10 hover:border-white/50 hover:text-white transition-all duration-300">
                                 <Link href="#how-it-works">
                                     <span className="text-nowrap">How It Works</span>
                                 </Link>
