@@ -111,19 +111,6 @@ export default function HeroSection() {
                 {/* Centered text content */}
                 <div className="relative z-10 w-full">
                     <div className="mx-auto max-w-3xl px-6 py-32 lg:py-40 text-center flex flex-col items-center">
-                        {/* Status badge */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0 }}
-                            className="mb-6 inline-flex items-center gap-2"
-                        >
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] animate-pulse" />
-                            <span className="font-mono text-xs uppercase tracking-widest text-white/50">
-                                WCAG 2.2 · AUTOMATED AUDITS
-                            </span>
-                        </motion.div>
-
                         {/* Headline */}
                         <motion.h1
                             initial={{ opacity: 0, y: 24 }}
@@ -135,16 +122,21 @@ export default function HeroSection() {
                         </motion.h1>
 
                         {/* Subheading */}
-                        <div className="mt-6 relative">
-                            <motion.p
-                                initial={{ opacity: 0, y: 16 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, delay: 0.6 }}
-                                className="text-lg text-white/70 leading-relaxed max-w-xl text-center [text-shadow:0_1px_20px_rgba(0,0,0,0.8),0_1px_4px_rgba(0,0,0,0.9)]"
-                            >
-                                PathVo scans your site for WCAG violations and delivers the exact fixes your team needs. No consultants, no guesswork.
-                            </motion.p>
-                        </div>
+                        <motion.p
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.6 }}
+                            className="mt-6 text-lg leading-relaxed max-w-xl text-center mx-auto px-4"
+                            style={{
+                                color: 'rgba(255,255,255,0.85)',
+                                textShadow: '0 0 30px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 2px 4px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.9)'
+                            }}
+                        >
+                            PathVo scans your site for WCAG violations and delivers the exact fixes your team needs. No consultants, no guesswork.
+                        </motion.p>
+
+                        {/* Thin divider line */}
+                        <div className="mt-8 mb-2 w-px h-8 bg-white/10 mx-auto" />
 
                         <AnimatedGroup
                             variants={{
@@ -158,7 +150,7 @@ export default function HeroSection() {
                                 },
                                 ...transitionVariants,
                             }}
-                            className="mt-10 flex gap-3 justify-center"
+                            className="mt-0 flex gap-3 justify-center"
                         >
                             <Button
                                 asChild
