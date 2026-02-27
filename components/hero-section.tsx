@@ -2,49 +2,16 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { InfiniteSlider } from '@/components/ui/infinite-slider'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur'
-import { TextEffect } from "@/components/motion-primitives/text-effect"
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group"
 import DecryptedText from "@/components/DecryptedText"
 import { transitionVariants } from "@/lib/utils"
 import dynamic from 'next/dynamic'
 
 const Dither = dynamic(() => import('@/components/Dither'), { ssr: false })
-
-const FALLBACK_CITY = 'NEW YORK CITY'
-
-function useHeroDate() {
-    const [dateStr, setDateStr] = React.useState('')
-
-    React.useEffect(() => {
-        const now = new Date()
-        const formatted = new Intl.DateTimeFormat('en-US', {
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-        }).format(now).toUpperCase()
-
-        // Set immediately with fallback city
-        setDateStr(`${formatted} \u2014 ${FALLBACK_CITY}`)
-
-        // Attempt IP-based city lookup
-        fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data?.city) {
-                    setDateStr(`${formatted} \u2014 ${data.city.toUpperCase()}`)
-                }
-            })
-            .catch(() => {
-                // Keep fallback — no-op
-            })
-    }, [])
-
-    return dateStr
-}
 
 function AxeCoreLogo({ className }: { className?: string }) {
     return (
@@ -91,7 +58,6 @@ function WeasyPrintLogo({ className }: { className?: string }) {
 }
 
 export default function HeroSection() {
-    const heroDate = useHeroDate()
     return (
         <main className="overflow-x-hidden">
             <section className="relative min-h-screen flex items-center bg-black overflow-hidden">
@@ -144,46 +110,43 @@ export default function HeroSection() {
 
                 {/* Centered text content */}
                 <div className="relative z-10 w-full">
-                    <div className="mx-auto max-w-3xl px-6 py-24 lg:py-32 text-center flex flex-col items-center">
-                        {/* Date with tight backplate */}
-                        <div className="mb-6">
-                            {heroDate && (
-                                <span className="inline-block bg-black/85 px-[3px] py-[1px] backdrop-blur-sm">
-                                    <DecryptedText
-                                        text={heroDate}
-                                        animateOn="view"
-                                        revealDirection="start"
-                                        sequential
-                                        useOriginalCharsOnly={false}
-                                        speed={70}
-                                        className="font-mono text-muted-foreground uppercase text-sm"
-                                    />
-                                </span>
-                            )}
-                        </div>
-
-                        <TextEffect
-                            preset="fade-in-blur"
-                            speedSegment={0.3}
-                            as="h1"
-                            className="text-5xl font-semibold md:text-6xl xl:text-7xl text-foreground text-balance">
-                            {'Accessibility, Automated.'}
-                        </TextEffect>
-
-                        {/* Subheading with tight backplate */}
-                        <div className="mt-6">
-                            <span className="inline-block bg-black/85 px-[3px] py-[1px] backdrop-blur-sm max-w-xl">
-                                <TextEffect
-                                    per="line"
-                                    preset="fade-in-blur"
-                                    speedSegment={0.3}
-                                    delay={0.5}
-                                    as="p"
-                                    className="text-lg text-muted-foreground leading-relaxed">
-                                    {'PathVo scans your site for WCAG violations and delivers the exact fixes your team needs. No consultants, no guesswork.'}
-                                </TextEffect>
+                    <div className="mx-auto max-w-3xl px-6 py-32 lg:py-40 text-center flex flex-col items-center">
+                        {/* Status badge */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0 }}
+                            className="mb-6 inline-flex items-center gap-2"
+                        >
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] animate-pulse" />
+                            <span className="font-mono text-xs uppercase tracking-widest text-white/50">
+                                WCAG 2.2 · AUTOMATED AUDITS
                             </span>
-                        </div>
+                        </motion.div>
+
+                        {/* Headline with decrypt effect */}
+                        <h1>
+                            <DecryptedText
+                                text="Accessibility, Automated."
+                                animateOn="view"
+                                revealDirection="start"
+                                sequential={true}
+                                useOriginalCharsOnly={false}
+                                speed={40}
+                                characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()"
+                                className="text-6xl md:text-7xl xl:text-8xl font-semibold tracking-tight leading-none text-foreground text-balance"
+                            />
+                        </h1>
+
+                        {/* Subheading */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.9 }}
+                            className="text-lg text-muted-foreground leading-relaxed max-w-xl text-center mt-6"
+                        >
+                            PathVo scans your site for WCAG violations and delivers the exact fixes your team needs. No consultants, no guesswork.
+                        </motion.p>
 
                         <AnimatedGroup
                             variants={{
@@ -202,7 +165,7 @@ export default function HeroSection() {
                             <Button
                                 asChild
                                 size="lg"
-                                className="px-6 text-base">
+                                className="rounded-full px-8 text-base font-medium hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-shadow duration-300">
                                 <Link href="#contact">
                                     <span className="text-nowrap">Get Started</span>
                                 </Link>
@@ -212,7 +175,7 @@ export default function HeroSection() {
                                 asChild
                                 size="lg"
                                 variant="outline"
-                                className="px-6 text-base border-white/20 text-foreground hover:bg-white/5">
+                                className="rounded-full px-8 text-base border-white/20 text-foreground hover:bg-white/5">
                                 <Link href="#how-it-works">
                                     <span className="text-nowrap">How It Works</span>
                                 </Link>
