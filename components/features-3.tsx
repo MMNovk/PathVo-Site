@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { AlertTriangleIcon, SearchIcon, ShieldCheckIcon } from 'lucide-react'
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { TextEffect } from "@/components/motion-primitives/text-effect"
 import { transitionVariants } from "@/lib/utils"
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group"
@@ -69,20 +68,16 @@ export default function Features() {
                         ...transitionVariants,
                     }}
                 >
-                    <Card
-                        className="@min-4xl:max-w-full @min-4xl:grid-cols-3 @min-4xl:divide-x @min-4xl:divide-y-0 mx-auto mt-8 grid max-w-sm divide-y overflow-hidden shadow-zinc-950/5 *:text-center md:mt-16">
-                        <div className="group shadow-zinc-950/5">
-                            <CardHeader className="pb-3">
-                                <CardDecorator>
-                                    <ShieldCheckIcon
-                                        className="size-6"
-                                        aria-hidden
-                                    />
-                                </CardDecorator>
-                                <h3 className="mt-6 font-medium text-xl font-mono">The Risk</h3>
+                    <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 @min-4xl:divide-x @min-4xl:divide-y-0 mx-auto mt-8 grid max-w-sm divide-y overflow-hidden md:mt-16">
+                        {/* Card 1 — The Risk */}
+                        <Card className="relative flex flex-col overflow-hidden bg-card border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
+                            <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-400/60" />
+                            <CardHeader className="pb-2 pt-6 text-center">
+                                <h3 className="text-5xl font-bold font-mono tracking-tighter text-red-400 transition-colors duration-300">8,600+</h3>
+                                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mt-2">THE RISK</p>
                             </CardHeader>
-                            <CardContent>
-                                <p className="text-sm text-muted-foreground">{'ADA Title III federal lawsuits remained at record levels in 2025, with over 8,600 filings.'}</p>
+                            <CardContent className="text-center">
+                                <p className="text-sm text-muted-foreground leading-relaxed">{'ADA Title III federal lawsuits remained at record levels in 2025.'}</p>
                                 <Link
                                     href="https://www.adatitleiii.com/2026/02/ada-title-iii-federal-lawsuit-filings-fall-slightly-to-8667-in-2025/"
                                     target="_blank"
@@ -91,20 +86,17 @@ export default function Features() {
                                     Source: ADA Title III (Feb 2026)
                                 </Link>
                             </CardContent>
-                        </div>
+                        </Card>
 
-                        <div className="group shadow-zinc-950/5">
-                            <CardHeader className="pb-3">
-                                <CardDecorator>
-                                    <AlertTriangleIcon
-                                        className="size-6"
-                                        aria-hidden
-                                    />
-                                </CardDecorator>
-                                <h3 className="mt-6 font-medium text-xl font-mono">The Crisis</h3>
+                        {/* Card 2 — The Crisis */}
+                        <Card className="relative flex flex-col overflow-hidden bg-card border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
+                            <div className="absolute top-0 left-0 right-0 h-[2px] bg-amber-400/60" />
+                            <CardHeader className="pb-2 pt-6 text-center">
+                                <h3 className="text-5xl font-bold font-mono tracking-tighter text-amber-400 transition-colors duration-300">94.8%</h3>
+                                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mt-2">THE CRISIS</p>
                             </CardHeader>
-                            <CardContent>
-                                <p className="text-sm text-muted-foreground">{'94.8% of the top 1,000,000 homepages fail basic WCAG standards.'}</p>
+                            <CardContent className="text-center">
+                                <p className="text-sm text-muted-foreground leading-relaxed">{'of the top 1,000,000 homepages fail basic WCAG standards.'}</p>
                                 <Link
                                     href="https://webaim.org/projects/million/"
                                     target="_blank"
@@ -113,20 +105,17 @@ export default function Features() {
                                     Source: WebAIM Million 2025
                                 </Link>
                             </CardContent>
-                        </div>
+                        </Card>
 
-                        <div className="group shadow-zinc-950/5">
-                            <CardHeader className="pb-3">
-                                <CardDecorator>
-                                    <SearchIcon
-                                        className="size-6"
-                                        aria-hidden
-                                    />
-                                </CardDecorator>
-                                <h3 className="mt-6 font-medium text-xl font-mono">The Impact</h3>
+                        {/* Card 3 — The Impact */}
+                        <Card className="relative flex flex-col overflow-hidden bg-card border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
+                            <div className="absolute top-0 left-0 right-0 h-[2px] bg-emerald-400/60" />
+                            <CardHeader className="pb-2 pt-6 text-center">
+                                <h3 className="text-5xl font-bold font-mono tracking-tighter text-emerald-400 transition-colors duration-300">$13T</h3>
+                                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mt-2">THE IMPACT</p>
                             </CardHeader>
-                            <CardContent>
-                                <p className="text-sm text-muted-foreground">{'1 in 4 US adults lives with a disability, representing a $13T global spending power.'}</p>
+                            <CardContent className="text-center">
+                                <p className="text-sm text-muted-foreground leading-relaxed">{'global spending power represented by the 1 in 4 US adults living with a disability.'}</p>
                                 <Link
                                     href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html"
                                     target="_blank"
@@ -135,21 +124,10 @@ export default function Features() {
                                     Source: CDC Disability Impact
                                 </Link>
                             </CardContent>
-                        </div>
-                    </Card>
+                        </Card>
+                    </div>
                 </AnimatedGroup>
             </div>
         </section>
     )
 }
-
-const CardDecorator = ({ children }: { children: ReactNode }) => (
-    <div
-        className="mask-radial-from-40% mask-radial-to-60% relative mx-auto size-36 duration-200 [--color-border:color-mix(in_oklab,var(--color-zinc-950)10%,transparent)] group-hover:[--color-border:color-mix(in_oklab,var(--color-zinc-950)20%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-white)15%,transparent)] dark:group-hover:[--color-border:color-mix(in_oklab,var(--color-white)20%,transparent)]">
-        <div
-            aria-hidden
-            className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-size-[24px_24px] dark:opacity-50"
-        />
-        <div className="bg-background absolute inset-0 m-auto flex size-12 items-center justify-center border-l border-t">{children}</div>
-    </div>
-)
