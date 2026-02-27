@@ -71,15 +71,13 @@ export default function Features() {
                 >
                     <div className="mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:mt-16 items-stretch">
                         {/* Card 1 — Legal Risk */}
-                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[300px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/40 hover:bg-[#2DD4BF]/[0.06]">
-                            {/* Ghost number */}
-                            <div className="absolute -bottom-4 -right-2 font-mono font-bold text-[120px] leading-none text-white/[0.04] group-hover:text-[#2DD4BF]/[0.12] transition-colors duration-500 select-none pointer-events-none">
-                                8,600+
-                            </div>
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[340px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/15 hover:bg-[#2DD4BF]/[0.06]">
+                            {/* Ghost icon */}
+                            <ShieldCheck className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
                                     <ShieldCheck className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Legal Risk</p>
+                                    <p className="text-[10px] font-mono font-semibold uppercase tracking-[0.15em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Legal Risk</p>
                                 </div>
                                 <h3 className="text-5xl font-bold font-mono tracking-tighter text-foreground mt-4 group-hover:text-[#2DD4BF] transition-colors duration-500">8,600+</h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed mt-4 group-hover:text-white/70 transition-colors duration-500">
@@ -96,15 +94,13 @@ export default function Features() {
                         </Card>
 
                         {/* Card 2 — Accessibility Gap */}
-                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[300px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/40 hover:bg-[#2DD4BF]/[0.06]">
-                            {/* Ghost number */}
-                            <div className="absolute -bottom-4 -right-2 font-mono font-bold text-[120px] leading-none text-white/[0.04] group-hover:text-[#2DD4BF]/[0.12] transition-colors duration-500 select-none pointer-events-none">
-                                94.8%
-                            </div>
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[340px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/15 hover:bg-[#2DD4BF]/[0.06]">
+                            {/* Ghost icon */}
+                            <AlertTriangle className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
                                     <AlertTriangle className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Accessibility Gap</p>
+                                    <p className="text-[10px] font-mono font-semibold uppercase tracking-[0.15em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Accessibility Gap</p>
                                 </div>
                                 <h3 className="text-5xl font-bold font-mono tracking-tighter text-foreground mt-4 group-hover:text-[#2DD4BF] transition-colors duration-500">94.8%</h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed mt-4 group-hover:text-white/70 transition-colors duration-500">
@@ -121,15 +117,13 @@ export default function Features() {
                         </Card>
 
                         {/* Card 3 — Market Opportunity */}
-                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[300px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/40 hover:bg-[#2DD4BF]/[0.06]">
-                            {/* Ghost number */}
-                            <div className="absolute -bottom-4 -right-2 font-mono font-bold text-[120px] leading-none text-white/[0.04] group-hover:text-[#2DD4BF]/[0.12] transition-colors duration-500 select-none pointer-events-none">
-                                $13T
-                            </div>
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[340px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/15 hover:bg-[#2DD4BF]/[0.06]">
+                            {/* Ghost icon */}
+                            <Search className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
                                     <Search className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Market Opportunity</p>
+                                    <p className="text-[10px] font-mono font-semibold uppercase tracking-[0.15em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Market Opportunity</p>
                                 </div>
                                 <h3 className="text-5xl font-bold font-mono tracking-tighter text-foreground mt-4 group-hover:text-[#2DD4BF] transition-colors duration-500">$13T</h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed mt-4 group-hover:text-white/70 transition-colors duration-500">
