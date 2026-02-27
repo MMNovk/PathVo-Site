@@ -69,65 +69,77 @@ export default function Features() {
                         ...transitionVariants,
                     }}
                 >
-                    <div className="mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-5 md:mt-16">
+                    <div className="mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:mt-16 items-stretch">
                         {/* Card 1 — Legal Risk */}
-                        <Card className="group bg-card border border-border/50 rounded-xl p-10 flex flex-col min-h-[320px] transition-all duration-300 hover:-translate-y-1 hover:border-red-400/20 hover:bg-red-400/[0.03]">
-                            <div className="relative flex flex-col h-full">
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[300px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/40 hover:bg-[#2DD4BF]/[0.06]">
+                            {/* Ghost number */}
+                            <div className="absolute -bottom-4 -right-2 font-mono font-bold text-[120px] leading-none text-white/[0.04] group-hover:text-[#2DD4BF]/[0.12] transition-colors duration-500 select-none pointer-events-none">
+                                8,600+
+                            </div>
+                            <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
-                                    <ShieldCheck className="size-3 text-muted-foreground/40" />
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/60">Legal Risk</p>
+                                    <ShieldCheck className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
+                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Legal Risk</p>
                                 </div>
-                                <h3 className="text-6xl font-bold font-mono tracking-tighter text-foreground mt-2 transition-colors duration-300 group-hover:text-red-400">8,600+</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                                <h3 className="text-5xl font-bold font-mono tracking-tighter text-foreground mt-4 group-hover:text-[#2DD4BF] transition-colors duration-500">8,600+</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed mt-4 group-hover:text-white/70 transition-colors duration-500">
                                     ADA Title III federal lawsuits were filed in 2025 alone — and that number has held at record levels for three consecutive years.
                                 </p>
                                 <Link
                                     href="https://www.adatitleiii.com/2026/02/ada-title-iii-federal-lawsuit-filings-fall-slightly-to-8667-in-2025/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors no-underline flex items-center gap-1">
+                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 group-hover:text-[#2DD4BF]/40 transition-colors duration-500 no-underline">
                                     Source: ADA Title III (Feb 2026) ↗
                                 </Link>
                             </div>
                         </Card>
 
                         {/* Card 2 — Accessibility Gap */}
-                        <Card className="group bg-card border border-border/50 rounded-xl p-10 flex flex-col min-h-[320px] transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/20 hover:bg-amber-400/[0.03]">
-                            <div className="relative flex flex-col h-full">
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[300px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/40 hover:bg-[#2DD4BF]/[0.06]">
+                            {/* Ghost number */}
+                            <div className="absolute -bottom-4 -right-2 font-mono font-bold text-[120px] leading-none text-white/[0.04] group-hover:text-[#2DD4BF]/[0.12] transition-colors duration-500 select-none pointer-events-none">
+                                94.8%
+                            </div>
+                            <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
-                                    <AlertTriangle className="size-3 text-muted-foreground/40" />
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/60">Accessibility Gap</p>
+                                    <AlertTriangle className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
+                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Accessibility Gap</p>
                                 </div>
-                                <h3 className="text-6xl font-bold font-mono tracking-tighter text-foreground mt-2 transition-colors duration-300 group-hover:text-amber-400">94.8%</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                                <h3 className="text-5xl font-bold font-mono tracking-tighter text-foreground mt-4 group-hover:text-[#2DD4BF] transition-colors duration-500">94.8%</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed mt-4 group-hover:text-white/70 transition-colors duration-500">
                                     Nearly all of the top one million websites fail basic WCAG 2.2 standards — a figure that has barely moved in six years.
                                 </p>
                                 <Link
                                     href="https://webaim.org/projects/million/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors no-underline flex items-center gap-1">
+                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 group-hover:text-[#2DD4BF]/40 transition-colors duration-500 no-underline">
                                     Source: WebAIM Million 2025 ↗
                                 </Link>
                             </div>
                         </Card>
 
                         {/* Card 3 — Market Opportunity */}
-                        <Card className="group bg-card border border-border/50 rounded-xl p-10 flex flex-col min-h-[320px] transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/20 hover:bg-emerald-400/[0.03]">
-                            <div className="relative flex flex-col h-full">
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[300px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/40 hover:bg-[#2DD4BF]/[0.06]">
+                            {/* Ghost number */}
+                            <div className="absolute -bottom-4 -right-2 font-mono font-bold text-[120px] leading-none text-white/[0.04] group-hover:text-[#2DD4BF]/[0.12] transition-colors duration-500 select-none pointer-events-none">
+                                $13T
+                            </div>
+                            <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
-                                    <Search className="size-3 text-muted-foreground/40" />
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/60">Market Opportunity</p>
+                                    <Search className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
+                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500">Market Opportunity</p>
                                 </div>
-                                <h3 className="text-6xl font-bold font-mono tracking-tighter text-foreground mt-2 transition-colors duration-300 group-hover:text-emerald-400">$13T</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                                <h3 className="text-5xl font-bold font-mono tracking-tighter text-foreground mt-4 group-hover:text-[#2DD4BF] transition-colors duration-500">$13T</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed mt-4 group-hover:text-white/70 transition-colors duration-500">
                                     One in four US adults lives with a disability, representing thirteen trillion dollars in global spending power that inaccessible sites cannot reach.
                                 </p>
                                 <Link
                                     href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors no-underline flex items-center gap-1">
+                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 group-hover:text-[#2DD4BF]/40 transition-colors duration-500 no-underline">
                                     Source: CDC Disability Impact ↗
                                 </Link>
                             </div>
