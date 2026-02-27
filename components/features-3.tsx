@@ -69,7 +69,7 @@ export default function Features() {
                         ...transitionVariants,
                     }}
                 >
-                    <div className="mx-auto mt-8 md:mt-16 flex flex-col md:flex-row gap-6 items-stretch">
+                    <div className="mx-auto mt-8 md:mt-16 flex flex-col md:flex-row gap-6 items-stretch md:w-[calc(100%+3rem)] md:-mx-6">
                         {/* Card 1 — Legal Risk */}
                         <Card className="relative overflow-hidden flex flex-col p-8 min-h-[400px] border border-border/50 bg-card group cursor-default transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] md:flex-1 z-0 hover:md:flex-[1.5] hover:md:-mx-3 hover:md:-my-3 hover:md:shadow-[0_20px_60px_rgba(0,0,0,0.6)] hover:border-white/20 hover:z-10">
                             {/* Ghost icon */}
