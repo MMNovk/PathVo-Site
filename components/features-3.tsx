@@ -4,7 +4,7 @@ import { TextEffect } from "@/components/motion-primitives/text-effect"
 import { transitionVariants } from "@/lib/utils"
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group"
 import Link from 'next/link'
-import { ShieldCheck, AlertTriangle, Search } from 'lucide-react'
+import { ShieldCheck, AlertTriangle, Search, Scale, Accessibility, TrendingUp } from 'lucide-react'
 
 export default function Features() {
     return (
@@ -71,9 +71,9 @@ export default function Features() {
                 >
                     <div className="mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:mt-16 items-stretch">
                         {/* Card 1 — Legal Risk */}
-                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[340px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/15 hover:bg-[#2DD4BF]/[0.06]">
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[400px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/25 hover:shadow-[inset_0_0_0_1px_rgba(45,212,191,0.08)] hover:bg-[#2DD4BF]/[0.06]">
                             {/* Ghost icon */}
-                            <ShieldCheck className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
+                            <Scale className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
                                     <ShieldCheck className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
@@ -87,16 +87,16 @@ export default function Features() {
                                     href="https://www.adatitleiii.com/2026/02/ada-title-iii-federal-lawsuit-filings-fall-slightly-to-8667-in-2025/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 group-hover:text-[#2DD4BF]/40 transition-colors duration-500 no-underline">
+                                    className="mt-3 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors duration-300 no-underline">
                                     Source: ADA Title III (Feb 2026) ↗
                                 </Link>
                             </div>
                         </Card>
 
                         {/* Card 2 — Accessibility Gap */}
-                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[340px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/15 hover:bg-[#2DD4BF]/[0.06]">
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[400px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/25 hover:shadow-[inset_0_0_0_1px_rgba(45,212,191,0.08)] hover:bg-[#2DD4BF]/[0.06]">
                             {/* Ghost icon */}
-                            <AlertTriangle className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
+                            <Accessibility className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
                                     <AlertTriangle className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
@@ -110,16 +110,16 @@ export default function Features() {
                                     href="https://webaim.org/projects/million/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 group-hover:text-[#2DD4BF]/40 transition-colors duration-500 no-underline">
+                                    className="mt-3 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors duration-300 no-underline">
                                     Source: WebAIM Million 2025 ↗
                                 </Link>
                             </div>
                         </Card>
 
                         {/* Card 3 — Market Opportunity */}
-                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[340px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/15 hover:bg-[#2DD4BF]/[0.06]">
+                        <Card className="relative overflow-hidden flex flex-col p-8 min-h-[400px] border border-border/50 bg-card group cursor-default transition-all duration-500 hover:border-[#2DD4BF]/25 hover:shadow-[inset_0_0_0_1px_rgba(45,212,191,0.08)] hover:bg-[#2DD4BF]/[0.06]">
                             {/* Ghost icon */}
-                            <Search className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
+                            <TrendingUp className="absolute bottom-4 right-4 size-32 text-white/[0.04] group-hover:text-[#2DD4BF]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-center gap-2">
                                     <Search className="size-4 text-muted-foreground/50 group-hover:text-[#2DD4BF]/70 transition-colors duration-500" />
@@ -133,7 +133,7 @@ export default function Features() {
                                     href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 group-hover:text-[#2DD4BF]/40 transition-colors duration-500 no-underline">
+                                    className="mt-3 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors duration-300 no-underline">
                                     Source: CDC Disability Impact ↗
                                 </Link>
                             </div>
