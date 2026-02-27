@@ -60,7 +60,7 @@ function WeasyPrintLogo({ className }: { className?: string }) {
 export default function HeroSection() {
     return (
         <main className="overflow-x-hidden">
-            <section className="relative min-h-screen flex items-center bg-black overflow-hidden">
+            <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
                 {/*
                   Dither masked into hand shapes.
                   The hands image: white/light hands on black background.
@@ -110,13 +110,16 @@ export default function HeroSection() {
 
                 {/* Centered text content */}
                 <div className="relative z-10 w-full">
-                    <div className="mx-auto max-w-3xl px-6 py-32 lg:py-40 text-center flex flex-col items-center">
+                    <div className="mx-auto max-w-3xl px-6 py-0 text-center flex flex-col items-center">
                         {/* Headline */}
                         <motion.h1
                             initial={{ opacity: 0, y: 24 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                             className="text-6xl md:text-7xl xl:text-8xl font-semibold tracking-tight leading-none text-foreground text-balance text-center"
+                            style={{
+                                textShadow: '0 0 40px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.9)'
+                            }}
                         >
                             Accessibility, Automated.
                         </motion.h1>
@@ -135,9 +138,6 @@ export default function HeroSection() {
                             PathVo scans your site for WCAG violations and delivers the exact fixes your team needs. No consultants, no guesswork.
                         </motion.p>
 
-                        {/* Thin divider line */}
-                        <div className="mt-8 mb-2 w-px h-8 bg-white/10 mx-auto" />
-
                         <AnimatedGroup
                             variants={{
                                 container: {
@@ -150,12 +150,12 @@ export default function HeroSection() {
                                 },
                                 ...transitionVariants,
                             }}
-                            className="mt-0 flex gap-3 justify-center"
+                            className="mt-8 flex gap-3 justify-center"
                         >
                             <Button
                                 asChild
                                 size="lg"
-                                className="rounded-full px-8 text-base font-medium hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-shadow duration-300">
+                                className="rounded-full px-8 text-base font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] active:scale-[0.98]">
                                 <Link href="#contact">
                                     <span className="text-nowrap">Get Started</span>
                                 </Link>
