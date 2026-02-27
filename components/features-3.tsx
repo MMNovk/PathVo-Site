@@ -69,56 +69,68 @@ export default function Features() {
                         ...transitionVariants,
                     }}
                 >
-                    <div className="mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:mt-16">
+                    <div className="mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-5 md:mt-16">
                         {/* Card 1 — Legal Risk */}
-                        <Card className="group bg-card border border-border/50 rounded-xl p-8 flex flex-col min-h-[280px] transition-all duration-300 hover:-translate-y-1 hover:border-red-400/30">
-                            <ShieldCheck className="size-5 text-muted-foreground" />
-                            <h3 className="text-lg font-semibold mt-6 text-foreground">Legal Risk</h3>
-                            <p className="text-3xl font-mono font-bold mt-2 text-foreground transition-colors duration-300 group-hover:text-red-400">8,600+</p>
-                            <p className="text-sm text-muted-foreground leading-relaxed mt-3">
-                                ADA Title III federal lawsuits were filed in 2025 alone — and that number has held at record levels for three consecutive years.
-                            </p>
-                            <Link
-                                href="https://www.adatitleiii.com/2026/02/ada-title-iii-federal-lawsuit-filings-fall-slightly-to-8667-in-2025/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-auto pt-4 text-xs text-muted-foreground/60 font-mono hover:text-foreground transition-colors underline underline-offset-2">
-                                Source: ADA Title III (Feb 2026)
-                            </Link>
+                        <Card className="group bg-card border border-border/50 rounded-xl p-10 flex flex-col min-h-[320px] transition-all duration-300 hover:-translate-y-1 hover:border-red-400/20 hover:bg-red-400/[0.03]">
+                            <div className="relative flex flex-col h-full">
+                                <div className="flex items-center gap-2">
+                                    <ShieldCheck className="size-3 text-muted-foreground/40" />
+                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/60">Legal Risk</p>
+                                </div>
+                                <h3 className="text-6xl font-bold font-mono tracking-tighter text-foreground mt-2 transition-colors duration-300 group-hover:text-red-400">8,600+</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                                    ADA Title III federal lawsuits were filed in 2025 alone — and that number has held at record levels for three consecutive years.
+                                </p>
+                                <Link
+                                    href="https://www.adatitleiii.com/2026/02/ada-title-iii-federal-lawsuit-filings-fall-slightly-to-8667-in-2025/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors no-underline flex items-center gap-1">
+                                    Source: ADA Title III (Feb 2026) ↗
+                                </Link>
+                            </div>
                         </Card>
 
                         {/* Card 2 — Accessibility Gap */}
-                        <Card className="group bg-card border border-border/50 rounded-xl p-8 flex flex-col min-h-[280px] transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/30">
-                            <AlertTriangle className="size-5 text-muted-foreground" />
-                            <h3 className="text-lg font-semibold mt-6 text-foreground">Accessibility Gap</h3>
-                            <p className="text-3xl font-mono font-bold mt-2 text-foreground transition-colors duration-300 group-hover:text-amber-400">94.8%</p>
-                            <p className="text-sm text-muted-foreground leading-relaxed mt-3">
-                                Nearly all of the top one million websites fail basic WCAG 2.2 standards — a figure that has barely moved in six years.
-                            </p>
-                            <Link
-                                href="https://webaim.org/projects/million/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-auto pt-4 text-xs text-muted-foreground/60 font-mono hover:text-foreground transition-colors underline underline-offset-2">
-                                Source: WebAIM Million 2025
-                            </Link>
+                        <Card className="group bg-card border border-border/50 rounded-xl p-10 flex flex-col min-h-[320px] transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/20 hover:bg-amber-400/[0.03]">
+                            <div className="relative flex flex-col h-full">
+                                <div className="flex items-center gap-2">
+                                    <AlertTriangle className="size-3 text-muted-foreground/40" />
+                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/60">Accessibility Gap</p>
+                                </div>
+                                <h3 className="text-6xl font-bold font-mono tracking-tighter text-foreground mt-2 transition-colors duration-300 group-hover:text-amber-400">94.8%</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                                    Nearly all of the top one million websites fail basic WCAG 2.2 standards — a figure that has barely moved in six years.
+                                </p>
+                                <Link
+                                    href="https://webaim.org/projects/million/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors no-underline flex items-center gap-1">
+                                    Source: WebAIM Million 2025 ↗
+                                </Link>
+                            </div>
                         </Card>
 
                         {/* Card 3 — Market Opportunity */}
-                        <Card className="group bg-card border border-border/50 rounded-xl p-8 flex flex-col min-h-[280px] transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/30">
-                            <Search className="size-5 text-muted-foreground" />
-                            <h3 className="text-lg font-semibold mt-6 text-foreground">Market Opportunity</h3>
-                            <p className="text-3xl font-mono font-bold mt-2 text-foreground transition-colors duration-300 group-hover:text-emerald-400">$13 Trillion</p>
-                            <p className="text-sm text-muted-foreground leading-relaxed mt-3">
-                                One in four US adults lives with a disability, representing thirteen trillion dollars in global spending power that inaccessible sites cannot reach.
-                            </p>
-                            <Link
-                                href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-auto pt-4 text-xs text-muted-foreground/60 font-mono hover:text-foreground transition-colors underline underline-offset-2">
-                                Source: CDC Disability Impact
-                            </Link>
+                        <Card className="group bg-card border border-border/50 rounded-xl p-10 flex flex-col min-h-[320px] transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/20 hover:bg-emerald-400/[0.03]">
+                            <div className="relative flex flex-col h-full">
+                                <div className="flex items-center gap-2">
+                                    <Search className="size-3 text-muted-foreground/40" />
+                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/60">Market Opportunity</p>
+                                </div>
+                                <h3 className="text-6xl font-bold font-mono tracking-tighter text-foreground mt-2 transition-colors duration-300 group-hover:text-emerald-400">$13T</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                                    One in four US adults lives with a disability, representing thirteen trillion dollars in global spending power that inaccessible sites cannot reach.
+                                </p>
+                                <Link
+                                    href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-auto pt-6 text-[10px] font-mono text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors no-underline flex items-center gap-1">
+                                    Source: CDC Disability Impact ↗
+                                </Link>
+                            </div>
                         </Card>
                     </div>
                 </AnimatedGroup>
