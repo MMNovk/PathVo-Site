@@ -1,6 +1,34 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useEffect, useState, useRef } from 'react'
+
+function TypewriterText({ text, inView }: { text: string; inView: boolean }) {
+    const [displayed, setDisplayed] = useState('')
+    const [started, setStarted] = useState(false)
+
+    useEffect(() => {
+        if (inView && !started) {
+            setStarted(true)
+            let i = 0
+            const interval = setInterval(() => {
+                setDisplayed(text.slice(0, i + 1))
+                i++
+                if (i >= text.length) clearInterval(interval)
+            }, 18)
+            return () => clearInterval(interval)
+        }
+    }, [inView, text, started])
+
+    return (
+        <span>
+            {displayed}
+            {displayed.length < text.length && started && (
+                <span className="inline-block w-[2px] h-[1em] bg-white/60 ml-[1px] animate-pulse align-middle" />
+            )}
+        </span>
+    )
+}
 
 const steps = [
     {
@@ -35,6 +63,48 @@ const steps = [
     },
 ]
 
+function StepCodeBlock({ step, index }: { step: typeof steps[0]; index: number }) {
+    const stepRef = useRef(null)
+    const isInView = useInView(stepRef, { once: true, margin: "-80px" })
+
+    return (
+        <motion.div
+            ref={stepRef}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: index * 0.1 + 0.15 }}
+        >
+            <div className="bg-zinc-950 border border-border/40 rounded-xl p-5 font-mono text-sm">
+                <div className="flex items-center gap-1.5 mb-4">
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                </div>
+                <div className="space-y-1.5">
+                    <div className="flex gap-3">
+                        <span className="text-muted-foreground/30 select-none">›</span>
+                        <span className="text-white/75">
+                            <TypewriterText text={step.primaryCommand} inView={isInView} />
+                        </span>
+                    </div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                        transition={{ duration: 0.4, delay: 0.8 }}
+                    >
+                        {step.secondaryLines.map((line, i) => (
+                            <div key={i} className="flex gap-3 pl-4">
+                                <span className="text-muted-foreground/40 text-xs">{line}</span>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+            </div>
+        </motion.div>
+    )
+}
+
 export default function Agenda() {
     return (
         <section id="how-it-works" className="py-24 md:py-32 border-t border-border/30">
@@ -44,24 +114,33 @@ export default function Agenda() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground mb-20"
+                    className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground mb-20 pl-4 border-l-2 border-[#2DD4BF]/60"
                 >
                     How It Works
                 </motion.h2>
 
-                <div className="space-y-0 divide-y divide-border/30">
+                <div className="space-y-0">
                     {steps.map((step, index) => (
-                        <motion.div
-                            key={step.label}
-                            initial={{ opacity: 0, y: 24 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-80px" }}
-                            transition={{ duration: 0.65, delay: index * 0.1 }}
-                        >
+                        <div key={step.label}>
+                            {index > 0 && (
+                                <motion.hr
+                                    initial={{ scaleX: 0, originX: 0 }}
+                                    whileInView={{ scaleX: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    className="border-none h-px bg-border/30"
+                                />
+                            )}
                             <div className="grid md:grid-cols-2 gap-8 md:gap-16 py-16 items-center">
                                 {/* Left column — text content */}
-                                <div className="flex flex-col gap-4">
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-80px" }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="flex flex-col gap-4"
+                                >
+                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2DD4BF]/60">
                                         {step.label}
                                     </p>
                                     <h3 className="text-3xl md:text-4xl font-semibold tracking-tighter text-foreground">
@@ -70,29 +149,12 @@ export default function Agenda() {
                                     <p className="text-base text-muted-foreground leading-relaxed max-w-sm">
                                         {step.description}
                                     </p>
-                                </div>
+                                </motion.div>
 
                                 {/* Right column — code block */}
-                                <div className="bg-zinc-950 border border-border/40 rounded-xl p-5 font-mono text-sm">
-                                    <div className="flex items-center gap-1.5 mb-4">
-                                        <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                                    </div>
-                                    <div className="space-y-1.5">
-                                        <div className="flex gap-3">
-                                            <span className="text-muted-foreground/30 select-none">›</span>
-                                            <span className="text-white/75">{step.primaryCommand}</span>
-                                        </div>
-                                        {step.secondaryLines.map((line, i) => (
-                                            <div key={i} className="flex gap-3 pl-4">
-                                                <span className="text-muted-foreground/40 text-xs">{line}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                                <StepCodeBlock step={step} index={index} />
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
