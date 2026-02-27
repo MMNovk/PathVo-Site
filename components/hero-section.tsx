@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { InfiniteSlider } from '@/components/ui/infinite-slider'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur'
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group"
-import DecryptedText from "@/components/DecryptedText"
+
 import { transitionVariants } from "@/lib/utils"
 import dynamic from 'next/dynamic'
 
@@ -124,29 +124,27 @@ export default function HeroSection() {
                             </span>
                         </motion.div>
 
-                        {/* Headline with decrypt effect */}
-                        <h1>
-                            <DecryptedText
-                                text="Accessibility, Automated."
-                                animateOn="view"
-                                revealDirection="start"
-                                sequential={true}
-                                useOriginalCharsOnly={false}
-                                speed={40}
-                                characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()"
-                                className="text-6xl md:text-7xl xl:text-8xl font-semibold tracking-tight leading-none text-foreground text-balance"
-                            />
-                        </h1>
+                        {/* Headline */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-6xl md:text-7xl xl:text-8xl font-semibold tracking-tight leading-none text-foreground text-balance text-center"
+                        >
+                            Accessibility, Automated.
+                        </motion.h1>
 
                         {/* Subheading */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.9 }}
-                            className="text-lg text-muted-foreground leading-relaxed max-w-xl text-center mt-6"
-                        >
-                            PathVo scans your site for WCAG violations and delivers the exact fixes your team needs. No consultants, no guesswork.
-                        </motion.p>
+                        <div className="mt-6 relative">
+                            <motion.p
+                                initial={{ opacity: 0, y: 16 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.7, delay: 0.6 }}
+                                className="text-lg text-white/70 leading-relaxed max-w-xl text-center [text-shadow:0_1px_20px_rgba(0,0,0,0.8),0_1px_4px_rgba(0,0,0,0.9)]"
+                            >
+                                PathVo scans your site for WCAG violations and delivers the exact fixes your team needs. No consultants, no guesswork.
+                            </motion.p>
+                        </div>
 
                         <AnimatedGroup
                             variants={{
