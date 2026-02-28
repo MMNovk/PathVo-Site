@@ -97,9 +97,9 @@ export default function Agenda() {
             className="flex items-center gap-1.5 px-4 py-3"
             style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
           >
-            <div className="w-3 h-3 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
-            <div className="w-3 h-3 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
-            <div className="w-3 h-3 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
+            <div className="w-3 h-3 rounded-full" style={{ background: '#FF5F57' }} />
+            <div className="w-3 h-3 rounded-full" style={{ background: '#FEBC2E' }} />
+            <div className="w-3 h-3 rounded-full" style={{ background: '#28C840' }} />
             <span className="ml-3 text-[10px] font-mono tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.2)' }}>
               pathvo-scanner
             </span>
@@ -145,6 +145,24 @@ export default function Agenda() {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Side descriptions */}
+        <div className="absolute left-[calc(50%+340px)] top-1/2 -translate-y-1/2 w-48">
+          {Object.entries(descriptions).map(([lineIndex, desc]) => (
+            <motion.p
+              key={lineIndex}
+              initial={{ opacity: 0, x: 8 }}
+              animate={{
+                opacity: count === parseInt(lineIndex) + 1 ? 1 : 0,
+                x: count === parseInt(lineIndex) + 1 ? 0 : 8
+              }}
+              transition={{ duration: 0.3 }}
+              className="absolute text-xs text-muted-foreground/50 leading-relaxed font-sans"
+            >
+              {desc}
+            </motion.p>
+          ))}
         </div>
 
         {/* Scroll hint */}
