@@ -1,300 +1,198 @@
 'use client'
 
-import { TextEffect } from "@/components/motion-primitives/text-effect"
-import React from "react"
-import { transitionVariants } from "@/lib/utils"
-import { AnimatedGroup } from "@/components/motion-primitives/animated-group"
-import { Button } from "@/components/ui/button"
-import { FileText, X } from "lucide-react"
 import { motion } from "motion/react"
+import React from "react"
 
-// Terminal line definitions with syntax highlighting classes
-type TermLine = { text: string; className: string; delay?: number }
-
-const TERMINAL_LINES: TermLine[] = [
-    { text: '> playwright.launch(url="https://example.com")', className: 'text-foreground/80', delay: 0 },
-    { text: '# Scanning DOM tree with headless Chromium...', className: 'text-muted-foreground/50', delay: 600 },
-    { text: '# Pages crawled: 12 | Components mapped: 847', className: 'text-muted-foreground/50', delay: 400 },
-    { text: '', className: '', delay: 300 },
-    { text: '> axe_core.scan() -> 51 violations found', className: 'text-foreground/80', delay: 500 },
-    { text: '[CRITICAL] Missing alt text on hero image', className: 'text-red-400', delay: 300 },
-    { text: '  -> src/components/Hero.tsx:42', className: 'text-muted-foreground', delay: 100 },
-    { text: '  -> WCAG 2.2 \u00A7 1.1.1 Non-text Content', className: 'text-muted-foreground', delay: 100 },
-    { text: '[CRITICAL] Form inputs lack associated labels', className: 'text-red-400', delay: 300 },
-    { text: '  -> src/components/ContactForm.tsx:18', className: 'text-muted-foreground', delay: 100 },
-    { text: '  -> WCAG 2.2 \u00A7 1.3.1 Info and Relationships', className: 'text-muted-foreground', delay: 100 },
-    { text: '[SERIOUS] Insufficient color contrast ratio (2.1:1)', className: 'text-yellow-400', delay: 300 },
-    { text: '  -> src/components/Footer.tsx:7', className: 'text-muted-foreground', delay: 100 },
-    { text: '  -> WCAG 2.2 \u00A7 1.4.3 Contrast (Minimum)', className: 'text-muted-foreground', delay: 100 },
-    { text: '', className: '', delay: 400 },
-    { text: '> weasyprint.render(report="pathvo_audit.pdf")', className: 'text-foreground/80', delay: 500 },
-    { text: '# Generating remediation report...', className: 'text-muted-foreground/50', delay: 400 },
-    { text: 'Fix for Hero.tsx:42', className: 'text-emerald-400', delay: 300 },
-    { text: '  <img src="/banner.jpg"', className: 'text-muted-foreground', delay: 100 },
-    { text: '  +    alt="Product dashboard showcasing analytics"', className: 'text-emerald-400', delay: 100 },
-    { text: '  />', className: 'text-muted-foreground', delay: 100 },
-    { text: 'Fix for ContactForm.tsx:18', className: 'text-emerald-400', delay: 300 },
-    { text: '  + <label htmlFor="email" className="sr-only">Email</label>', className: 'text-emerald-400', delay: 100 },
-    { text: '---', className: 'text-muted-foreground/40', delay: 400 },
-    { text: '3 critical violations found. 3 fixes generated.', className: 'text-foreground', delay: 200 },
-    { text: 'Report exported to ./pathvo_audit.pdf', className: 'text-emerald-400', delay: 200 },
-]
-
-// Character-by-character speed (ms)
-const CHAR_SPEED = 18
-
-function useTerminalTyping(lines: TermLine[], triggered: boolean) {
-    const [visibleLines, setVisibleLines] = React.useState<{ text: string; className: string; typing: boolean }[]>([])
-    const doneRef = React.useRef(false)
-
-    React.useEffect(() => {
-        if (!triggered || doneRef.current) return
-        doneRef.current = true
-
-        let lineIndex = 0
-        let charIndex = 0
-        let timeout: ReturnType<typeof setTimeout>
-
-        function addNextLine() {
-            if (lineIndex >= lines.length) return
-
-            const line = lines[lineIndex]
-
-            // Empty lines just appear instantly
-            if (line.text === '') {
-                setVisibleLines(prev => [...prev, { text: '', className: line.className, typing: false }])
-                lineIndex++
-                timeout = setTimeout(addNextLine, line.delay || 100)
-                return
-            }
-
-            // Start typing a new line
-            charIndex = 0
-            setVisibleLines(prev => [...prev, { text: '', className: line.className, typing: true }])
-
-            function typeChar() {
-                charIndex++
-                const currentLineIdx = lineIndex
-                setVisibleLines(prev => {
-                    const copy = [...prev]
-                    const idx = copy.length - 1
-                    if (idx >= 0) {
-                        copy[idx] = {
-                            text: lines[currentLineIdx].text.slice(0, charIndex),
-                            className: lines[currentLineIdx].className,
-                            typing: charIndex < lines[currentLineIdx].text.length,
-                        }
-                    }
-                    return copy
-                })
-
-                if (charIndex < line.text.length) {
-                    timeout = setTimeout(typeChar, CHAR_SPEED)
-                } else {
-                    lineIndex++
-                    const nextDelay = lineIndex < lines.length ? (lines[lineIndex].delay || 100) : 0
-                    timeout = setTimeout(addNextLine, nextDelay)
-                }
-            }
-
-            timeout = setTimeout(typeChar, line.delay || 0)
-        }
-
-        addNextLine()
-        return () => clearTimeout(timeout)
-    }, [triggered, lines])
-
-    return visibleLines
-}
-
-function AuditReportModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+export default function WhatYouGet() {
     const [dateStr, setDateStr] = React.useState('')
+    
     React.useEffect(() => {
         setDateStr(new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }))
     }, [])
-    if (!open) return null
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-end" role="dialog" aria-modal="true" aria-label="Sample Audit Report Preview">
-            <div className="absolute inset-0 bg-background/60 backdrop-blur-xl" onClick={onClose} />
-            <div className="relative z-10 h-full w-full max-w-lg border-l border-border bg-card overflow-y-auto animate-in slide-in-from-right duration-300">
-                <div className="flex items-center justify-between border-b border-border px-6 py-4">
-                    <div className="flex items-center gap-2">
-                        <FileText className="size-4 text-muted-foreground" aria-hidden />
-                        <span className="font-mono text-sm">pathvo_audit.pdf</span>
-                    </div>
-                    <button onClick={onClose} className="rounded-md p-1 hover:bg-accent transition-colors" aria-label="Close preview">
-                        <X className="size-4" />
-                    </button>
-                </div>
-                <div className="p-6 space-y-8">
-                    <div className="space-y-2">
-                        <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">PathVo Accessibility Audit</p>
-                        <h3 className="text-2xl font-semibold">example.com</h3>
-                        <p className="text-sm text-muted-foreground font-mono">Generated {dateStr || 'February 2026'}</p>
-                    </div>
-
-                    <div className="border border-border rounded-lg p-4 space-y-3">
-                        <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Executive Summary</p>
-                        <div className="grid grid-cols-3 gap-3">
-                            <div className="text-center p-3 rounded-md bg-destructive/10 border border-destructive/20">
-                                <p className="text-2xl font-mono font-semibold text-destructive-foreground">12</p>
-                                <p className="text-xs text-muted-foreground mt-1">Critical</p>
-                            </div>
-                            <div className="text-center p-3 rounded-md bg-accent border border-border">
-                                <p className="text-2xl font-mono font-semibold">8</p>
-                                <p className="text-xs text-muted-foreground mt-1">Serious</p>
-                            </div>
-                            <div className="text-center p-3 rounded-md bg-accent border border-border">
-                                <p className="text-2xl font-mono font-semibold">23</p>
-                                <p className="text-xs text-muted-foreground mt-1">Moderate</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="border border-border rounded-lg p-4 space-y-3">
-                        <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">WCAG 2.2 Violations</p>
-                        {[
-                            { rule: '1.1.1 Non-text Content', severity: 'Critical', count: 4 },
-                            { rule: '1.4.3 Contrast (Minimum)', severity: 'Critical', count: 3 },
-                            { rule: '1.3.1 Info and Relationships', severity: 'Serious', count: 5 },
-                            { rule: '4.1.2 Name, Role, Value', severity: 'Critical', count: 5 },
-                        ].map((item) => (
-                            <div key={item.rule} className="flex items-start justify-between py-2 border-b border-border last:border-0">
-                                <div>
-                                    <p className="text-sm font-mono">{item.rule}</p>
-                                    <p className="text-xs text-muted-foreground mt-0.5">{item.severity}</p>
-                                </div>
-                                <span className="text-sm font-mono text-muted-foreground">{item.count} instances</span>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="border border-border rounded-lg p-4 space-y-3">
-                        <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">AI-Generated Fix Preview</p>
-                        <div className="rounded-md bg-accent/50 p-3 font-mono text-xs leading-relaxed">
-                            <div className="text-muted-foreground">{'// Hero.tsx:42'}</div>
-                            <div className="text-muted-foreground">{'<img src="/banner.jpg"'}</div>
-                            <div className="text-emerald-400">{'+ alt="Product dashboard showcasing analytics"'}</div>
-                            <div className="text-muted-foreground">{'/>'}</div>
-                        </div>
-                    </div>
-
-                    <div className="text-center pt-4 border-t border-border">
-                        <p className="text-xs text-muted-foreground font-mono">This is a sample report preview. Full reports include page-by-page breakdowns, remediation priority scores, and exportable code patches.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default function WhatYouGet() {
-    const [modalOpen, setModalOpen] = React.useState(false)
-    const terminalRef = React.useRef<HTMLDivElement>(null)
-    const [terminalVisible, setTerminalVisible] = React.useState(false)
-    const typedLines = useTerminalTyping(TERMINAL_LINES, terminalVisible)
-
-    React.useEffect(() => {
-        const el = terminalRef.current
-        if (!el) return
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setTerminalVisible(true)
-                    observer.disconnect()
-                }
-            },
-            { threshold: 0.2 }
-        )
-        observer.observe(el)
-        return () => observer.disconnect()
-    }, [])
 
     return (
-        <section className="py-16 md:py-32">
-            <div className="mx-auto max-w-5xl px-6">
-                <div className="text-center">
-                    <TextEffect
-                        triggerOnView
-                        preset="fade-in-blur"
-                        speedSegment={0.3}
-                        as="h2"
-                        className="text-balance text-3xl font-semibold md:text-4xl">
-                        What You Get
-                    </TextEffect>
-                    <TextEffect
-                        triggerOnView
-                        preset="fade-in-blur"
-                        speedSegment={0.3}
-                        delay={0.3}
-                        as="p"
-                        className="mt-4 text-muted-foreground text-lg">
-                        Plain-English explanations for founders. Copy-paste code for developers.
-                    </TextEffect>
-
-                    <div className="py-12">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20, filter: 'blur(12px)' }}
-                            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                            transition={{ duration: 0.5, delay: 1.2 }}
-                            viewport={{ once: true, amount: 0.3 }}>
-                            <Button
-                                size="lg"
-                                className="px-8 text-base"
-                                onClick={() => setModalOpen(true)}>
-                                <FileText className="mr-2 size-4" aria-hidden />
-                                View Sample Report
-                            </Button>
-                        </motion.div>
-                    </div>
-                </div>
-
-                <AnimatedGroup
-                    triggerOnView
-                    variants={{
-                        container: {
-                            visible: {
-                                transition: {
-                                    staggerChildren: 0.05,
-                                    delayChildren: 0.5,
-                                },
-                            },
-                        },
-                        ...transitionVariants,
-                    }}
+        <section className="py-24 md:py-32 border-t border-border/30">
+            <div className="max-w-5xl mx-auto px-6">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-16"
                 >
-                    <div className="mx-auto max-w-3xl" ref={terminalRef}>
-                        <div className="rounded-lg border border-border bg-card overflow-hidden">
-                            {/* macOS traffic light header */}
-                            <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-                                <div className="flex gap-1.5" aria-hidden>
-                                    <div className="size-3 rounded-full bg-[#FF605C]" />
-                                    <div className="size-3 rounded-full bg-[#FFBD44]" />
-                                    <div className="size-3 rounded-full bg-[#28C840]" />
+                    <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground">
+                        What You Get
+                    </h2>
+                    <p className="mt-4 text-base text-muted-foreground max-w-lg mx-auto">
+                        Plain-English explanations for founders. Copy-paste code fixes for developers.
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative mx-auto max-w-2xl"
+                    style={{ transform: 'rotate(1deg)' }}
+                >
+                    {/* Shadow pages behind — fanned effect */}
+                    <div className="absolute inset-0 translate-y-3 translate-x-2 rounded-xl opacity-30"
+                        style={{ background: '#e8e4dc' }} />
+                    <div className="absolute inset-0 translate-y-1.5 translate-x-1 rounded-xl opacity-50"
+                        style={{ background: '#ede9e1' }} />
+
+                    {/* Main document card */}
+                    <div className="relative rounded-xl overflow-hidden"
+                        style={{
+                            background: '#f9f7f4',
+                            boxShadow: '0 25px 60px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.2)',
+                        }}
+                    >
+                        {/* Document header */}
+                        <div className="px-8 pt-8 pb-6 border-b" style={{ borderColor: '#e8e4dc' }}>
+                            <div className="flex items-center justify-between mb-6">
+                                <div>
+                                    <p className="text-xs font-mono uppercase tracking-widest" style={{ color: '#9ca3af' }}>
+                                        PATHVO ACCESSIBILITY REPORT
+                                    </p>
+                                    <p className="text-xs font-mono mt-1" style={{ color: '#9ca3af' }}>
+                                        yoursite.com · Generated {dateStr || 'February 2026'}
+                                    </p>
                                 </div>
-                                <span className="ml-2 text-xs font-mono text-muted-foreground">pathvo-scan.sh</span>
+                                <div className="text-right">
+                                    <p className="text-2xl font-bold font-mono tracking-tighter" style={{ color: '#111' }}>8</p>
+                                    <p className="text-xs font-mono uppercase tracking-widest" style={{ color: '#9ca3af' }}>violations</p>
+                                </div>
                             </div>
-                            {/* Terminal body with auto-typing */}
-                            <div className="p-4 md:p-6 font-mono text-sm leading-relaxed overflow-x-auto min-h-[420px]">
-                                {typedLines.map((line, i) => (
-                                    <div key={i} className={line.className}>
-                                        {line.text}
-                                        {line.typing && (
-                                            <span className="inline-block w-1.5 h-3.5 bg-foreground/60 ml-px animate-pulse" />
-                                        )}
-                                        {line.text === '' && '\u00A0'}
-                                    </div>
-                                ))}
-                                {terminalVisible && typedLines.length === 0 && (
-                                    <span className="inline-block w-1.5 h-3.5 bg-foreground/60 animate-pulse" />
-                                )}
+
+                            {/* Summary bar */}
+                            <div className="flex gap-4">
+                                <div className="flex items-center gap-1.5">
+                                    <div className="w-2 h-2 rounded-full" style={{ background: '#ef4444' }} />
+                                    <span className="text-xs font-mono" style={{ color: '#6b7280' }}>3 Critical</span>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                    <div className="w-2 h-2 rounded-full" style={{ background: '#f59e0b' }} />
+                                    <span className="text-xs font-mono" style={{ color: '#6b7280' }}>3 Serious</span>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                    <div className="w-2 h-2 rounded-full" style={{ background: '#6b7280' }} />
+                                    <span className="text-xs font-mono" style={{ color: '#6b7280' }}>2 Moderate</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </AnimatedGroup>
-            </div>
 
-            <AuditReportModal open={modalOpen} onClose={() => setModalOpen(false)} />
+                        {/* Violation entries */}
+                        <div className="px-8 py-6 space-y-6">
+                            {/* Entry 1 */}
+                            <div className="space-y-3">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded"
+                                        style={{ background: '#fee2e2', color: '#dc2626' }}>
+                                        CRITICAL
+                                    </span>
+                                    <span className="text-xs font-mono" style={{ color: '#9ca3af' }}>
+                                        WCAG 2.2 § 1.1.1 · Hero.tsx:42
+                                    </span>
+                                </div>
+                                <p className="text-sm font-medium" style={{ color: '#111827' }}>
+                                    Missing alt text on hero image
+                                </p>
+                                <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>
+                                    Your hero image has no alt text. Screen readers will skip it entirely, leaving visually impaired users with no context for your most important visual. This is one of the most common reasons sites get flagged in ADA complaints.
+                                </p>
+                                <div className="rounded-lg p-4 font-mono text-xs" style={{ background: '#1a1a1a' }}>
+                                    <p style={{ color: '#6b7280' }}>{'// Fix for Hero.tsx:42'}</p>
+                                    <p className="mt-1" style={{ color: '#86efac' }}>{'<img src="/banner.jpg"'}</p>
+                                    <p style={{ color: '#86efac' }}>{'  alt="Product dashboard showing accessibility score"'}</p>
+                                    <p style={{ color: '#86efac' }}>{'/>'}</p>
+                                </div>
+                            </div>
+
+                            {/* Entry 2 */}
+                            <div className="space-y-3" style={{ paddingTop: '1.5rem', borderTop: '1px solid #e8e4dc' }}>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded"
+                                        style={{ background: '#fef3c7', color: '#d97706' }}>
+                                        SERIOUS
+                                    </span>
+                                    <span className="text-xs font-mono" style={{ color: '#9ca3af' }}>
+                                        WCAG 2.2 § 1.3.1 · ContactForm.tsx:18
+                                    </span>
+                                </div>
+                                <p className="text-sm font-medium" style={{ color: '#111827' }}>
+                                    Form inputs missing associated labels
+                                </p>
+                                <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>
+                                    Your contact form inputs have no programmatic labels. Users relying on screen readers cannot tell what each field is asking for. This affects keyboard-only users too.
+                                </p>
+                                <div className="rounded-lg p-4 font-mono text-xs" style={{ background: '#1a1a1a' }}>
+                                    <p style={{ color: '#6b7280' }}>{'// Fix for ContactForm.tsx:18'}</p>
+                                    <p className="mt-1" style={{ color: '#86efac' }}>{'<label htmlFor="email" className="sr-only">'}</p>
+                                    <p style={{ color: '#86efac' }}>{'  Email address'}</p>
+                                    <p style={{ color: '#86efac' }}>{'</label>'}</p>
+                                    <p style={{ color: '#86efac' }}>{'<input id="email" type="email" />'}</p>
+                                </div>
+                            </div>
+
+                            {/* Entry 3 — blurred teaser */}
+                            <div className="space-y-3 relative" style={{ paddingTop: '1.5rem', borderTop: '1px solid #e8e4dc' }}>
+                                {/* Blur overlay with CTA */}
+                                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-lg"
+                                    style={{ backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)', background: 'rgba(249,247,244,0.7)' }}>
+                                    <p className="text-sm font-semibold mb-3" style={{ color: '#111827' }}>
+                                        6 more violations in your full report
+                                    </p>
+                                    <a href="#contact"
+                                        className="text-xs font-mono uppercase tracking-widest px-4 py-2 rounded-full transition-colors"
+                                        style={{ background: '#111827', color: '#f9f7f4' }}>
+                                        Get Your Report →
+                                    </a>
+                                </div>
+                                {/* Blurred content underneath */}
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded"
+                                        style={{ background: '#fee2e2', color: '#dc2626' }}>CRITICAL</span>
+                                    <span className="text-xs font-mono" style={{ color: '#9ca3af' }}>WCAG 2.2 § 1.4.3 · Footer.tsx:7</span>
+                                </div>
+                                <p className="text-sm font-medium" style={{ color: '#111827' }}>Insufficient color contrast ratio</p>
+                                <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>
+                                    Your footer text has a contrast ratio of 2.1:1 against the background. WCAG requires a minimum of 4.5:1 for normal text.
+                                </p>
+                                <div className="rounded-lg p-4 font-mono text-xs" style={{ background: '#1a1a1a' }}>
+                                    <p style={{ color: '#86efac' }}>{'// Fix for Footer.tsx:7'}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Document footer */}
+                        <div className="px-8 py-4 flex items-center justify-between"
+                            style={{ borderTop: '1px solid #e8e4dc', background: '#f3f0eb' }}>
+                            <p className="text-[10px] font-mono uppercase tracking-widest" style={{ color: '#9ca3af' }}>
+                                PathVo · pathvo.io
+                            </p>
+                            <p className="text-[10px] font-mono" style={{ color: '#9ca3af' }}>
+                                Page 1 of 6
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Secondary CTA below the card */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-center mt-12"
+                >
+                    <a href="#contact"
+                        className="text-sm text-muted-foreground/50 hover:text-muted-foreground transition-colors font-mono underline underline-offset-4">
+                        Request a free sample report →
+                    </a>
+                </motion.div>
+            </div>
         </section>
     )
 }
