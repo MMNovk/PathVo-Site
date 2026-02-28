@@ -1,234 +1,159 @@
 "use client"
+import { useRef, useState } from "react"
+import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion"
 
-import { useRef, useEffect, useState } from "react"
-import { motion, useInView } from "framer-motion"
-
-function CountUp({ target, inView, suffix = "" }: { target: number; inView: boolean; suffix?: string }) {
-    const [count, setCount] = useState(0)
-    const [started, setStarted] = useState(false)
-
-    useEffect(() => {
-        if (inView && !started) {
-            setStarted(true)
-            const duration = 1200
-            const steps = 40
-            const increment = target / steps
-            let current = 0
-            const timer = setInterval(() => {
-                current += increment
-                if (current >= target) {
-                    setCount(target)
-                    clearInterval(timer)
-                } else {
-                    setCount(Math.floor(current))
-                }
-            }, duration / steps)
-            return () => clearInterval(timer)
-        }
-    }, [inView, target, started])
-
-    return <span>{count.toLocaleString()}{suffix}</span>
-}
+const lines = [
+  { text: '$ python3.11 main.py https://yoursite.com', type: 'command' },
+  { text: '', type: 'empty' },
+  { text: 'PathVo Accessibility Scanner', type: 'header' },
+  { text: 'Scanning: https://yoursite.com...', type: 'info' },
+  { text: 'Found 8 violations', type: 'info' },
+  { text: 'Running AI analysis...', type: 'info' },
+  { text: 'Generating report...', type: 'info' },
+  { text: '', type: 'empty' },
+  { text: 'Done!', type: 'success' },
+  { text: 'Total violations found: 8', type: 'result' },
+]
 
 export default function Agenda() {
-    const step1Ref = useRef(null)
-    const step2Ref = useRef(null)
-    const step3Ref = useRef(null)
-    const step1InView = useInView(step1Ref, { once: true, margin: "-80px" })
-    const step2InView = useInView(step2Ref, { once: true, margin: "-80px" })
-    const step3InView = useInView(step3Ref, { once: true, margin: "-80px" })
+  const sectionRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"]
+  })
+  const visibleCount = useTransform(scrollYProgress, [0, 0.85], [0, lines.length])
+  const [count, setCount] = useState(0)
+  useMotionValueEvent(visibleCount, "change", (v) => setCount(Math.floor(v)))
 
-    return (
-        <section id="how-it-works" className="py-24 md:py-32 border-t border-border/30">
-            <div className="max-w-5xl mx-auto px-6">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground mb-20 pl-4 border-l-2 border-[#2DD4BF]/60"
-                >
-                    How It Works
-                </motion.h2>
+  const status = count === 0 ? 'READY'
+    : count < 4 ? 'SCANNING...'
+    : count < 7 ? 'ANALYZING...'
+    : count < 9 ? 'GENERATING...'
+    : 'COMPLETE'
 
-                <div className="space-y-0">
-                    {/* Step 1 — Scan */}
-                    <motion.div
-                        ref={step1Ref}
-                        initial={{ opacity: 0, y: 24 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.65, delay: 0 }}
-                    >
-                        <div className="grid md:grid-cols-2 gap-8 md:gap-16 py-16 items-center">
-                            <div className="flex flex-col gap-3">
-                                <span className="text-4xl md:text-5xl font-bold font-mono tracking-tighter text-[#2DD4BF]/40 select-none">01</span>
-                                <h3 className="text-2xl md:text-3xl font-semibold tracking-tighter text-foreground">Scan</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                                    Your site gets crawled end-to-end using headless Chromium — every page, component, and dynamic state captured.
-                                </p>
-                            </div>
-                            <motion.div
-                                initial={{ opacity: 0, x: 16 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-80px" }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                className="bg-zinc-950 border border-border/40 rounded-xl overflow-hidden"
-                            >
-                                <div className="px-5 py-3 border-b border-border/30">
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40">SCAN RESULTS</p>
-                                </div>
-                                <div className="px-5 py-4 space-y-3">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Pages crawled</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={12} inView={step1InView} />
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Components mapped</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={847} inView={step1InView} />
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Dynamic states captured</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={34} inView={step1InView} />
-                                        </span>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </motion.div>
+  return (
+    <section
+      id="how-it-works"
+      ref={sectionRef}
+      className="relative border-t border-border/30"
+      style={{ height: '300vh' }}
+    >
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+        {/* Teal glow bloom behind terminal */}
+        <div
+          className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.07) 0%, transparent 70%)',
+            filter: 'blur(40px)',
+          }}
+        />
 
-                    {/* Divider 1 */}
-                    <motion.hr
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                        style={{ originX: 0 }}
-                        className="border-none h-px bg-border/30 my-0"
-                    />
+        {/* Section heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-semibold tracking-tighter text-foreground mb-3 text-center"
+        >
+          How It Works
+        </motion.h2>
 
-                    {/* Step 2 — Diagnose */}
-                    <motion.div
-                        ref={step2Ref}
-                        initial={{ opacity: 0, y: 24 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.65, delay: 0.1 }}
-                    >
-                        <div className="grid md:grid-cols-2 gap-8 md:gap-16 py-16 items-center">
-                            <div className="flex flex-col gap-3">
-                                <span className="text-4xl md:text-5xl font-bold font-mono tracking-tighter text-[#2DD4BF]/40 select-none">02</span>
-                                <h3 className="text-2xl md:text-3xl font-semibold tracking-tighter text-foreground">Diagnose</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                                    Every element is tested against WCAG 2.2 standards. Violations are flagged, categorized, and prioritized by severity.
-                                </p>
-                            </div>
-                            <motion.div
-                                initial={{ opacity: 0, x: 16 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-80px" }}
-                                transition={{ duration: 0.6, delay: 0.3 }}
-                                className="bg-zinc-950 border border-border/40 rounded-xl overflow-hidden"
-                            >
-                                <div className="px-5 py-3 border-b border-border/30">
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40">AUDIT RESULTS</p>
-                                </div>
-                                <div className="px-5 py-4 space-y-3">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Violations found</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={51} inView={step2InView} />
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Critical</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={3} inView={step2InView} />
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Serious</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={18} inView={step2InView} />
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Moderate</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={30} inView={step2InView} />
-                                        </span>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </motion.div>
+        {/* Status indicator */}
+        <div className="flex items-center gap-2 mb-8">
+          <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 ${
+            status === 'COMPLETE' ? 'bg-emerald-400' : 'bg-white/30 animate-pulse'
+          }`} />
+          <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40">
+            {status}
+          </p>
+        </div>
 
-                    {/* Divider 2 */}
-                    <motion.hr
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                        style={{ originX: 0 }}
-                        className="border-none h-px bg-border/30 my-0"
-                    />
+        {/* Terminal panel */}
+        <div
+          className="relative w-full max-w-2xl rounded-2xl overflow-hidden"
+          style={{
+            background: 'rgba(10,10,10,0.8)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderTop: '1px solid rgba(255,255,255,0.12)',
+            boxShadow: '0 0 0 1px rgba(0,0,0,0.5), 0 24px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06)',
+          }}
+        >
+          {/* Terminal header bar */}
+          <div
+            className="flex items-center gap-1.5 px-4 py-3"
+            style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+          >
+            <div className="w-3 h-3 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
+            <div className="w-3 h-3 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
+            <div className="w-3 h-3 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
+            <span className="ml-3 text-[10px] font-mono tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.2)' }}>
+              pathvo-scanner
+            </span>
+          </div>
 
-                    {/* Step 3 — Remediate */}
-                    <motion.div
-                        ref={step3Ref}
-                        initial={{ opacity: 0, y: 24 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.65, delay: 0.2 }}
-                    >
-                        <div className="grid md:grid-cols-2 gap-8 md:gap-16 py-16 items-center">
-                            <div className="flex flex-col gap-3">
-                                <span className="text-4xl md:text-5xl font-bold font-mono tracking-tighter text-[#2DD4BF]/40 select-none">03</span>
-                                <h3 className="text-2xl md:text-3xl font-semibold tracking-tighter text-foreground">Remediate</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                                    Every violation comes with a plain-English explanation and a copy-paste code fix. No interpretation needed.
-                                </p>
-                            </div>
-                            <motion.div
-                                initial={{ opacity: 0, x: 16 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-80px" }}
-                                transition={{ duration: 0.6, delay: 0.4 }}
-                                className="bg-zinc-950 border border-border/40 rounded-xl overflow-hidden"
-                            >
-                                <div className="px-5 py-3 border-b border-border/30">
-                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40">REPORT GENERATED</p>
-                                </div>
-                                <div className="px-5 py-4 space-y-3">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Fixes generated</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={51} inView={step3InView} />
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">PDF pages</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={14} inView={step3InView} />
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-muted-foreground/50">Estimated fix time</span>
-                                        <span className="text-sm font-mono font-semibold text-white/80">
-                                            <CountUp target={2} inView={step3InView} suffix=" hrs" />
-                                        </span>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    )
+          {/* Terminal body */}
+          <div className="px-6 py-5 min-h-[260px] font-mono text-sm space-y-1.5">
+            {lines.slice(0, count).map((line, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+                className={`leading-relaxed ${
+                  line.type === 'empty' ? 'h-2' : ''
+                }`}
+                style={{
+                  color:
+                    line.type === 'command' ? 'rgba(255,255,255,0.9)' :
+                    line.type === 'header' ? 'rgba(255,255,255,0.75)' :
+                    line.type === 'success' ? '#34d399' :
+                    line.type === 'result' ? 'rgba(255,255,255,0.9)' :
+                    'rgba(255,255,255,0.35)',
+                  fontWeight: line.type === 'header' || line.type === 'result' ? '600' : '400',
+                }}
+              >
+                {line.type !== 'empty' && line.text}
+              </motion.div>
+            ))}
+            {count < lines.length && (
+              <span
+                className="inline-block w-[2px] h-[13px] animate-pulse align-middle"
+                style={{ background: 'rgba(255,255,255,0.5)', marginLeft: '1px' }}
+              />
+            )}
+            {count >= lines.length && (
+              <div style={{ color: 'rgba(255,255,255,0.35)', marginTop: '4px' }}>
+                <span>$ </span>
+                <span
+                  className="inline-block w-[2px] h-[13px] animate-pulse align-middle"
+                  style={{ background: 'rgba(255,255,255,0.5)' }}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Scroll hint */}
+        <motion.div
+          animate={{ opacity: count > 0 ? 0 : 1 }}
+          transition={{ duration: 0.4 }}
+          className="absolute bottom-10 flex flex-col items-center gap-2 pointer-events-none"
+        >
+          <p className="text-[10px] font-mono uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.2)' }}>
+            Scroll to run
+          </p>
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+            style={{ color: 'rgba(255,255,255,0.15)' }}
+          >
+            ↓
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  )
 }
