@@ -54,8 +54,8 @@ export default function Agenda() {
     <section
       id="how-it-works"
       ref={sectionRef}
-      className="relative border-t border-border/30"
-      style={{ height: '800vh' }}
+      className="border-t border-border/30"
+      style={{ height: '800vh', position: 'relative' }}
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
         {/* Teal glow bloom behind terminal */}
