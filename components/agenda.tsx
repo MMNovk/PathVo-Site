@@ -1,6 +1,6 @@
 "use client"
 import { useRef, useState } from "react"
-import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion"
+import { useScroll, motion, useMotionValueEvent } from "framer-motion"
 
 const lines = [
   { text: '$ python3.11 main.py https://yoursite.com', type: 'command' },
@@ -32,9 +32,17 @@ export default function Agenda() {
     target: sectionRef,
     offset: ["start start", "end end"]
   })
-  const visibleCount = useTransform(scrollYProgress, [0, 0.85], [0, lines.length])
   const [count, setCount] = useState(0)
-  useMotionValueEvent(visibleCount, "change", (v) => setCount(Math.floor(v)))
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    // Each line gets an equal zone of the 0-0.9 scroll range
+    const totalLines = lines.length
+    const zone = 0.9 / totalLines
+    const newCount = Math.min(
+      totalLines,
+      Math.floor(progress / zone)
+    )
+    setCount(newCount)
+  })
 
   const status = count === 0 ? 'READY'
     : count < 4 ? 'SCANNING...'
@@ -47,7 +55,7 @@ export default function Agenda() {
       id="how-it-works"
       ref={sectionRef}
       className="relative border-t border-border/30"
-      style={{ height: '500vh' }}
+      style={{ height: '800vh' }}
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
         {/* Teal glow bloom behind terminal */}
