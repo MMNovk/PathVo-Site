@@ -47,7 +47,7 @@ export default function Agenda() {
       id="how-it-works"
       ref={sectionRef}
       className="relative border-t border-border/30"
-      style={{ height: '300vh' }}
+      style={{ height: '500vh' }}
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
         {/* Teal glow bloom behind terminal */}
@@ -148,17 +148,17 @@ export default function Agenda() {
         </div>
 
         {/* Side descriptions */}
-        <div className="absolute left-[calc(50%+340px)] top-1/2 -translate-y-1/2 w-48">
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 w-56">
           {Object.entries(descriptions).map(([lineIndex, desc]) => (
             <motion.p
               key={lineIndex}
-              initial={{ opacity: 0, x: 8 }}
+              initial={{ opacity: 0, x: 12 }}
               animate={{
                 opacity: count === parseInt(lineIndex) + 1 ? 1 : 0,
-                x: count === parseInt(lineIndex) + 1 ? 0 : 8
+                x: count === parseInt(lineIndex) + 1 ? 0 : 12
               }}
-              transition={{ duration: 0.3 }}
-              className="absolute text-xs text-muted-foreground/50 leading-relaxed font-sans"
+              transition={{ duration: 0.4 }}
+              className="absolute text-sm text-white/60 leading-relaxed font-sans"
             >
               {desc}
             </motion.p>
