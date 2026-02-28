@@ -6,24 +6,28 @@ import { useEffect, useState, useRef } from 'react'
 function TypewriterText({ text, inView }: { text: string; inView: boolean }) {
     const [displayed, setDisplayed] = useState('')
     const [started, setStarted] = useState(false)
+    
+    const safeText = text || ''
 
     useEffect(() => {
-        if (inView && !started) {
+        if (inView && !started && safeText.length > 0) {
             setStarted(true)
             let i = 0
             const interval = setInterval(() => {
-                setDisplayed(text.slice(0, i + 1))
+                setDisplayed(safeText.slice(0, i + 1))
                 i++
-                if (i >= text.length) clearInterval(interval)
+                if (i >= safeText.length) clearInterval(interval)
             }, 18)
             return () => clearInterval(interval)
         }
-    }, [inView, text, started])
+    }, [inView, safeText, started])
+
+    if (!safeText) return null
 
     return (
         <span>
             {displayed}
-            {displayed.length < text.length && started && (
+            {displayed.length < safeText.length && started && (
                 <span className="inline-block w-[2px] h-[1em] bg-white/60 ml-[1px] animate-pulse align-middle" />
             )}
         </span>
