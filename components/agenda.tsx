@@ -15,6 +15,17 @@ const lines = [
   { text: 'Total violations found: 8', type: 'result' },
 ]
 
+const descriptions: Record<number, string> = {
+  0: 'We start by visiting your website, just like a real user would',
+  2: 'The PathVo scanner is live and running',
+  3: 'Every page on your site is being checked',
+  4: 'We found issues that could make your site a target for ADA lawsuits',
+  5: 'AI reviews each issue and writes explanations that are easy to understand',
+  6: 'Your report is being put together',
+  8: 'Your audit is done',
+  9: 'Every issue comes with a fix your dev can copy and paste',
+}
+
 export default function Agenda() {
   const sectionRef = useRef(null)
   const { scrollYProgress } = useScroll({
