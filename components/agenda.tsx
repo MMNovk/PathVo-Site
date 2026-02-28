@@ -147,18 +147,18 @@ export default function Agenda() {
           </div>
         </div>
 
-        {/* Side descriptions */}
-        <div className="absolute right-8 top-1/2 -translate-y-1/2 w-56">
+        {/* Descriptions below terminal */}
+        <div className="w-full max-w-2xl mt-6 h-10 relative">
           {Object.entries(descriptions).map(([lineIndex, desc]) => (
             <motion.p
               key={lineIndex}
-              initial={{ opacity: 0, x: 12 }}
+              initial={{ opacity: 0, y: 6 }}
               animate={{
                 opacity: count === parseInt(lineIndex) + 1 ? 1 : 0,
-                x: count === parseInt(lineIndex) + 1 ? 0 : 12
+                y: count === parseInt(lineIndex) + 1 ? 0 : 6
               }}
               transition={{ duration: 0.4 }}
-              className="absolute text-sm text-white/60 leading-relaxed font-sans"
+              className="absolute inset-0 text-sm text-white/50 leading-relaxed font-sans text-center"
             >
               {desc}
             </motion.p>
