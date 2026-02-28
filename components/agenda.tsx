@@ -1,7 +1,7 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useEffect, useState, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 function TypewriterText({ text, inView }: { text: string; inView: boolean }) {
     const [displayed, setDisplayed] = useState('')
@@ -68,16 +68,15 @@ const steps = [
 ]
 
 function StepCodeBlock({ step, index }: { step: typeof steps[0]; index: number }) {
-    const stepRef = useRef(null)
-    const isInView = useInView(stepRef, { once: true, margin: "-80px" })
+    const [hasAnimated, setHasAnimated] = useState(false)
 
     return (
         <motion.div
-            ref={stepRef}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: index * 0.1 + 0.15 }}
+            onAnimationComplete={() => setHasAnimated(true)}
         >
             <div className="bg-zinc-950 border border-border/40 rounded-xl p-5 font-mono text-sm">
                 <div className="flex items-center gap-1.5 mb-4">
@@ -89,12 +88,12 @@ function StepCodeBlock({ step, index }: { step: typeof steps[0]; index: number }
                     <div className="flex gap-3">
                         <span className="text-muted-foreground/30 select-none">›</span>
                         <span className="text-white/75">
-                            <TypewriterText text={step.primaryCommand} inView={isInView} />
+                            <TypewriterText text={step.primaryCommand} inView={hasAnimated} />
                         </span>
                     </div>
                     <motion.div
                         initial={{ opacity: 0 }}
-                        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                        animate={hasAnimated ? { opacity: 1 } : { opacity: 0 }}
                         transition={{ duration: 0.4, delay: 0.8 }}
                     >
                         {step.secondaryLines.map((line, i) => (
