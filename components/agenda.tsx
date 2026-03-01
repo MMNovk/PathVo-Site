@@ -1,5 +1,5 @@
 "use client"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { useScroll, motion, useMotionValueEvent } from "framer-motion"
 
 const lines = [
@@ -27,13 +27,21 @@ const descriptions: Record<number, string> = {
 }
 
 export default function Agenda() {
-  const sectionRef = useRef(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const [mounted, setMounted] = useState(false)
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
+    target: mounted ? sectionRef : undefined,
     offset: ["start start", "end end"]
   })
-  const [count, setCount] = useState(0)
+
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (!mounted) return
     // Each line gets an equal zone of the 0-0.9 scroll range
     const totalLines = lines.length
     const zone = 0.9 / totalLines
