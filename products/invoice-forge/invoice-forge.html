@@ -660,7 +660,7 @@ $("#status-seg").addEventListener("click", e => {
   current.paidAt = current.status === "paid" ? todayStr() : null;
   renderStatusSeg(); renderPreview(); scheduleSave();
 });
-$("#btn-back").addEventListener("click", () => { clearTimeout(saveTimer); persist(); closeEditor(); });
+$("#btn-back").addEventListener("click", () => { clearTimeout(saveTimer); if(current){ syncProfile(); } persist(); closeEditor(); });
 $("#btn-print").addEventListener("click", () => window.print());
 $("#btn-duplicate").addEventListener("click", () => { if(current) duplicateInvoice(current); fillForm(); renderItems(); renderStatusSeg(); renderPreview(); });
 $("#btn-delete").addEventListener("click", () => {
