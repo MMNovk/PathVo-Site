@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice Forge</title>
+<style>
+:root{
+  --bg:#0f1117; --bg2:#161a23; --bg3:#1d2230; --line:#2a3040; --line2:#343b4e;
+  --text:#e7eaf1; --dim:#9aa3b5; --faint:#6b7488;
+  --accent:#5b8cff; --accent2:#3e6de0; --green:#3ecf8e; --red:#ff6b6b; --amber:#f5b84d; --blue:#5b8cff;
+  --paper:#ffffff; --ink:#1a1d26; --ink2:#5a6172;
+  --radius:10px; --shadow:0 10px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg); color:var(--text); font-size:14px; line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{
+  font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);
+  border-radius:7px;padding:8px 10px;width:100%;outline:none;transition:border-color .15s;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+input[type=date]{color-scheme:dark}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239aa3b5' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+textarea{resize:vertical;min-height:60px}
+::placeholder{color:var(--faint)}
+
+/* ---------- App chrome ---------- */
+#app-header{
+  display:flex;align-items:center;gap:14px;padding:0 20px;height:56px;
+  background:var(--bg2);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;
+}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;letter-spacing:.2px}
+.logo svg{display:block}
+.logo em{font-style:normal;color:var(--accent)}
+.spacer{flex:1}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;
+  font-weight:600;font-size:13px;border:1px solid var(--line2);background:var(--bg3);color:var(--text);
+  transition:background .15s,border-color .15s;white-space:nowrap;
+}
+.btn:hover{background:#242b3d;border-color:#3f4863}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--dim)}
+.btn.ghost:hover{color:var(--text);background:var(--bg3)}
+.btn.danger:hover{border-color:var(--red);color:var(--red)}
+.btn:disabled{opacity:.45;cursor:default}
+main{max-width:1400px;margin:0 auto;padding:24px 20px 60px}
+
+/* ---------- Dashboard / list ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+.stat .label{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.stat .value{font-size:22px;font-weight:700;letter-spacing:-.3px}
+.stat .value small{font-size:14px;font-weight:600;color:var(--dim)}
+.stat.outstanding .value{color:var(--amber)}
+.stat.paidmo .value{color:var(--green)}
+.stat.overdue .value{color:var(--red)}
+.list-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.list-head h1{font-size:18px;font-weight:700}
+.list-head .count{color:var(--dim);font-size:13px}
+#search{max-width:240px}
+#filter-status{max-width:150px;width:auto}
+table.invoices{width:100%;border-collapse:collapse;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.table-wrap{border-radius:var(--radius);overflow:auto;border:1px solid var(--line)}
+.table-wrap table{border:none;min-width:760px}
+table.invoices th{
+  text-align:left;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--dim);padding:11px 14px;background:var(--bg3);border-bottom:1px solid var(--line);
+}
+table.invoices td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.invoices tbody tr:last-child td{border-bottom:none}
+table.invoices tbody tr{cursor:pointer;transition:background .12s}
+table.invoices tbody tr:hover{background:#1a2030}
+td.num{font-weight:600}
+td.total{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+th.total{text-align:right}
+td.actions{text-align:right;white-space:nowrap}
+.iconbtn{padding:6px 8px;border-radius:6px;color:var(--dim);line-height:0}
+.iconbtn:hover{background:var(--bg3);color:var(--text)}
+.iconbtn.del:hover{color:var(--red)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase}
+.badge.draft{background:#2a3040;color:#aab3c7}
+.badge.sent{background:rgba(91,140,255,.16);color:#8badff}
+.badge.paid{background:rgba(62,207,142,.15);color:#4fdb9c}
+.badge.overdue{background:rgba(255,107,107,.15);color:#ff8585}
+.empty{
+  text-align:center;padding:70px 20px;background:var(--bg2);border:1px dashed var(--line2);
+  border-radius:var(--radius);color:var(--dim);
+}
+.empty h2{color:var(--text);font-size:17px;margin:14px 0 6px}
+.empty p{max-width:380px;margin:0 auto 20px}
+
+/* ---------- Editor ---------- */
+#editor-bar{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+#editor-bar h1{font-size:17px;font-weight:700;margin-right:4px}
+.save-note{font-size:12px;color:var(--faint);transition:color .3s}
+.save-note.flash{color:var(--green)}
+.seg{display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:3px;gap:2px}
+.seg button{padding:5px 13px;border-radius:6px;font-size:12.5px;font-weight:600;color:var(--dim)}
+.seg button.on{background:var(--bg3);color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+.seg button.on[data-status=paid]{color:var(--green)}
+.seg button.on[data-status=sent]{color:var(--blue)}
+.editor-grid{display:grid;grid-template-columns:minmax(340px,430px) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:980px){.editor-grid{grid-template-columns:1fr}}
+.panel{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius)}
+.form-panel{padding:4px 18px 18px}
+fieldset{border:none;padding:16px 0 4px;border-bottom:1px solid var(--line)}
+fieldset:last-child{border-bottom:none}
+legend{font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:var(--accent);padding:16px 0 10px;float:left;width:100%}
+.row{display:flex;gap:10px;margin-bottom:10px}
+.row>*{flex:1;min-width:0}
+.field label{display:block;font-size:12px;color:var(--dim);margin-bottom:4px;font-weight:500}
+.field{margin-bottom:10px}
+.items-grid{display:grid;grid-template-columns:minmax(0,1fr) 58px 84px 84px 28px;gap:7px;align-items:center;margin-bottom:7px}
+.items-grid.head{margin-bottom:4px}
+.items-grid.head span{font-size:11px;color:var(--dim);font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+.items-grid .amt{font-size:13px;text-align:right;color:var(--dim);font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis}
+.items-grid input{padding:7px 8px}
+.items-grid input.qty,.items-grid input.rate{text-align:right}
+.rm{color:var(--faint);border-radius:6px;height:28px;line-height:0}
+.rm:hover{color:var(--red);background:var(--bg3)}
+#add-item{margin-top:4px}
+.disc-row{display:flex;gap:10px}
+.disc-row .field{flex:1}
+
+/* ---------- Preview / paper ---------- */
+.preview-panel{position:sticky;top:76px}
+#paper-scroll{overflow:auto;padding:26px;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius)}
+.paper{
+  background:var(--paper);color:var(--ink);width:100%;max-width:760px;margin:0 auto;
+  min-height:900px;padding:52px 56px;border-radius:4px;box-shadow:var(--shadow);
+  font-size:13.5px;line-height:1.5;position:relative;
+}
+.paper .p-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:38px}
+.paper .biz-name{font-size:21px;font-weight:700;letter-spacing:-.2px;margin-bottom:4px}
+.paper .biz-meta{color:var(--ink2);font-size:12.5px;white-space:pre-line}
+.paper .inv-title{text-align:right}
+.paper .inv-title h2{font-size:26px;font-weight:800;letter-spacing:3px;color:#c9cdd8;text-transform:uppercase}
+.paper .inv-title .inv-no{font-weight:600;margin-top:2px}
+.paper .paid-stamp{
+  display:inline-block;margin-top:8px;padding:4px 14px;border:2px solid #2fae76;color:#2fae76;
+  border-radius:6px;font-weight:800;letter-spacing:2px;font-size:13px;transform:rotate(-3deg);
+}
+.paper .p-meta{display:flex;justify-content:space-between;gap:20px;margin-bottom:34px}
+.paper .bill-to .h,.paper .dates .h{font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#9096a6;margin-bottom:6px}
+.paper .bill-to .client-name{font-weight:700;font-size:14.5px}
+.paper .bill-to .client-meta{color:var(--ink2);font-size:12.5px;white-space:pre-line}
+.paper .dates{text-align:right;min-width:190px}
+.paper .dates table{margin-left:auto;border-collapse:collapse}
+.paper .dates td{padding:2px 0 2px 18px;font-size:12.5px}
+.paper .dates td:first-child{color:var(--ink2)}
+.paper .dates td:last-child{font-weight:600;text-align:right}
+.paper table.items{width:100%;border-collapse:collapse;margin-bottom:8px}
+.paper table.items th{
+  font-size:10.5px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:#9096a6;
+  text-align:left;padding:0 0 8px;border-bottom:2px solid var(--ink);
+}
+.paper table.items th.r,.paper table.items td.r{text-align:right}
+.paper table.items td{padding:10px 0;border-bottom:1px solid #e8eaef;vertical-align:top;font-variant-numeric:tabular-nums}
+.paper table.items td.desc{padding-right:14px;width:52%}
+.paper .no-items{color:#9096a6;font-style:italic;padding:18px 0;border-bottom:1px solid #e8eaef}
+.paper .totals{display:flex;justify-content:flex-end;margin-top:6px}
+.paper .totals table{border-collapse:collapse;min-width:250px}
+.paper .totals td{padding:5px 0 5px 30px;font-size:13px;font-variant-numeric:tabular-nums}
+.paper .totals td:first-child{color:var(--ink2)}
+.paper .totals td:last-child{text-align:right;font-weight:600}
+.paper .totals tr.grand td{
+  border-top:2px solid var(--ink);padding-top:9px;font-size:15.5px;font-weight:800;color:var(--ink);
+}
+.paper .totals tr.grand td:first-child{font-weight:700}
+.paper .p-notes{margin-top:44px;display:grid;gap:18px}
+.paper .p-notes .h{font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#9096a6;margin-bottom:4px}
+.paper .p-notes p{color:var(--ink2);font-size:12.5px;white-space:pre-line}
+.paper .p-foot{margin-top:50px;padding-top:14px;border-top:1px solid #e8eaef;color:#9096a6;font-size:11.5px;text-align:center}
+
+/* ---------- Toast / modal ---------- */
+#toast{
+  position:fixed;bottom:24px;left:50%;transform:translate(-50%,80px);opacity:0;
+  background:var(--bg3);border:1px solid var(--line2);color:var(--text);padding:10px 18px;
+  border-radius:8px;font-size:13px;font-weight:600;box-shadow:var(--shadow);z-index:200;
+  transition:transform .25s,opacity .25s;pointer-events:none;
+}
+#toast.show{transform:translate(-50%,0);opacity:1}
+.hidden{display:none !important}
+
+/* ---------- Print ---------- */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff}
+  #app-header,#view-list,#editor-bar,.form-panel,#toast{display:none !important}
+  main{max-width:none;padding:0;margin:0}
+  .editor-grid{display:block}
+  .preview-panel{position:static}
+  #paper-scroll{overflow:visible;padding:0;border:none;background:#fff;border-radius:0}
+  .paper{
+    box-shadow:none;border-radius:0;max-width:none;width:100%;min-height:0;padding:0;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+}
+</style>
+</head>
+<body>
+
+<header id="app-header">
+  <div class="logo">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="1" y="1" width="18" height="18" rx="4" fill="#5b8cff"/><path d="M6 5.5h8M6 9h8M6 12.5h5" stroke="#0f1117" stroke-width="1.8" stroke-linecap="round"/></svg>
+    Invoice <em>Forge</em>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn ghost" id="btn-export" title="Download all data as a JSON backup file">Export backup</button>
+  <button class="btn ghost" id="btn-import" title="Restore from a JSON backup file">Import</button>
+  <input type="file" id="import-file" accept=".json,application/json" class="hidden">
+  <button class="btn primary" id="btn-new">+ New invoice</button>
+</header>
+
+<main>
+  <!-- ============ LIST VIEW ============ -->
+  <section id="view-list">
+    <div class="stats" id="stats"></div>
+    <div class="list-head">
+      <h1>Invoices</h1><span class="count" id="inv-count"></span>
+      <div class="spacer"></div>
+      <select id="filter-status">
+        <option value="">All statuses</option>
+        <option value="draft">Draft</option>
+        <option value="sent">Sent</option>
+        <option value="overdue">Overdue</option>
+        <option value="paid">Paid</option>
+      </select>
+      <input type="search" id="search" placeholder="Search client or number…">
+    </div>
+    <div id="list-body"></div>
+  </section>
+
+  <!-- ============ EDITOR VIEW ============ -->
+  <section id="view-editor" class="hidden">
+    <div id="editor-bar">
+      <button class="btn ghost" id="btn-back">&#8592; Invoices</button>
+      <h1 id="editor-title">Invoice</h1>
+      <div class="seg" id="status-seg">
+        <button data-status="draft">Draft</button>
+        <button data-status="sent">Sent</button>
+        <button data-status="paid">Paid</button>
+      </div>
+      <span class="save-note" id="save-note"></span>
+      <div class="spacer"></div>
+      <button class="btn" id="btn-duplicate">Duplicate</button>
+      <button class="btn danger" id="btn-delete">Delete</button>
+      <button class="btn primary" id="btn-print">Print / Save PDF</button>
+    </div>
+
+    <div class="editor-grid">
+      <div class="panel form-panel" id="editor-form">
+        <fieldset>
+          <legend>Your business</legend>
+          <div class="field"><label>Business / your name</label><input data-bind="business.name" placeholder="Jordan Reyes Design"></div>
+          <div class="row">
+            <div class="field"><label>Email</label><input data-bind="business.email" placeholder="you@studio.com"></div>
+            <div class="field"><label>Phone</label><input data-bind="business.phone" placeholder="+1 555 010 2334"></div>
+          </div>
+          <div class="field"><label>Address</label><textarea data-bind="business.address" rows="2" placeholder="410 Harbor Lane&#10;Portland, OR 97205"></textarea></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Bill to</legend>
+          <div class="field"><label>Client / company</label><input data-bind="client.name" placeholder="Acme Manufacturing Co."></div>
+          <div class="field"><label>Email</label><input data-bind="client.email" placeholder="accounts@client.com"></div>
+          <div class="field"><label>Address</label><textarea data-bind="client.address" rows="2" placeholder="88 Commerce Street&#10;Austin, TX 78701"></textarea></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Invoice details</legend>
+          <div class="row">
+            <div class="field"><label>Invoice number</label><input data-bind="number"></div>
+            <div class="field"><label>Currency</label>
+              <select data-bind="currency">
+                <option value="USD">USD — US Dollar</option>
+                <option value="EUR">EUR — Euro</option>
+                <option value="GBP">GBP — British Pound</option>
+                <option value="CAD">CAD — Canadian Dollar</option>
+                <option value="AUD">AUD — Australian Dollar</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field"><label>Issue date</label><input type="date" data-bind="issueDate"></div>
+            <div class="field"><label>Due date</label><input type="date" data-bind="dueDate"></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Line items</legend>
+          <div class="items-grid head"><span>Description</span><span style="text-align:right">Qty</span><span style="text-align:right">Rate</span><span style="text-align:right">Amount</span><span></span></div>
+          <div id="items-rows"></div>
+          <button class="btn" id="add-item">+ Add line item</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>Tax &amp; discount</legend>
+          <div class="disc-row">
+            <div class="field"><label>Tax rate (%)</label><input type="number" min="0" step="0.01" data-bind="taxRate"></div>
+            <div class="field"><label>Discount type</label>
+              <select data-bind="discountType"><option value="percent">Percent (%)</option><option value="fixed">Fixed amount</option></select>
+            </div>
+            <div class="field"><label>Discount value</label><input type="number" min="0" step="0.01" data-bind="discountValue"></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Notes &amp; payment terms</legend>
+          <div class="field"><label>Notes (shown on invoice)</label><textarea data-bind="notes" rows="2" placeholder="Thank you for your business."></textarea></div>
+          <div class="field"><label>Payment terms / instructions</label><textarea data-bind="terms" rows="2" placeholder="Payment due within 14 days. Bank transfer to…"></textarea></div>
+        </fieldset>
+      </div>
+
+      <div class="preview-panel">
+        <div id="paper-scroll"><div class="paper" id="paper"></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="toast"></div>
+
+<script>
+"use strict";
+/* ================= Invoice Forge — data & helpers ================= */
+const LS_KEY = "invoiceForge.v1";
+const $  = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+
+const round2 = v => Math.round((v + Number.EPSILON) * 100) / 100;
+const num = v => { const n = parseFloat(v); return isFinite(n) ? n : 0; };
+const esc = s => String(s == null ? "" : s)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+
+const CUR_FALLBACK = { USD:"$", EUR:"€", GBP:"£", CAD:"CA$", AUD:"A$" };
+const fmtCache = {};
+function money(v, cur){
+  cur = CUR_FALLBACK[cur] !== undefined ? cur : "USD";
+  try{
+    fmtCache[cur] = fmtCache[cur] || new Intl.NumberFormat("en", {style:"currency", currency:cur});
+    return fmtCache[cur].format(v);
+  }catch(e){ return CUR_FALLBACK[cur] + v.toFixed(2); }
+}
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+}
+function addDays(iso, days){
+  const p = iso.split("-").map(Number);
+  const d = new Date(p[0], p[1]-1, p[2] + days);
+  return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+}
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function fmtDate(iso){
+  if(!iso) return "—";
+  const p = iso.split("-");
+  if(p.length !== 3) return iso;
+  return MONTHS[Number(p[1])-1] + " " + Number(p[2]) + ", " + p[0];
+}
+const uid = () => "inv_" + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+
+/* ================= Storage ================= */
+function load(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(raw){
+      const d = JSON.parse(raw);
+      if(d && Array.isArray(d.invoices)) return { profile: d.profile || {}, invoices: d.invoices };
+    }
+  }catch(e){ /* corrupted or unavailable — start fresh */ }
+  return { profile:{}, invoices:[] };
+}
+let db = load();
+let persistWarned = false;
+function persist(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(db)); }
+  catch(e){
+    if(!persistWarned){ persistWarned = true;
+      toast("Couldn't save to browser storage — export a backup to keep your data."); }
+  }
+}
+
+/* ================= Model ================= */
+function nextNumber(){
+  let max = 0, prefix = "INV-", pad = 4;
+  db.invoices.forEach(inv => {
+    const m = /^(.*?)(\d+)\s*$/.exec(inv.number || "");
+    if(m){
+      const n = parseInt(m[2], 10);
+      if(n >= max){ max = n; prefix = m[1] || "INV-"; pad = m[2].length; }
+    }
+  });
+  return prefix + String(max + 1).padStart(pad, "0");
+}
+function newInvoice(){
+  const t = todayStr();
+  const b = db.profile.business || {};
+  return {
+    id: uid(), number: nextNumber(), status: "draft",
+    currency: db.profile.lastCurrency || "USD",
+    issueDate: t, dueDate: addDays(t, 14),
+    business: { name: b.name||"", email: b.email||"", phone: b.phone||"", address: b.address||"" },
+    client:   { name:"", email:"", address:"" },
+    items: [ { desc:"", qty:1, rate:0 } ],
+    taxRate: 0, discountType: "percent", discountValue: 0,
+    notes: "Thank you for your business.",
+    terms: db.profile.lastTerms || "Payment is due within 14 days of the issue date.",
+    paidAt: null, createdAt: t, updatedAt: Date.now()
+  };
+}
+function totals(inv){
+  let subtotal = 0;
+  inv.items.forEach(it => { subtotal += round2(num(it.qty) * num(it.rate)); });
+  subtotal = round2(subtotal);
+  let discount = inv.discountType === "fixed"
+    ? round2(num(inv.discountValue))
+    : round2(subtotal * num(inv.discountValue) / 100);
+  if(discount > subtotal) discount = subtotal;
+  const taxable = round2(subtotal - discount);
+  const tax = round2(taxable * num(inv.taxRate) / 100);
+  const total = round2(taxable + tax);
+  return { subtotal, discount, taxable, tax, total };
+}
+function effStatus(inv){
+  if(inv.status === "sent" && inv.dueDate && inv.dueDate < todayStr()) return "overdue";
+  return inv.status;
+}
+function getPath(obj, path){ return path.split(".").reduce((o,k) => (o ? o[k] : undefined), obj); }
+function setPath(obj, path, val){
+  const keys = path.split("."); const last = keys.pop();
+  let o = obj; keys.forEach(k => { if(typeof o[k] !== "object" || o[k] === null) o[k] = {}; o = o[k]; });
+  o[last] = val;
+}
+
+/* ================= List view ================= */
+function statSum(map){ // {USD: 123.45, EUR: 9} -> display string
+  const keys = Object.keys(map).filter(k => map[k] !== 0);
+  if(!keys.length) return money(0, db.profile.lastCurrency || "USD");
+  keys.sort((a,b) => map[b] - map[a]);
+  return keys.map(k => money(round2(map[k]), k)).join(" + ");
+}
+function renderStats(){
+  const outstanding = {}, paidMo = {};
+  let overdueCount = 0, draftCount = 0;
+  const now = todayStr().slice(0,7); // YYYY-MM
+  db.invoices.forEach(inv => {
+    const s = effStatus(inv), t = totals(inv).total;
+    if(s === "sent" || s === "overdue") outstanding[inv.currency] = (outstanding[inv.currency]||0) + t;
+    if(s === "overdue") overdueCount++;
+    if(s === "draft") draftCount++;
+    if(s === "paid" && (inv.paidAt || "").slice(0,7) === now) paidMo[inv.currency] = (paidMo[inv.currency]||0) + t;
+  });
+  $("#stats").innerHTML =
+    '<div class="stat outstanding"><div class="label">Outstanding</div><div class="value">' + esc(statSum(outstanding)) + '</div></div>' +
+    '<div class="stat paidmo"><div class="label">Paid this month</div><div class="value">' + esc(statSum(paidMo)) + '</div></div>' +
+    '<div class="stat overdue"><div class="label">Overdue</div><div class="value">' + overdueCount + ' <small>invoice' + (overdueCount===1?"":"s") + '</small></div></div>' +
+    '<div class="stat"><div class="label">Drafts</div><div class="value">' + draftCount + ' <small>in progress</small></div></div>';
+}
+function renderList(){
+  renderStats();
+  const q = $("#search").value.trim().toLowerCase();
+  const fs = $("#filter-status").value;
+  let rows = db.invoices.slice().sort((a,b) => (b.updatedAt||0) - (a.updatedAt||0));
+  if(q) rows = rows.filter(i =>
+    (i.client.name||"").toLowerCase().includes(q) || (i.number||"").toLowerCase().includes(q));
+  if(fs) rows = rows.filter(i => effStatus(i) === fs);
+  $("#inv-count").textContent = db.invoices.length ? rows.length + " of " + db.invoices.length : "";
+
+  const body = $("#list-body");
+  if(!db.invoices.length){
+    body.innerHTML =
+      '<div class="empty">' +
+      '<svg width="44" height="44" viewBox="0 0 20 20" fill="none"><rect x="1" y="1" width="18" height="18" rx="4" fill="#2a3040"/><path d="M6 5.5h8M6 9h8M6 12.5h5" stroke="#6b7488" stroke-width="1.8" stroke-linecap="round"/></svg>' +
+      '<h2>No invoices yet</h2><p>Create your first invoice — your business details will be remembered for the next one.</p>' +
+      '<button class="btn primary" id="empty-new">+ New invoice</button></div>';
+    $("#empty-new").addEventListener("click", () => openEditor(null));
+    return;
+  }
+  if(!rows.length){
+    body.innerHTML = '<div class="empty"><h2>No matches</h2><p>No invoices match your current search or filter.</p></div>';
+    return;
+  }
+  body.innerHTML = '<div class="table-wrap"><table class="invoices"><thead><tr>' +
+    '<th>Number</th><th>Client</th><th>Issued</th><th>Due</th><th>Status</th><th class="total">Total</th><th></th>' +
+    '</tr></thead><tbody>' +
+    rows.map(inv => {
+      const s = effStatus(inv), t = totals(inv).total;
+      return '<tr data-id="' + inv.id + '">' +
+        '<td class="num">' + esc(inv.number || "—") + '</td>' +
+        '<td>' + esc(inv.client.name || "—") + '</td>' +
+        '<td>' + fmtDate(inv.issueDate) + '</td>' +
+        '<td>' + fmtDate(inv.dueDate) + '</td>' +
+        '<td><span class="badge ' + s + '">' + s + '</span></td>' +
+        '<td class="total">' + esc(money(t, inv.currency)) + '</td>' +
+        '<td class="actions">' +
+          (s !== "paid"
+            ? '<button class="iconbtn" data-act="paid" title="Mark as paid"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2.5 8.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
+            : '<button class="iconbtn" data-act="unpaid" title="Mark as sent (unpaid)"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 3v7m0 0l-3-3m3 3l3-3M3 13.5h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>') +
+          '<button class="iconbtn" data-act="dup" title="Duplicate"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 3H4.5A1.5 1.5 0 003 4.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>' +
+          '<button class="iconbtn del" data-act="del" title="Delete"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 4.5h10M6.5 4.5V3h3v1.5M5 4.5l.6 8.5h4.8l.6-8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
+        '</td></tr>';
+    }).join("") + "</tbody></table></div>";
+
+  body.querySelectorAll("tbody tr").forEach(tr => {
+    tr.addEventListener("click", e => {
+      const btn = e.target.closest("[data-act]");
+      const id = tr.dataset.id;
+      const inv = db.invoices.find(i => i.id === id);
+      if(!inv) return;
+      if(btn){
+        e.stopPropagation();
+        const act = btn.dataset.act;
+        if(act === "paid"){ inv.status = "paid"; inv.paidAt = todayStr(); inv.updatedAt = Date.now(); persist(); renderList(); toast("Marked " + inv.number + " as paid"); }
+        else if(act === "unpaid"){ inv.status = "sent"; inv.paidAt = null; inv.updatedAt = Date.now(); persist(); renderList(); toast("Marked " + inv.number + " as sent"); }
+        else if(act === "dup"){ duplicateInvoice(inv); }
+        else if(act === "del"){
+          if(confirm("Delete invoice " + (inv.number || "") + "? This cannot be undone.")){
+            db.invoices = db.invoices.filter(i => i.id !== id); persist(); renderList(); toast("Invoice deleted");
+          }
+        }
+        return;
+      }
+      openEditor(id);
+    });
+  });
+}
+function duplicateInvoice(src){
+  const copy = JSON.parse(JSON.stringify(src));
+  copy.id = uid(); copy.number = nextNumber(); copy.status = "draft"; copy.paidAt = null;
+  copy.issueDate = todayStr(); copy.dueDate = addDays(copy.issueDate, 14);
+  copy.createdAt = todayStr(); copy.updatedAt = Date.now();
+  db.invoices.push(copy); persist();
+  toast("Duplicated as " + copy.number);
+  openEditor(copy.id);
+}
+
+/* ================= Editor ================= */
+let current = null;
+let saveTimer = null;
+
+function openEditor(id){
+  if(id === null){
+    current = newInvoice();
+    db.invoices.push(current);
+    persist();
+  } else {
+    current = db.invoices.find(i => i.id === id);
+    if(!current) return;
+  }
+  $("#view-list").classList.add("hidden");
+  $("#view-editor").classList.remove("hidden");
+  $("#save-note").textContent = "";
+  fillForm();
+  renderItems();
+  renderStatusSeg();
+  renderPreview();
+  window.scrollTo(0,0);
+}
+function closeEditor(){
+  current = null;
+  $("#view-editor").classList.add("hidden");
+  $("#view-list").classList.remove("hidden");
+  renderList();
+}
+function fillForm(){
+  $$("#editor-form [data-bind]").forEach(el => {
+    const v = getPath(current, el.dataset.bind);
+    el.value = v == null ? "" : v;
+  });
+  $("#editor-title").textContent = current.number || "Invoice";
+}
+function renderStatusSeg(){
+  $$("#status-seg button").forEach(b =>
+    b.classList.toggle("on", b.dataset.status === current.status));
+}
+function renderItems(){
+  const wrap = $("#items-rows");
+  wrap.innerHTML = current.items.map((it, i) =>
+    '<div class="items-grid" data-idx="' + i + '">' +
+      '<input data-field="desc" value="' + esc(it.desc) + '" placeholder="Homepage redesign — design & build">' +
+      '<input data-field="qty" class="qty" type="number" min="0" step="any" value="' + esc(it.qty) + '">' +
+      '<input data-field="rate" class="rate" type="number" min="0" step="0.01" value="' + esc(it.rate) + '">' +
+      '<span class="amt">' + esc(money(round2(num(it.qty) * num(it.rate)), current.currency)) + '</span>' +
+      '<button class="rm" title="Remove line" tabindex="-1"><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>' +
+    '</div>').join("");
+}
+function updateItemAmounts(){
+  $$("#items-rows .items-grid").forEach(row => {
+    const it = current.items[Number(row.dataset.idx)];
+    if(it) row.querySelector(".amt").textContent = money(round2(num(it.qty) * num(it.rate)), current.currency);
+  });
+}
+function syncProfile(){
+  // remember business details + prefs for future invoices
+  db.profile.business = Object.assign({}, current.business);
+  db.profile.lastCurrency = current.currency;
+  db.profile.lastTerms = current.terms;
+}
+function scheduleSave(){
+  current.updatedAt = Date.now();
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    syncProfile();
+    persist();
+    const n = $("#save-note");
+    n.textContent = "Saved"; n.classList.add("flash");
+    setTimeout(() => n.classList.remove("flash"), 900);
+  }, 350);
+}
+
+/* --- editor events (delegated) --- */
+$("#editor-form").addEventListener("input", e => {
+  const el = e.target;
+  if(el.dataset.bind){
+    let v = el.value;
+    if(el.type === "number") v = v === "" ? 0 : num(v);
+    setPath(current, el.dataset.bind, v);
+    if(el.dataset.bind === "number") $("#editor-title").textContent = current.number || "Invoice";
+    if(el.dataset.bind === "currency") updateItemAmounts();
+  } else if(el.dataset.field){
+    const row = el.closest("[data-idx]");
+    const it = current.items[Number(row.dataset.idx)];
+    if(it){
+      it[el.dataset.field] = el.dataset.field === "desc" ? el.value : (el.value === "" ? 0 : num(el.value));
+      row.querySelector(".amt").textContent = money(round2(num(it.qty) * num(it.rate)), current.currency);
+    }
+  } else return;
+  renderPreview();
+  scheduleSave();
+});
+$("#editor-form").addEventListener("click", e => {
+  const rm = e.target.closest(".rm");
+  if(rm){
+    const idx = Number(rm.closest("[data-idx]").dataset.idx);
+    current.items.splice(idx, 1);
+    if(!current.items.length) current.items.push({desc:"", qty:1, rate:0});
+    renderItems(); renderPreview(); scheduleSave();
+  }
+});
+$("#add-item").addEventListener("click", () => {
+  current.items.push({desc:"", qty:1, rate:0});
+  renderItems(); renderPreview(); scheduleSave();
+  const rows = $$("#items-rows .items-grid");
+  rows[rows.length-1].querySelector("input").focus();
+});
+$("#status-seg").addEventListener("click", e => {
+  const b = e.target.closest("[data-status]");
+  if(!b) return;
+  current.status = b.dataset.status;
+  current.paidAt = current.status === "paid" ? todayStr() : null;
+  renderStatusSeg(); renderPreview(); scheduleSave();
+});
+$("#btn-back").addEventListener("click", () => { clearTimeout(saveTimer); persist(); closeEditor(); });
+$("#btn-print").addEventListener("click", () => window.print());
+$("#btn-duplicate").addEventListener("click", () => { if(current) duplicateInvoice(current); fillForm(); renderItems(); renderStatusSeg(); renderPreview(); });
+$("#btn-delete").addEventListener("click", () => {
+  if(!current) return;
+  if(confirm("Delete invoice " + (current.number || "") + "? This cannot be undone.")){
+    db.invoices = db.invoices.filter(i => i.id !== current.id);
+    persist(); toast("Invoice deleted"); closeEditor();
+  }
+});
+
+/* ================= Preview ================= */
+function renderPreview(){
+  if(!current) return;
+  const inv = current, T = totals(inv), s = effStatus(inv);
+  const cur = inv.currency;
+  const bizMeta = [inv.business.address, inv.business.email, inv.business.phone].filter(Boolean).join("\n");
+  const clientMeta = [inv.client.address, inv.client.email].filter(Boolean).join("\n");
+  const realItems = inv.items.filter(it => (it.desc||"").trim() || num(it.qty)*num(it.rate) !== 0);
+
+  let itemRows;
+  if(realItems.length){
+    itemRows = realItems.map(it => {
+      const amt = round2(num(it.qty) * num(it.rate));
+      return "<tr><td class='desc'>" + (esc(it.desc) || "<span style='color:#9096a6'>Item</span>") + "</td>" +
+        "<td class='r'>" + esc(String(num(it.qty))) + "</td>" +
+        "<td class='r'>" + esc(money(num(it.rate), cur)) + "</td>" +
+        "<td class='r'>" + esc(money(amt, cur)) + "</td></tr>";
+    }).join("");
+  } else {
+    itemRows = "<tr><td colspan='4' class='no-items'>Add line items on the left — they'll appear here.</td></tr>";
+  }
+
+  let totalRows = "<tr><td>Subtotal</td><td>" + esc(money(T.subtotal, cur)) + "</td></tr>";
+  if(T.discount > 0){
+    const dLabel = inv.discountType === "percent" ? "Discount (" + num(inv.discountValue) + "%)" : "Discount";
+    totalRows += "<tr><td>" + esc(dLabel) + "</td><td>&#8722;" + esc(money(T.discount, cur)) + "</td></tr>";
+  }
+  if(num(inv.taxRate) > 0){
+    totalRows += "<tr><td>Tax (" + num(inv.taxRate) + "%)</td><td>" + esc(money(T.tax, cur)) + "</td></tr>";
+  }
+  totalRows += "<tr class='grand'><td>" + (s === "paid" ? "Total paid" : "Total due") + "</td><td>" + esc(money(T.total, cur)) + "</td></tr>";
+
+  $("#paper").innerHTML =
+    "<div class='p-top'>" +
+      "<div><div class='biz-name'>" + (esc(inv.business.name) || "Your Business Name") + "</div>" +
+      "<div class='biz-meta'>" + esc(bizMeta) + "</div></div>" +
+      "<div class='inv-title'><h2>Invoice</h2><div class='inv-no'>" + esc(inv.number) + "</div>" +
+      (s === "paid" ? "<div class='paid-stamp'>PAID</div>" : "") + "</div>" +
+    "</div>" +
+    "<div class='p-meta'>" +
+      "<div class='bill-to'><div class='h'>Billed to</div>" +
+        "<div class='client-name'>" + (esc(inv.client.name) || "Client name") + "</div>" +
+        "<div class='client-meta'>" + esc(clientMeta) + "</div></div>" +
+      "<div class='dates'><table>" +
+        "<tr><td>Issue date</td><td>" + fmtDate(inv.issueDate) + "</td></tr>" +
+        "<tr><td>Due date</td><td>" + fmtDate(inv.dueDate) + "</td></tr>" +
+        (s === "paid" && inv.paidAt ? "<tr><td>Paid on</td><td>" + fmtDate(inv.paidAt) + "</td></tr>" : "") +
+        "<tr><td>Amount " + (s === "paid" ? "paid" : "due") + "</td><td>" + esc(money(T.total, cur)) + "</td></tr>" +
+      "</table></div>" +
+    "</div>" +
+    "<table class='items'><thead><tr><th>Description</th><th class='r'>Qty</th><th class='r'>Rate</th><th class='r'>Amount</th></tr></thead>" +
+    "<tbody>" + itemRows + "</tbody></table>" +
+    "<div class='totals'><table>" + totalRows + "</table></div>" +
+    "<div class='p-notes'>" +
+      ((inv.notes||"").trim() ? "<div><div class='h'>Notes</div><p>" + esc(inv.notes) + "</p></div>" : "") +
+      ((inv.terms||"").trim() ? "<div><div class='h'>Payment terms</div><p>" + esc(inv.terms) + "</p></div>" : "") +
+    "</div>" +
+    "<div class='p-foot'>" + (esc(inv.business.name) || "Invoice") + " &middot; " + esc(inv.number) + "</div>";
+}
+
+/* ================= Backup: export / import ================= */
+$("#btn-export").addEventListener("click", () => {
+  const payload = { app:"invoice-forge", version:1, exportedAt:new Date().toISOString(), profile:db.profile, invoices:db.invoices };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "invoice-forge-backup-" + todayStr() + ".json";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  toast("Backup downloaded (" + db.invoices.length + " invoice" + (db.invoices.length===1?"":"s") + ")");
+});
+$("#btn-import").addEventListener("click", () => $("#import-file").click());
+$("#import-file").addEventListener("change", e => {
+  const f = e.target.files[0];
+  e.target.value = "";
+  if(!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try{
+      const d = JSON.parse(r.result);
+      if(!d || !Array.isArray(d.invoices)) throw new Error("bad shape");
+      const ok = confirm("Import " + d.invoices.length + " invoice(s)? This REPLACES all current data. Export a backup first if unsure.");
+      if(!ok) return;
+      db = { profile: d.profile || {}, invoices: d.invoices.filter(i => i && i.id) };
+      // basic normalization for safety
+      db.invoices.forEach(i => {
+        i.items = Array.isArray(i.items) ? i.items : [];
+        i.business = i.business || {}; i.client = i.client || {};
+        if(!["draft","sent","paid"].includes(i.status)) i.status = "draft";
+        if(CUR_FALLBACK[i.currency] === undefined) i.currency = "USD";
+      });
+      persist();
+      closeEditor();
+      toast("Imported " + db.invoices.length + " invoice" + (db.invoices.length===1?"":"s"));
+    }catch(err){
+      alert("That file doesn't look like an Invoice Forge backup (invalid JSON or wrong format). Nothing was changed.");
+    }
+  };
+  r.readAsText(f);
+});
+
+/* ================= Misc wiring ================= */
+$("#btn-new").addEventListener("click", () => openEditor(null));
+$("#search").addEventListener("input", renderList);
+$("#filter-status").addEventListener("change", renderList);
+window.addEventListener("beforeprint", () => { if(current) renderPreview(); });
+
+let toastTimer = null;
+function toast(msg){
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+}
+
+renderList();
+</script>
+</body>
+</html>
