@@ -1,0 +1,18 @@
+{
+  "currency": "USD",
+  "rule": "Only money that actually moved is recorded here. Projections are not entries.",
+  "entries": [
+    {
+      "date": "2026-07-07",
+      "type": "note",
+      "amount": 0,
+      "memo": "Company founded. Capital invested: $0. Costs so far: $0 (GitHub Pages hosting is free, products are AI-built)."
+    }
+  ],
+  "totals": {
+    "revenue": 0,
+    "costs": 0,
+    "profit": 0,
+    "goal": 1000
+  }
+}
