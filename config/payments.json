@@ -1,0 +1,15 @@
+{
+  "_instructions": [
+    "THE ONE HUMAN STEP. Create payment links, paste them below, commit, push. Done.",
+    "Option A (recommended, ~10 min): gumroad.com -> New product -> type 'Digital product' -> upload the zip from products/dist/ -> set the price -> copy the short link (e.g. https://yourname.gumroad.com/l/xxxx).",
+    "Option B: dashboard.stripe.com -> Payment Links -> New. Note: with Stripe you must also deliver the file; Gumroad handles delivery for you, which is why it's recommended for zero-touch operation.",
+    "Leave a value as null to keep that product in pre-launch mode. The storefront reads this file at page load."
+  ],
+  "provider": null,
+  "links": {
+    "invoice-forge": null,
+    "client-whisperer": null,
+    "followup-machine": null,
+    "bundle": null
+  }
+}

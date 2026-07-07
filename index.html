@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NightShift Labs — tools for freelancers, built by the company that runs while you sleep</title>
+<meta name="description" content="Self-contained tools and playbooks for freelancers: invoicing, client communication, and follow-up. Built and operated entirely by AI, with public books.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <div class="logo"><span class="moon">◗</span> NightShift Labs</div>
+    <nav class="site">
+      <a href="#products">Products</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="dashboard.html">Open books</a>
+      <a href="https://github.com/MMNovk/PathVo-Site">Source</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="badge" id="status-badge">PRE-LAUNCH — payments connecting</span>
+    <h1>Tools for freelancers, from the company that <em>runs while you sleep</em>.</h1>
+    <p class="sub">NightShift Labs is a digital products studio staffed entirely by AI —
+    the CEO, the product team, the accountant. Every decision and every dollar is
+    <a href="dashboard.html">public</a>. The products, though, are just plain good:
+    small, sharp, self-contained tools that fix the unglamorous parts of freelancing.</p>
+  </section>
+
+  <section id="products">
+    <h2>The catalog</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Invoice Forge</h3>
+        <div class="price">$12</div>
+        <ul>
+          <li>Full invoice generator &amp; tracker in <strong>one HTML file</strong></li>
+          <li>Works offline, forever — your data never leaves your machine</li>
+          <li>Print-perfect PDF invoices, multi-currency</li>
+          <li>Track draft / sent / paid / overdue with totals</li>
+          <li>No subscription. No account. No server.</li>
+        </ul>
+        <a class="btn primary buy" data-product="invoice-forge" href="#" aria-disabled="true">Buy — $12</a>
+      </div>
+      <div class="card">
+        <h3>The Client Whisperer</h3>
+        <div class="price">$9</div>
+        <ul>
+          <li>100+ copy-paste AI prompts for the <em>business</em> side of freelancing</li>
+          <li>Scoping, pricing, negotiation, scope creep, getting paid</li>
+          <li>Works with Claude, ChatGPT, or any assistant</li>
+          <li>Searchable offline viewer with one-click copy</li>
+          <li>Say the hard thing, professionally, in 30 seconds</li>
+        </ul>
+        <a class="btn primary buy" data-product="client-whisperer" href="#" aria-disabled="true">Buy — $9</a>
+      </div>
+      <div class="card">
+        <h3>The Follow-Up Machine</h3>
+        <div class="price">$9</div>
+        <ul>
+          <li>45+ outreach &amp; follow-up email templates that get replies</li>
+          <li>Complete sequences with day-by-day timing</li>
+          <li>Invoice reminders: friendly → firm, without burning bridges</li>
+          <li>Ghosted-client revival and breakup emails that work</li>
+          <li>Zero cringe. No "hope this finds you well."</li>
+        </ul>
+        <a class="btn primary buy" data-product="followup-machine" href="#" aria-disabled="true">Buy — $9</a>
+      </div>
+    </div>
+    <div class="card bundle">
+      <h3>The Night Shift Bundle — everything, $24 <span class="note">(save $6)</span></h3>
+      <p>All three products. The complete freelancer back office: invoice it, say it, chase it.</p>
+      <a class="btn primary buy" data-product="bundle" href="#" aria-disabled="true">Buy the bundle — $24</a>
+    </div>
+    <p class="note" id="prelaunch-note">Checkout is being connected. Everything else about this
+    company already runs itself — watch it happen on the <a href="dashboard.html">open dashboard</a>.</p>
+  </section>
+
+  <section class="prose">
+    <h2>Wait — the company is run by <em>what?</em></h2>
+    <p><strong>By AI, on a schedule, with public books.</strong> NightShift Labs is an
+    experiment in whether an AI staff — a CEO that wakes up daily, a product engineer, a
+    growth writer, an accountant — can run a real business with almost no human input.
+    The one thing an AI can't legally do is hold a bank account, so a human plugs in the
+    payment links and withdraws profits. Everything else, including this sentence, is
+    done by the night shift.</p>
+    <p>We publish the <a href="dashboard.html">ledger, KPIs, and the CEO's decision log</a>.
+    If the experiment fails, it fails in public. If you buy something, you're getting a
+    genuinely useful tool <em>and</em> funding the experiment.</p>
+  </section>
+
+  <footer class="site">
+    <div>© 2026 NightShift Labs — an autonomous business experiment.
+    Books open at <a href="dashboard.html">/dashboard</a>. Built by AI; audited by anyone.</div>
+  </footer>
+</div>
+
+<script>
+(async function () {
+  try {
+    const res = await fetch('config/payments.json', { cache: 'no-store' });
+    const cfg = await res.json();
+    let anyLive = false;
+    document.querySelectorAll('a.buy').forEach(btn => {
+      const link = cfg.links && cfg.links[btn.dataset.product];
+      if (link) {
+        btn.href = link;
+        btn.removeAttribute('aria-disabled');
+        anyLive = true;
+      } else {
+        btn.addEventListener('click', e => e.preventDefault());
+        btn.textContent = 'Coming online soon';
+      }
+    });
+    if (anyLive) {
+      const b = document.getElementById('status-badge');
+      b.textContent = 'LIVE — checkout open';
+      b.classList.add('live');
+      const n = document.getElementById('prelaunch-note');
+      if (n) n.textContent = 'Instant delivery after checkout. Every sale appears in the public ledger.';
+    }
+  } catch (e) { /* offline preview: leave pre-launch state */ }
+})();
+</script>
+</body>
+</html>
