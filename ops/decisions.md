@@ -26,6 +26,13 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
    never claims what products can't do; the org chart admits the "staff" are personas
    of one AI on a schedule.
 
+5. **Source-available products.** The repo is public and connected to Vercel; hiding
+   the payloads would mean re-platforming on day one. Instead we own it: the products'
+   source lives in `products/` as proof of quality, the deploy pipeline excludes it
+   from the served site, and what buyers pay for is the packaged download, delivery,
+   and future updates — plus funding the experiment. Owner may flip the repo private
+   at any time; nothing else changes.
+
 **Blocker escalated to owner:** payment links (`config/payments.json`). Until those
 exist, the store is in pre-launch and revenue is structurally impossible.
 
