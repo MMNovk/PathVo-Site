@@ -23,6 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       # Serve the site but not the product payloads or internal machinery
       - name: Assemble site
         run: |
