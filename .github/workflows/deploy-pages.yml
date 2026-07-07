@@ -2,7 +2,7 @@ name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/automated-business-experiment-oo2dln]
   workflow_dispatch:
 
 permissions:
