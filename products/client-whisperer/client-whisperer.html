@@ -1,3 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Client Whisperer — 104 AI Prompts for Freelancers</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-soft: #12181f;
+    --panel: #161d26;
+    --panel-2: #1b2430;
+    --border: #263140;
+    --border-soft: #1f2937;
+    --text: #dbe4ee;
+    --text-dim: #8b98a9;
+    --text-faint: #5c6877;
+    --accent: #d4a24e;
+    --accent-soft: rgba(212, 162, 78, 0.12);
+    --accent-text: #e8c078;
+    --green: #4ec9a0;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  ::selection { background: var(--accent-soft); color: var(--accent-text); }
+
+  .layout { display: flex; min-height: 100vh; }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    background: var(--bg-soft);
+    border-right: 1px solid var(--border-soft);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 28px 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .brand { margin-bottom: 6px; }
+  .brand h1 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .brand h1 .tail { color: var(--accent); }
+  .brand p {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    line-height: 1.45;
+  }
+  .search-wrap { position: relative; margin: 18px 0 8px; }
+  .search-wrap svg {
+    position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+    width: 14px; height: 14px; stroke: var(--text-faint); fill: none; stroke-width: 2;
+    pointer-events: none;
+  }
+  #search {
+    width: 100%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13.5px;
+    padding: 9px 30px 9px 33px;
+    outline: none;
+    transition: border-color .15s;
+  }
+  #search:focus { border-color: var(--accent); }
+  #search::placeholder { color: var(--text-faint); }
+  .search-hint {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    font-size: 11px; color: var(--text-faint);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 0 5px; font-family: var(--mono);
+  }
+  .result-count {
+    font-size: 12px; color: var(--text-faint);
+    margin: 0 0 14px 2px; min-height: 18px;
+  }
+  .result-count b { color: var(--accent-text); font-weight: 600; }
+
+  nav ul { list-style: none; }
+  nav a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 7px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 13.5px;
+    line-height: 1.35;
+    transition: background .12s, color .12s;
+  }
+  nav a:hover { background: var(--panel); color: var(--text); }
+  nav a.active { background: var(--accent-soft); color: var(--accent-text); }
+  nav a .n {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    flex-shrink: 0;
+  }
+  nav a.active .n { color: var(--accent-text); }
+  nav li.dimmed a { opacity: 0.35; }
+
+  .sidebar-foot {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-soft);
+    font-size: 11.5px;
+    color: var(--text-faint);
+    line-height: 1.5;
+  }
+
+  /* ---------- Main ---------- */
+  .main {
+    flex: 1;
+    min-width: 0;
+    padding: 44px 52px 90px;
+    max-width: 940px;
+  }
+  .intro { margin-bottom: 40px; }
+  .intro .kicker {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .intro h2 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .intro p { color: var(--text-dim); max-width: 640px; font-size: 15px; }
+  .intro .howto {
+    margin-top: 18px;
+    background: var(--panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    color: var(--text-dim);
+    max-width: 640px;
+  }
+  .intro .howto b { color: var(--text); font-weight: 600; }
+
+  .section { margin-bottom: 14px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 44px 0 6px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .section-head h3 {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .section-head .count {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    margin-top: 18px;
+    overflow: hidden;
+    transition: border-color .15s;
+  }
+  .card:hover { border-color: var(--border); }
+  .card-head { padding: 18px 22px 0; }
+  .card-head h4 {
+    font-size: 16.5px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+  .card-head h4 .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 5px;
+    padding: 2px 7px;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  .use-when {
+    margin: 8px 0 0;
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+  .use-when b { color: var(--accent-text); font-weight: 600; }
+
+  .prompt-wrap { position: relative; margin: 14px 16px 16px; }
+  .prompt-body {
+    background: var(--bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 9px;
+    padding: 16px 18px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: #b9c5d3;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow-x: auto;
+    max-height: 340px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    border-radius: 7px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 11px;
+    cursor: pointer;
+    transition: all .13s;
+  }
+  .copy-btn:hover { color: var(--text); border-color: var(--accent); }
+  .copy-btn.copied { background: rgba(78,201,160,.12); border-color: rgba(78,201,160,.5); color: var(--green); }
+  .copy-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  .outro {
+    margin-top: 48px;
+    background: var(--panel);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 22px 26px;
+    max-width: 720px;
+  }
+  .outro h3 { font-size: 17px; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .outro p, .outro li { color: var(--text-dim); font-size: 14px; margin-bottom: 8px; }
+  .outro ol { padding-left: 20px; }
+  .outro b, .outro strong { color: var(--text); }
+
+  .empty {
+    display: none;
+    margin-top: 60px;
+    text-align: center;
+    color: var(--text-faint);
+  }
+  .empty .big { font-size: 34px; margin-bottom: 10px; }
+  body.no-results .empty { display: block; }
+
+  @media (max-width: 860px) {
+    .layout { flex-direction: column; }
+    .sidebar {
+      width: 100%; height: auto; position: static;
+      border-right: none; border-bottom: 1px solid var(--border-soft);
+      padding: 20px 18px;
+    }
+    nav ul { display: flex; flex-wrap: wrap; gap: 4px; }
+    nav a { padding: 6px 10px; }
+    nav a .n { display: none; }
+    .sidebar-foot { display: none; }
+    .main { padding: 28px 18px 70px; }
+    .intro h2 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>The Client <span class="tail">Whisperer</span></h1>
+      <p>104 copy-paste AI prompts for the business side of freelancing.</p>
+    </div>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
+      <input id="search" type="text" placeholder="Search prompts…" autocomplete="off" spellcheck="false">
+      <span class="search-hint">/</span>
+    </div>
+    <div class="result-count" id="resultCount"></div>
+    <nav><ul id="navList"></ul></nav>
+    <div class="sidebar-foot">
+      Works with Claude, ChatGPT, Gemini — any AI assistant.<br>
+      Replace every [BRACKETED] slot with your real details before sending.<br><br>
+      &copy; NightShift Labs · Personal license
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="intro">
+      <div class="kicker">NightShift Labs · Prompt Pack</div>
+      <h2>Handle the business side like you've done this a thousand times.</h2>
+      <p>Scoping, pricing, contracts, scope creep, unpaid invoices, repeat work, positioning, and the fine art of saying no — every prompt below turns your AI assistant into a seasoned business partner.</p>
+      <div class="howto"><b>How to use:</b> find your situation (or search), hit <b>Copy prompt</b>, replace the [BRACKETED] slots with your details, paste into your AI assistant. Then iterate: reply "shorter," "warmer," or "firmer."</div>
+    </div>
+    <div id="content"></div>
+    <div class="empty">
+      <div class="big">&empty;</div>
+      No prompts match that search.<br>Try a broader word — "invoice," "scope," "price," "no."
+    </div>
+  </main>
+</div>
+
+<script type="text/plain" id="src">
 # The Client Whisperer
 
 > 104 copy-paste AI prompts for the business side of freelancing — scoping, pricing, contracts, difficult clients, getting paid, repeat work, positioning, and saying no.
@@ -1924,3 +2264,242 @@ Three habits that multiply this pack's value:
 3. **Iterate out loud.** The first draft is a starting position. Reply with "warmer," "shorter," "the client is more senior than that," or paste the client's actual reply and ask "now what?" The conversation after the prompt is where the magic is.
 
 Go get paid.
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- Parse the embedded markdown ---------- */
+  var raw = document.getElementById("src").textContent;
+  var lines = raw.split("\n");
+  var sections = [];
+  var cur = null, curPrompt = null, inCode = false, codeBuf = [];
+
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+
+    if (line.trim() === "```") {
+      if (!inCode) { inCode = true; codeBuf = []; }
+      else {
+        inCode = false;
+        if (curPrompt) curPrompt.body = codeBuf.join("\n").trim();
+      }
+      continue;
+    }
+    if (inCode) { codeBuf.push(line); continue; }
+
+    if (line.indexOf("## ") === 0 && line.indexOf("###") !== 0) {
+      cur = { title: line.slice(3).trim(), prompts: [], text: [] };
+      curPrompt = null;
+      sections.push(cur);
+      continue;
+    }
+    if (line.indexOf("### ") === 0 && cur) {
+      var m = line.slice(4).match(/^(\d+)\.\s*(.*)$/);
+      curPrompt = { num: m ? m[1] : "", title: m ? m[2] : line.slice(4), useWhen: "", body: "" };
+      cur.prompts.push(curPrompt);
+      continue;
+    }
+    if (line.indexOf("**Use when:**") === 0 && curPrompt) {
+      curPrompt.useWhen = line.replace("**Use when:**", "").trim();
+      continue;
+    }
+    if (cur && !curPrompt && line.trim() !== "" && line.trim() !== "---") {
+      cur.text.push(line.trim());
+    }
+  }
+
+  var promptSections = sections.filter(function (s) { return s.prompts.length > 0; });
+  var outroSection = sections.filter(function (s) { return s.prompts.length === 0; })[0] || null;
+
+  /* ---------- Helpers ---------- */
+  function esc(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+  function inlineMd(s) {
+    return esc(s)
+      .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+      .replace(/`([^`]+)`/g, "<b>$1</b>");
+  }
+  function slug(s) {
+    return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  /* ---------- Render ---------- */
+  var content = document.getElementById("content");
+  var navList = document.getElementById("navList");
+  var htmlOut = [], navOut = [];
+
+  promptSections.forEach(function (sec) {
+    var id = "s-" + slug(sec.title);
+    navOut.push(
+      '<li data-sec="' + id + '"><a href="#' + id + '">' +
+      '<span>' + esc(sec.title) + '</span><span class="n" data-role="count">' + sec.prompts.length + '</span></a></li>'
+    );
+    var cards = sec.prompts.map(function (p) {
+      return (
+        '<div class="card" id="p' + p.num + '">' +
+          '<div class="card-head">' +
+            '<h4><span class="num">#' + p.num + '</span><span>' + esc(p.title) + '</span></h4>' +
+            '<p class="use-when"><b>Use when:</b> ' + inlineMd(p.useWhen) + '</p>' +
+          '</div>' +
+          '<div class="prompt-wrap">' +
+            '<button class="copy-btn" type="button" aria-label="Copy prompt #' + p.num + '">' +
+              '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>' +
+              '<span>Copy prompt</span>' +
+            '</button>' +
+            '<pre class="prompt-body"></pre>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join("");
+    htmlOut.push(
+      '<section class="section" id="' + id + '">' +
+        '<div class="section-head"><h3>' + esc(sec.title) + '</h3>' +
+        '<span class="count" data-role="seccount">' + sec.prompts.length + ' prompts</span></div>' +
+        cards +
+      '</section>'
+    );
+  });
+
+  if (outroSection) {
+    var items = outroSection.text.filter(function (t) { return /^\d+\.\s/.test(t); });
+    var paras = outroSection.text.filter(function (t) { return !/^\d+\.\s/.test(t); });
+    htmlOut.push(
+      '<div class="outro"><h3>' + esc(outroSection.title) + '</h3>' +
+      (items.length ? '<ol>' + items.map(function (t) {
+        return '<li>' + inlineMd(t.replace(/^\d+\.\s*/, "")) + '</li>';
+      }).join("") + '</ol>' : '') +
+      paras.map(function (t) { return '<p>' + inlineMd(t) + '</p>'; }).join("") +
+      '</div>'
+    );
+  }
+
+  content.innerHTML = htmlOut.join("");
+  navList.innerHTML = navOut.join("");
+
+  /* Fill prompt bodies as textContent (safe, exact) */
+  var allPrompts = [];
+  promptSections.forEach(function (sec) {
+    sec.prompts.forEach(function (p) { allPrompts.push(p); });
+  });
+  var bodyEls = content.querySelectorAll(".prompt-body");
+  allPrompts.forEach(function (p, idx) { bodyEls[idx].textContent = p.body; });
+
+  /* ---------- Copy buttons ---------- */
+  content.addEventListener("click", function (e) {
+    var btn = e.target.closest(".copy-btn");
+    if (!btn) return;
+    var text = btn.parentNode.querySelector(".prompt-body").textContent;
+    function done(ok) {
+      var label = btn.querySelector("span");
+      btn.classList.add("copied");
+      label.textContent = ok ? "Copied ✓" : "Select & copy";
+      setTimeout(function () {
+        btn.classList.remove("copied");
+        label.textContent = "Copy prompt";
+      }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (err) {}
+      document.body.removeChild(ta);
+      done(ok);
+    }
+  });
+
+  /* ---------- Search filter ---------- */
+  var searchEl = document.getElementById("search");
+  var resultCount = document.getElementById("resultCount");
+  var cardEls = content.querySelectorAll(".card");
+  var index = [];
+  allPrompts.forEach(function (p, idx) {
+    index.push((p.num + " " + p.title + " " + p.useWhen + " " + p.body).toLowerCase());
+  });
+  var total = allPrompts.length;
+
+  function applyFilter() {
+    var q = searchEl.value.trim().toLowerCase();
+    var terms = q.split(/\s+/).filter(Boolean);
+    var visibleTotal = 0;
+
+    cardEls.forEach(function (card, idx) {
+      var hit = terms.every(function (t) { return index[idx].indexOf(t) !== -1; });
+      card.style.display = hit ? "" : "none";
+      if (hit) visibleTotal++;
+    });
+
+    document.querySelectorAll(".section").forEach(function (sec) {
+      var visible = 0;
+      sec.querySelectorAll(".card").forEach(function (c) {
+        if (c.style.display !== "none") visible++;
+      });
+      sec.style.display = visible ? "" : "none";
+      var cnt = sec.querySelector('[data-role="seccount"]');
+      if (cnt) cnt.textContent = visible + (visible === 1 ? " prompt" : " prompts");
+      var navItem = navList.querySelector('li[data-sec="' + sec.id + '"]');
+      if (navItem) {
+        navItem.classList.toggle("dimmed", visible === 0);
+        var n = navItem.querySelector('[data-role="count"]');
+        if (n) n.textContent = visible;
+      }
+    });
+
+    var outro = content.parentNode.querySelector(".outro");
+    if (outro) outro.style.display = q ? "none" : "";
+    document.body.classList.toggle("no-results", visibleTotal === 0);
+    resultCount.innerHTML = q
+      ? "<b>" + visibleTotal + "</b> of " + total + " prompts match"
+      : total + " prompts · 8 sections";
+  }
+  searchEl.addEventListener("input", applyFilter);
+  applyFilter();
+
+  /* "/" focuses search */
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "/" && document.activeElement !== searchEl) {
+      e.preventDefault();
+      searchEl.focus();
+      searchEl.select();
+    }
+    if (e.key === "Escape" && document.activeElement === searchEl) {
+      searchEl.value = "";
+      applyFilter();
+      searchEl.blur();
+    }
+  });
+
+  /* ---------- Active section highlight on scroll ---------- */
+  var navAnchors = navList.querySelectorAll("a");
+  var sectionEls = content.querySelectorAll(".section");
+  function setActive() {
+    var pos = window.scrollY + 120;
+    var activeId = null;
+    sectionEls.forEach(function (sec) {
+      if (sec.style.display !== "none" && sec.offsetTop <= pos) activeId = sec.id;
+    });
+    navAnchors.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + activeId);
+    });
+  }
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(function () { setActive(); ticking = false; });
+    }
+  });
+  setActive();
+})();
+</script>
+</body>
+</html>
