@@ -1,0 +1,1685 @@
+# The Client Whisperer
+
+> 104 copy-paste AI prompts for the business side of freelancing — scoping, pricing, contracts, difficult clients, getting paid, repeat work, positioning, and saying no.
+
+You didn't go freelance to write awkward emails at 11pm. Every prompt in this pack turns your AI assistant (Claude, ChatGPT, Gemini — any of them) into a business partner who has seen a thousand client relationships and knows exactly what to say next.
+
+**How to use this pack:**
+
+1. Find the situation you're in (use the section headers, or search this file).
+2. Copy the full prompt — everything inside the code block.
+3. Replace every `[BRACKETED]` slot with your real details. The more specific you are, the better the output.
+4. Paste into your AI assistant and iterate. Reply with "shorter," "warmer," "firmer," or paste the client's actual words for a tailored redo.
+
+A note on voice: these prompts deliberately instruct the AI to avoid corporate filler and desperate energy. You will get drafts that sound like a calm professional who is not afraid of losing the work — because that's the voice that wins the work.
+
+---
+## Scoping & Discovery Calls
+
+### 1. The Discovery Call Question Bank
+**Use when:** You have a discovery call booked and want questions that surface budget, timeline, and hidden dealbreakers without sounding like an interrogation.
+
+```
+You are a senior freelance [YOUR DISCIPLINE, e.g. brand designer] preparing for a 30-minute discovery call. The prospect is [COMPANY / PERSON], a [ONE-LINE DESCRIPTION OF THEIR BUSINESS], and they said they want [WHAT THEY ASKED FOR, IN THEIR WORDS].
+
+Build me a question bank for this call, organized into four phases:
+
+1. WARM-UP (2 questions) — easy questions that get them talking about the business, not the project.
+2. THE REAL PROBLEM (4 questions) — questions that dig under the stated request to find the business outcome they actually need. Include at least one "why now?" style question.
+3. CONSTRAINTS (4 questions) — budget, deadline, decision-makers, and what happens if this project doesn't get done. Phrase the budget question in two versions: one direct, one range-based.
+4. FIT & NEXT STEPS (2 questions) — questions that qualify whether I'm right for this and set up a clear next step.
+
+For each question, add one line on what a good answer sounds like and what answer should worry me. Keep every question conversational — nothing that sounds like a form.
+```
+
+### 2. Pre-Call Intelligence Brief
+**Use when:** You want to walk into a discovery call knowing more about the prospect's business than they expect.
+
+```
+I have a discovery call with [COMPANY NAME] in [TIMEFRAME]. Here is everything I know, pasted raw: their website copy, LinkedIn blurb, and anything else I found:
+
+[PASTE RESEARCH MATERIAL]
+
+Produce a one-page intelligence brief:
+- BUSINESS MODEL: how they appear to make money, in 2 sentences.
+- LIKELY PRESSURE: 3 hypotheses about why they're hiring a [YOUR DISCIPLINE] right now, ranked by probability, each with the evidence you based it on.
+- VOCABULARY: 5 words or phrases they use to describe themselves that I should mirror on the call.
+- LANDMINES: anything in the material suggesting a past bad experience, internal politics, or unrealistic expectations.
+- MY OPENING: one sentence I can use in the first two minutes that proves I did my homework without showing off.
+
+Flag clearly anything that is speculation rather than evidence.
+```
+
+### 3. The Vague Brief Interrogator
+**Use when:** A client sends a fuzzy request ("we need a new website, can you help?") and you need to turn it into something scoped.
+
+```
+A prospective client sent me this brief:
+
+"[PASTE THEIR MESSAGE VERBATIM]"
+
+I'm a freelance [YOUR DISCIPLINE]. This brief is too vague to quote against. Do three things:
+
+1. DECODE IT: List what they've actually specified vs. everything left undefined. Be exhaustive on the undefined list — deliverables, scope boundaries, timeline, budget, success criteria, who approves work.
+2. RANK THE GAPS: Which 5 unknowns most affect price and effort? Explain why in one line each.
+3. DRAFT THE REPLY: Write a short, warm email back that (a) shows enthusiasm without committing to anything, (b) asks the 5 highest-leverage questions in a numbered list so they're easy to answer, and (c) proposes a 20-minute call as an alternative to typing. Under 150 words, no corporate speak.
+```
+
+### 4. Call Notes → Scope of Work
+**Use when:** You just hung up from a discovery call and want your messy notes turned into a clean scope document before the details evaporate.
+
+```
+Here are my raw notes from a discovery call, typos and fragments included:
+
+[PASTE RAW NOTES]
+
+Convert this into a structured Scope of Work draft with these sections:
+
+1. PROJECT SUMMARY — the business goal in 2 sentences, in plain language the client would nod along to.
+2. DELIVERABLES — a numbered list. Each item must be concrete and countable (e.g. "one 5-page website" not "web design"). Where my notes were ambiguous, write the deliverable with a [CONFIRM: question] tag inline.
+3. EXPLICITLY OUT OF SCOPE — infer 4-6 things adjacent to this project that a client might assume are included but weren't discussed. This section prevents scope creep later, so be shrewd about what THIS type of client tends to assume.
+4. ASSUMPTIONS — everything the price will depend on (client provides content, one revision round, etc.).
+5. OPEN QUESTIONS — anything I must resolve before quoting.
+
+Do not invent commitments that aren't in my notes. Ambiguity goes in CONFIRM tags or OPEN QUESTIONS, never silently resolved.
+```
+
+### 5. The Missing Requirements Auditor
+**Use when:** You have a brief that looks complete and want a second pair of eyes to find what will bite you in week three.
+
+```
+Act as a battle-scarred freelance [YOUR DISCIPLINE] reviewing a project brief before quoting. Your specialty is spotting the requirement nobody wrote down that blows up timelines.
+
+The brief:
+[PASTE BRIEF]
+
+The project type: [e.g. e-commerce site build, brand identity, 10-article content package]
+
+Audit it against the failure modes typical for this project type. Output:
+
+1. HIDDEN WORK — tasks this project will definitely require that the brief never mentions (migrations, stakeholder reviews, third-party accounts, source files, accessibility, legal review — whatever applies).
+2. DEPENDENCY RISKS — everything where I'll be waiting on the client or a third party, and what happens to my timeline when they're late.
+3. AMBIGUITY BOMBS — phrases in the brief that the client and I could interpret differently, quoted verbatim, each with the two conflicting interpretations spelled out.
+4. THE THREE QUESTIONS — if I could only ask three clarifying questions before quoting, which three protect me most?
+```
+
+### 6. The Budget Question, Asked Well
+**Use when:** You need to surface a prospect's budget early without the awkwardness of "so... what's your budget?"
+
+```
+I'm a freelance [YOUR DISCIPLINE]. My projects typically run [YOUR REALISTIC RANGE, e.g. $3,000-$12,000]. I have a prospect who wants [PROJECT TYPE] and hasn't mentioned money. Context: [HOW THEY FOUND YOU / ANYTHING YOU KNOW ABOUT THEIR SIZE].
+
+Give me five different ways to surface budget early, each suited to a different situation:
+
+1. The range float — I name a range first and watch the reaction (write my exact wording).
+2. The tiering question — I describe how budget changes the approach, then ask which tier sounds right.
+3. The direct-but-warm version — for corporate clients who expect directness.
+4. The email version — one short paragraph for when there's no call scheduled yet.
+5. The deflection recovery — my exact response for when they say "we don't have a budget in mind, what would it cost?"
+
+For each: the exact words, then one line on when to use it. No version should sound apologetic about money.
+```
+
+### 7. Brief Red-Flag Scan
+**Use when:** Something about a new inquiry feels off and you want a structured gut-check before investing hours in a proposal.
+
+```
+You are a freelance business advisor who has seen hundreds of projects go wrong. Scan this inquiry for warning signs:
+
+[PASTE THE FULL INQUIRY / EMAIL THREAD]
+
+Additional context: [HOW THEY FOUND YOU, ANYTHING FROM CALLS]
+
+Score each of the following 0-3 (0 = no signal, 3 = strong red flag), citing the exact words that triggered the score:
+- Urgency without reason
+- Vague scope + fixed conviction about price
+- Bad-mouthing previous freelancers or "everyone we tried failed us"
+- Design/strategy-by-committee signals (many stakeholders, no owner)
+- Payment hesitation signals (barter offers, "exposure," equity, pay-on-results)
+- Boundary-testing (requests for free samples, spec work, weekend availability)
+- Mismatch between company size and expectations
+
+Then give a total score with a plain recommendation: proceed, proceed with specific protections (name them), or decline. If declining, draft the two-sentence polite exit.
+```
+
+### 8. Post-Call Recap Email That Locks Scope
+**Use when:** You want to send a same-day recap that confirms what was agreed and quietly establishes the paper trail.
+
+```
+Write a post-discovery-call recap email from me to [CLIENT NAME]. My notes on what we discussed:
+
+[PASTE NOTES: WHAT THEY WANT, ROUGH SCOPE, TIMELINE MENTIONED, BUDGET SIGNALS, NEXT STEPS AGREED]
+
+Requirements for the email:
+- Open with genuine specificity about their project (one sentence referencing something they actually said, not "great chatting!").
+- "Here's what I heard" section: bullet the scope as I understood it, worded precisely enough that their silence equals agreement.
+- Any numbers mentioned on the call (budget range, timeline) restated in writing.
+- One clarifying question maximum — the one that matters most.
+- Close with the specific next step and MY deadline for delivering it ("proposal to you by Thursday").
+- Tone: warm, competent, zero exclamation marks, under 200 words.
+
+This email doubles as evidence if scope is disputed later, so every claim must be concrete.
+```
+
+### 9. Client Language → Deliverables Translator
+**Use when:** The client speaks in outcomes ("we want to look more premium") and you need to convert it into things you can actually build and bill.
+
+```
+A client told me they want: "[THEIR WORDS, VERBATIM — e.g. 'our brand feels dated and we want to appeal to younger customers']"
+
+I'm a freelance [YOUR DISCIPLINE]. Translate this into concrete options:
+
+1. INTERPRETATIONS — 3 meaningfully different readings of what they might actually want, from most to least likely. For each, name the underlying business anxiety driving it.
+2. DELIVERABLE MENUS — for each interpretation, the specific deliverables that would address it, sized small/medium/large.
+3. THE DIAGNOSTIC QUESTION — for each interpretation, one question I can ask that confirms or kills it.
+4. THE TRAP — which interpretation, if I guess wrong, leads to the most painful project? What early signal would tell me I've guessed wrong?
+
+The goal is that I walk into the next conversation able to say "when clients say [their phrase], they usually mean one of three things — let me ask you two questions."
+```
+
+### 10. Estimate Reality-Checker
+**Use when:** You've drafted a time estimate and want it stress-tested before it becomes a promise.
+
+```
+I'm about to quote a timeline for this project. Stress-test my estimate.
+
+PROJECT: [DESCRIPTION AND DELIVERABLES]
+MY ESTIMATE: [X HOURS / Y WEEKS], broken down as: [PASTE YOUR TASK-BY-TASK BREAKDOWN, OR "no breakdown — that's part of the problem"]
+MY AVAILABILITY: [HOURS/WEEK YOU CAN ACTUALLY GIVE THIS, HONESTLY]
+OTHER COMMITMENTS: [CURRENT PROJECTS/LIFE THAT COMPETE FOR TIME]
+
+Do this:
+1. Rebuild the estimate task-by-task yourself, including tasks freelancers habitually forget: client communication, revision rounds, file prep/handover, invoicing admin, and waiting-on-client dead time.
+2. Compare your rebuild to mine. Flag every task where I'm more than 30% optimistic and say why freelancers typically underestimate that task.
+3. Apply the planning fallacy: give me a 50%-confidence date and a 90%-confidence date.
+4. Tell me what buffer to quote to the client and write the one sentence I should use to present the timeline so it sounds confident, not padded.
+```
+
+### 11. Kickoff Questionnaire Builder
+**Use when:** The contract is signed and you want one document that extracts everything you need from the client before you start.
+
+```
+Build a client kickoff questionnaire for this project:
+
+PROJECT: [DESCRIPTION]
+DELIVERABLES: [LIST]
+WHAT I ALWAYS END UP CHASING CLIENTS FOR: [e.g. brand assets, logins, examples they like, approval on copy]
+
+Design the questionnaire to be completed in under 25 minutes, because long questionnaires come back half-empty. Structure:
+
+1. THE ESSENTIALS (5-7 questions) — things I literally cannot start without. Mark each with what format I need the answer in ("link," "attached file," "2-3 sentences").
+2. TASTE & DIRECTION (4-5 questions) — questions that extract preferences without letting them pre-design the solution. Use "show me" questions (examples they love/hate) over "describe" questions.
+3. LOGISTICS (3-4 questions) — approval chain, preferred communication channel, response-time expectations, blackout dates.
+4. ONE OPEN DOOR — a final question that invites them to say the thing they've been holding back.
+
+Add a 2-sentence intro I can paste above it explaining why filling this in completely makes their project faster and cheaper.
+```
+
+### 12. Should I Take This Project?
+**Use when:** You're torn about an opportunity and want a structured decision instead of a gut spiral at midnight.
+
+```
+Help me decide whether to take a project. Be a ruthless advisor, not a cheerleader.
+
+THE PROJECT: [DESCRIPTION, SCOPE, TIMELINE]
+THE MONEY: [FEE, PAYMENT TERMS] — my usual rate for comparable work is [COMPARISON]
+THE CLIENT: [WHAT YOU KNOW: SIZE, VIBE, HOW THEY TREATED YOU SO FAR]
+MY SITUATION: [PIPELINE, RUNWAY, ENERGY LEVEL, WHAT ELSE COMPETES FOR THIS TIME]
+MY HESITATION: [THE THING NAGGING AT YOU]
+WHAT WOULD MAKE IT WORTH IT: [MONEY? PORTFOLIO? RELATIONSHIP? LEARNING?]
+
+Analyze:
+1. Score the project 1-10 on: pay vs. effort, portfolio value, client quality signals, strategic fit with where I want my business in 2 years, and opportunity cost. Justify each score from my details.
+2. Name the strongest argument FOR taking it and the strongest argument AGAINST — steelman both.
+3. Interrogate my hesitation: is it a real risk signal or ordinary fear? What evidence distinguishes them here?
+4. Give me a verdict: take it, take it only if [specific renegotiated terms], or pass. If "take it only if," write the exact ask.
+```
+
+### 13. Stakeholder Map & Approval Chain
+**Use when:** More than one person is involved on the client side and you need to know who actually decides before you scope review rounds.
+
+```
+I'm scoping a project for a client with multiple people involved. Here's who I've met or heard mentioned, and anything I know about them:
+
+[LIST PEOPLE: NAME/ROLE + ANY OBSERVATIONS, e.g. "Dana, marketing manager, my main contact, seems junior" / "the CEO 'likes to see everything before it ships'"]
+
+Map the political terrain:
+1. Classify each person: Economic Buyer (controls money), Decider (final yes/no on the work), Day-to-Day (my contact), Influencer (opinion matters, no formal power), Ghost (mentioned but never present — often the most dangerous).
+2. Identify the gap: whose approval does my current contact NOT control? Where could work get reversed late by someone who wasn't in the reviews?
+3. Give me 3 questions to ask my contact that reveal the real approval chain without sounding like I distrust them.
+4. Recommend contract/process protections for this specific structure — e.g. "one consolidated feedback round" clauses, requiring the Decider at two named milestones, or a per-round revision fee after N rounds.
+```
+## Pricing & Negotiation
+
+### 14. Three-Tier Project Quote Builder
+**Use when:** You're pricing a project and want good/better/best options that steer the client toward the middle.
+
+```
+Build a three-tier quote for this project. I'm a freelance [YOUR DISCIPLINE].
+
+THE PROJECT: [SCOPE FROM DISCOVERY]
+MY TARGET PRICE (the one I actually want them to pick): [$X]
+MY FLOOR (below this I resent the project): [$Y]
+WHAT THE CLIENT SEEMS TO CARE MOST ABOUT: [SPEED / QUALITY / HAND-HOLDING / OUTCOME]
+
+Construct:
+1. TIER 1 (anchor-low): a stripped version at roughly my floor. Remove things the client will genuinely miss — support, revisions, extras — so it's honest but visibly bare. Never cripple the core deliverable.
+2. TIER 2 (the target): my target price. This is the "obviously right" choice — write it so Tier 1 feels risky and Tier 3 feels indulgent by comparison.
+3. TIER 3 (anchor-high): 1.7-2.2x the target, adding genuinely valuable expansion (strategy, extra deliverables, priority access) so it anchors high without being a joke tier.
+
+For each tier: a name (evocative, not "Basic/Pro/Premium"), price, included deliverables, what's excluded, and a one-line "best for" description. Then write the 3-sentence framing paragraph that introduces the tiers in my proposal, and tell me which tier to present first and why.
+```
+
+### 15. Hourly → Fixed-Price Conversion
+**Use when:** You want to stop selling hours and start pricing the project — without accidentally cutting your own income.
+
+```
+Help me convert from hourly billing to a fixed project price.
+
+THE PROJECT: [SCOPE]
+MY HOURLY RATE: [$X/hr]
+MY HONEST ESTIMATE: [Y HOURS], but similar projects have actually taken me [Z HOURS or "I don't track — estimate for me based on the scope"]
+VALUE TO THE CLIENT: [WHAT THIS PROJECT MAKES OR SAVES THEM, IF KNOWN — e.g. "the site sells a $2,000 service; two extra clients a month pays for it"]
+
+Work through:
+1. COST FLOOR: hours × rate, with a 25-40% overrun buffer (justify the % you pick from my project type).
+2. VALUE CEILING: what this outcome is plausibly worth to the client. If I gave you value info, use it; if not, list the 3 questions that would reveal it.
+3. THE PRICE: recommend a fixed price between floor and ceiling, and explain the reasoning in words I could confidently repeat on a call.
+4. RISK CONTROLS: since fixed-price shifts overrun risk to me, specify the scope boundaries, revision limits, and change-order language this price depends on.
+5. THE SENTENCE: exactly how to state this price to a client who's used to hearing my hourly rate, pre-empting "but how many hours is that?"
+```
+
+### 16. Rate Increase Letter to Existing Clients
+**Use when:** Your rates are going up and you need to tell current clients without apologizing or losing the good ones.
+
+```
+Write a rate increase announcement for my existing clients.
+
+WHAT I DO FOR THEM: [SERVICE]
+CURRENT RATE: [$X] → NEW RATE: [$Y] (a [Z]% increase)
+EFFECTIVE: [DATE — give at least 30-60 days]
+LAST INCREASE: [WHEN, OR "never"]
+RELATIONSHIP: [e.g. "3 years, always pays on time, I want to keep them"]
+WHAT'S IMPROVED SINCE THEY STARTED: [SKILLS, RESULTS, DEMAND — ammunition, even if I don't use it all]
+
+Rules for the letter:
+- No apologizing, no "due to rising costs" excuses, no justifying paragraph that invites debate. One confident sentence of context maximum.
+- Lead with appreciation that names something real about working with them.
+- State the new rate and date plainly.
+- Include a loyalty bridge: existing rate honored until [DATE] or for [current project], framed as a courtesy, not a negotiation opener.
+- Close in a way that assumes continuation ("looking forward to..."), not one that asks permission ("I hope this is okay").
+- Under 150 words.
+
+Then give me: (a) a two-line version for a client I'd honestly be fine losing, and (b) my response script if a client replies "we can't afford that."
+```
+
+### 17. Answering "That's Too Expensive"
+**Use when:** A prospect pushed back on your price and you want to respond without discounting or groveling.
+
+```
+A prospect just told me my price is too expensive. Help me respond.
+
+MY QUOTE: [$X] for [SCOPE]
+THEIR EXACT WORDS: "[PASTE — the phrasing matters]"
+WHAT I KNOW ABOUT THEIR BUDGET/SITUATION: [ANY SIGNALS]
+HOW MUCH I WANT THIS PROJECT, HONESTLY: [1-10 AND WHY]
+
+First, diagnose from their exact wording which objection this really is:
+(a) sticker shock but the money exists, (b) genuine budget ceiling, (c) they don't yet see the value, (d) negotiation theater from someone who always haggles, or (e) comparing me to a cheaper alternative.
+
+Then write a response for the most likely diagnosis, following these rules:
+- Never lower the price for the same scope. If we cut price, we cut scope, and the response should offer exactly that trade.
+- No defensiveness, no ten-line value justification. Two or three calm sentences that hold the frame.
+- End with a question or option that keeps the conversation alive.
+
+Also give me the response for my second-most-likely diagnosis, and one line I should absolutely NOT say (the reflexive thing freelancers blurt out that instantly weakens their position in this exact situation).
+```
+
+### 18. The Scope-Not-Price Discount Counter
+**Use when:** A client asks for a discount and you want ready-made trades that protect your rate.
+
+```
+A client wants a discount. Build my counter-offer menu.
+
+THE PROJECT: [SCOPE] quoted at [$X]
+THEIR ASK: [WHAT THEY SAID — amount or percentage if given]
+MY MARGIN REALITY: [e.g. "quote has ~15% cushion" / "this is already lean"]
+
+Generate a trade menu — every option keeps my effective rate intact:
+1. SCOPE TRADES: 3 specific things to remove from this project and the new price for each. Pick removals the client can genuinely live without or do themselves.
+2. TIMELINE TRADE: a price for letting me schedule this in my slow periods over [LONGER TIMEFRAME].
+3. PAYMENT TRADE: a small discount (max 3-5%) for 100% payment upfront — the only pure discount ever worth giving, and why.
+4. TERMS TRADES: what they could give me that costs them little but is worth money to me (case study rights, a testimonial commitment, referral introductions, portfolio usage) — and roughly how much each is worth as a concession.
+
+Then write the reply email: acknowledges their constraint respectfully, presents 2-3 of the best options for THIS situation, and holds the line with the phrase "the price reflects the scope, so let's adjust the scope" somewhere natural.
+```
+
+### 19. Stating Your Price Out Loud
+**Use when:** You have a call coming where you'll say the price in real time, and you don't want your voice to do the thing where it goes up at the end.
+
+```
+Coach me on delivering my price on a live call.
+
+THE PRICE: [$X] for [PROJECT]
+THE CLIENT: [WHO, AND ANY POWER-DYNAMIC NOTES — e.g. "big company, I feel junior" / "friend of a friend"]
+MY FAILURE MODE: [WHAT YOU DO UNDER PRESSURE — e.g. "I keep talking after the number" / "I offer a discount before they even react"]
+
+Give me:
+1. THE SETUP LINE: one sentence that comes right before the number, framing it in outcome terms ("For [the result], the investment is...").
+2. THE NUMBER ITSELF: exact wording. Flat tone notes. Then the hardest instruction: what I do in the 5 seconds after (silence — script what that silence looks like and why it works).
+3. REACTION BRANCHES: my exact next line for each of the four most common responses: (a) "okay, that works," (b) silence/thinking, (c) "that's more than we expected," (d) "can you do it for [lower number]?"
+4. MY FAILURE MODE COUNTERMEASURE: a specific physical or verbal tactic against the failure mode I named.
+5. A 60-second rehearsal drill I can do before the call.
+```
+
+### 20. Retainer Proposal Builder
+**Use when:** A client keeps coming back with one-off requests and you want to convert them to a monthly retainer.
+
+```
+Help me pitch a retainer to an existing client.
+
+THE CLIENT: [WHO, HOW LONG WE'VE WORKED TOGETHER]
+THEIR PATTERN: [WHAT THEY KEEP ASKING FOR AND ROUGHLY HOW OFTEN, e.g. "2-3 design requests a month, always urgent, always ad-hoc"]
+WHAT THEY'VE SPENT WITH ME RECENTLY: [ROUGH MONTHLY AVERAGE IF YOU KNOW IT]
+MY GOAL: [e.g. "$2,500/month predictable income, less context-switching"]
+
+Build:
+1. THE RETAINER STRUCTURE: recommend hours-based, deliverables-based, or access-based for this pattern — explain the choice and the classic failure of each model so I know what I'm signing up for.
+2. THE NUMBER: a monthly price that's a modest discount to their ad-hoc spending but buys me predictability. Show the math I can share with them and the math I keep to myself.
+3. ROLLOVER & BOUNDARIES: exact policy for unused capacity, overage, response times, and cancellation notice (protect me with a 30-day minimum).
+4. THE PITCH EMAIL: short, framed entirely around THEIR pains (queue-jumping, priority access, predictable budgeting, no more per-project negotiation), not my desire for stable income. End with a soft close proposing a 3-month trial.
+```
+
+### 21. Rush Fee Policy & Delivery
+**Use when:** A client wants it yesterday and you need to charge for the chaos without sounding punitive.
+
+```
+A client wants a rush job. Help me price and communicate it.
+
+THE REQUEST: [WHAT THEY WANT]
+NORMAL TIMELINE for this work: [X] — they want it in: [Y]
+WHAT I'D HAVE TO SACRIFICE: [EVENINGS/WEEKEND/OTHER CLIENTS' SLOTS/SLEEP]
+MY NORMAL PRICE for this scope: [$Z]
+
+Give me:
+1. THE MULTIPLIER: recommend a rush premium (typically 25-100%) calibrated to how compressed the timeline is and what I'm sacrificing. Justify the number so I believe it myself.
+2. THE FRAMING: wording that presents the fee as priority scheduling — "moving your project to the front of the line" — never as a penalty or a complaint about my workload.
+3. THE EMAIL: confirms I CAN do it (lead with capability), states the rush price and the one condition that makes the deadline achievable (e.g. "feedback within 4 hours of each draft," "content finalized before I start"), and offers the standard-timeline price as the alternative so they feel choice, not pressure.
+4. THE BOUNDARY: what I say if they want the rush timeline without the rush fee. One firm, friendly sentence.
+```
+
+### 22. The Cheaper Competitor Response
+**Use when:** The client says someone else will do it for half your price.
+
+```
+A prospect told me: "[THEIR WORDS — e.g. 'we got another quote for $800 and yours is $2,400']"
+
+CONTEXT: [PROJECT, WHO THE CHEAP ALTERNATIVE LIKELY IS — offshore agency, junior freelancer, their nephew, a template]
+MY HONEST ADVANTAGE: [WHAT I ACTUALLY DO BETTER — be concrete, not "quality"]
+
+Write my response using this logic:
+1. Never trash the competitor. Open by taking the comparison seriously — "for some projects, that's the right choice" — because generosity here reads as confidence.
+2. Articulate the difference as risk and outcome, not effort: what does the cheap version tend to cost later? Make this concrete to THIS project type — missed deadlines, revisions that never end, work that has to be redone, no strategy underneath it.
+3. Give them a genuine decision framework: "if [X] is true for you, take the cheaper option; if [Y] matters, that's what my price covers." Meaning it is what makes it persuasive.
+4. Close without chasing. One line that leaves the door open and signals I'll be fine either way.
+
+Keep it under 170 words. Then give me the one-sentence version for when this happens live on a call.
+```
+
+### 23. The "What's Your Rate?" Cold Reply
+**Use when:** A stranger emails asking your rate with zero project details, and you don't want to anchor low or scare them off.
+
+```
+Someone emailed me: "[PASTE — typically 'Hi, what do you charge for a logo/website/article?']"
+
+I'm a freelance [DISCIPLINE]. My projects realistically run [$X-$Y].
+
+Write a reply that:
+1. Never gives a single number to an unscoped project — but never dodges either, because pure deflection ("it depends!") loses busy buyers. Give the honest RANGE with one sentence on what moves a project toward each end.
+2. Asks exactly TWO questions — the two that best determine where in the range they'd land for my discipline.
+3. Offers a 15-minute call as the fast path to a real number.
+4. Includes one credibility marker (a result or client type) woven in naturally, max one sentence.
+5. Total length: under 110 words. Busy people wrote a one-line email; they'll read a short answer.
+
+Then write the variant for when the inquiry smells like rate-shopping spam (generic, no name, clearly mass-sent) — even shorter, range plus one qualifying question, zero call offer.
+```
+
+### 24. Am I Underpricing? Audit
+**Use when:** You suspect your rates are low but have no objective way to check.
+
+```
+Audit my pricing. Be direct — if I'm underpricing, say so plainly and quantify it.
+
+WHAT I DO: [DISCIPLINE + SPECIALTY]
+EXPERIENCE: [YEARS, NOTABLE CLIENTS/RESULTS]
+MY CURRENT PRICING: [RATES/PROJECT PRICES WITH 2-3 RECENT EXAMPLES: what I charged, hours it actually took]
+LOCATION/MARKET: [WHERE YOU AND YOUR CLIENTS ARE]
+DEMAND SIGNALS: [HOW OFTEN YOU'RE BOOKED, DO PROSPECTS EVER PUSH BACK ON PRICE, HOW FAST DO THEY SAY YES]
+
+Analyze:
+1. EFFECTIVE HOURLY: compute my real hourly from the project examples, including a realistic estimate of the unbilled overhead (calls, revisions, admin) I probably didn't count.
+2. DEMAND DIAGNOSIS: interpret my demand signals. Fast yeses and no pushback = a known symptom of underpricing — tell me honestly what my signals say.
+3. MARKET POSITION: given my experience and market, estimate the realistic band for someone with my profile and where I sit in it. State your uncertainty honestly.
+4. THE COSTS I'M IGNORING: taxes, gaps between projects, unpaid business development, equipment, insurance — what does my rate need to cover that an employee's salary doesn't?
+5. VERDICT & MOVE: a specific new number or range, whether to raise on new clients only or across the board, and the first concrete step this week.
+```
+
+### 25. Negotiation Sparring Partner
+**Use when:** You have a high-stakes pricing conversation coming and want to practice against a realistic opponent first.
+
+```
+Role-play a pricing negotiation with me. You play the client; I play myself.
+
+THE SETUP: I'm quoting [$X] for [PROJECT] to [CLIENT DESCRIPTION]. The conversation happens [ON A CALL / OVER EMAIL].
+THE CLIENT'S STYLE: [PICK ONE OR DESCRIBE: budget-anxious startup founder / procurement professional who negotiates everything / friendly person who uses warmth as leverage / executive who goes silent to make me squirm]
+
+Rules of the game:
+- Stay in character. Use the real tactics this client type uses: anchoring low, flinching at my number, "we had a cheaper quote," strategic silence, warmth-then-squeeze, "can you just throw in..."
+- Push realistically hard, but concede the way real clients do when I hold the frame well.
+- After every 3 exchanges, break character for a COACHING NOTE: rate my last responses, flag any spot where I apologized, over-explained, discounted unprompted, or filled a silence — then resume.
+- If I cave on price without getting anything in return, stop the game immediately and show me what I should have said.
+
+Start the negotiation with your opening message as the client.
+```
+
+### 26. Deposit & Milestone Terms Negotiation
+**Use when:** A client balks at paying anything upfront and you need to negotiate payment structure, not just price.
+
+```
+A client is resisting my payment terms. Help me negotiate structure.
+
+MY STANDARD TERMS: [e.g. 50% upfront, 50% on delivery]
+THE PROJECT: [$X TOTAL, Y WEEKS]
+THEIR OBJECTION: "[WHAT THEY SAID — e.g. 'company policy is net-45 after completion' / 'we've been burned paying deposits before']"
+THE CLIENT: [SMALL BUSINESS / CORPORATE WITH PROCUREMENT / INDIVIDUAL]
+
+Provide:
+1. DIAGNOSIS: is this objection about cash flow, trust, or bureaucracy? Each has a different correct response — identify which from their wording and client type.
+2. FALLBACK LADDER: my terms ranked best to worst acceptable, e.g. 50/50 → 40/30/30 milestones → 25% deposit + net-15 milestones → smaller "phase 1" paid in full as a trust-builder. For each rung: the one condition I attach in exchange for the concession (late-payment interest, kill fee, work pauses until milestone clears).
+3. THE FLOOR: the structure below which I walk away — and state plainly why 100%-on-completion for a [X]-week project transfers all the risk to me.
+4. THE REPLY: an email meeting them at the most likely diagnosis, offering ONE step down the ladder (never show the whole ladder), trust-framed rather than distrust-framed.
+```
+## Proposals & Contracts Red-Flag Review
+
+### 27. Scope Notes → Winning Proposal
+**Use when:** You need to turn your scoping work into a proposal that reads like a plan, not a menu.
+
+```
+Write a project proposal from my notes. I'm a freelance [DISCIPLINE].
+
+CLIENT & THEIR GOAL: [WHO, AND THE BUSINESS OUTCOME THEY WANT, IN THEIR WORDS IF POSSIBLE]
+SCOPE: [DELIVERABLES LIST]
+PRICE: [$X, STRUCTURED AS: PAYMENT TERMS]
+TIMELINE: [DURATION/DATES]
+WHY THEY SHOULD PICK ME: [RELEVANT EXPERIENCE/RESULTS — raw notes fine]
+
+Structure it exactly like this:
+1. THE SITUATION (3-4 sentences): their problem and what it's costing them, written so they think "this person gets it." Their words, mirrored back sharper.
+2. THE APPROACH (short): how I'll attack it, in phases with plain-language names. Confidence over methodology-speak.
+3. DELIVERABLES: numbered, concrete, countable. Include the revision allowance per deliverable.
+4. TIMELINE: phase by phase, with the client's obligations (feedback windows, content delivery) shown as line items — their deadlines matter too, and this plants that flag early.
+5. INVESTMENT: the price stated once, cleanly, after value has been established. No per-hour breakdowns that invite line-item haggling.
+6. NEXT STEP: exactly one action, with a proposal expiry date (2-3 weeks) framed around scheduling, not pressure.
+
+Rules: no "I'm passionate about," no "in today's fast-paced world," no third-person bio padding. Every sentence either builds confidence or moves toward yes. Keep it under 700 words.
+```
+
+### 28. Proposal Opening Rewrite
+**Use when:** Your proposal opens with "Thank you for the opportunity..." and you know it deserves better.
+
+```
+Rewrite my proposal's opening section. Here's the current version:
+
+[PASTE YOUR CURRENT OPENING]
+
+Context: the client is [WHO] and their real problem is [THE BUSINESS PAIN BEHIND THE PROJECT]. Something specific they said to me: "[QUOTE FROM CALL/EMAIL]"
+
+Rewrite rules:
+- First sentence names THEIR situation, not my gratitude. Delete every "thank you for the opportunity" reflex.
+- Use their quoted phrase (or a sharpened version of it) within the first three sentences — clients trust proposals that sound like the conversation they just had.
+- Include one sentence that names the cost of not solving this, without fear-mongering.
+- End the opening with a one-sentence preview of my approach that creates momentum into the next section.
+- 5 sentences maximum.
+
+Give me 2 versions: one confident-warm, one confident-direct. Then tell me which fits better given what I told you about this client.
+```
+
+### 29. Client Contract Red-Flag Review
+**Use when:** A client sent their own contract and you need to know what you'd be signing before you sign it.
+
+```
+Review this contract a client sent me. I'm a freelance [DISCIPLINE] based in [LOCATION]; they're in [THEIR LOCATION]. You're not my lawyer and this isn't legal advice — you're my first-pass reviewer telling me where to look hard and what to push back on before I decide if it needs a real lawyer.
+
+[PASTE CONTRACT TEXT]
+
+Go through it clause by clause and flag, in order of severity:
+
+1. DEALBREAKERS: clauses I should refuse outright — unlimited liability, unlimited revisions, IP transferring before payment, non-competes that block my livelihood, indemnification for things outside my control, "work until client satisfaction" language.
+2. NEGOTIATE: clauses that are fixable — quote the problem text verbatim, explain the risk in one plain sentence, and DRAFT the replacement language I should propose.
+3. MISSING: standard protections absent from this contract — kill fee, late-payment terms, revision limits, my portfolio rights, limitation of liability, what happens if THEY delay.
+4. SLEEPERS: anything written to look routine that isn't — auto-renewals, exclusivity, moral rights waivers, venue/jurisdiction placing disputes in an inconvenient court, "time is of the essence" clauses.
+
+Finish with a verdict: sign as-is / sign after the listed changes / worth paying a lawyer to review / walk away. And draft the short, friendly email requesting the changes, framed as standard practice rather than distrust.
+```
+
+### 30. IP & Work-for-Hire Clause Decoder
+**Use when:** The contract has ownership language you half-understand, and your future portfolio and income depend on it.
+
+```
+Explain the IP implications of this clause from a client contract. I'm a freelance [DISCIPLINE] in [COUNTRY]. Not legal advice — practical decoding so I know what I'm giving away and what to ask a lawyer if needed.
+
+THE CLAUSE: "[PASTE THE OWNERSHIP/IP LANGUAGE VERBATIM]"
+
+Tell me:
+1. PLAIN ENGLISH: what this clause actually transfers, and precisely WHEN ownership moves (on creation? on payment? on "acceptance"? — flag it hard if IP transfers before I've been paid).
+2. WHAT I LOSE: specifically — can I show this in my portfolio? Reuse my own code/templates/design systems built during the project? Work for their competitors? Get credited?
+3. WHAT'S NORMAL: is this standard for my discipline, aggressive, or unusually generous? What do experienced freelancers in my field typically negotiate here?
+4. THE PROTECTIVE EDITS: draft 2-3 modifications — an IP-transfers-on-full-payment condition, a portfolio-rights carve-out, and a "pre-existing tools and materials remain mine, client gets a license" clause — in language I can paste into an email.
+5. PRICE TAG: if they insist on the aggressive version, what should full IP transfer with no carve-outs cost them? Give me the rule of thumb and the sentence to say it with.
+```
+
+### 31. Kill Fee & Cancellation Clause Drafting
+**Use when:** You want protection for the project that dies halfway through — before it happens.
+
+```
+Draft a kill fee / cancellation clause for my freelance contract. Not legal advice — a strong draft to adapt or hand to a lawyer.
+
+MY WORK: [DISCIPLINE — matters because a half-done logo and a half-done codebase have different salvage value]
+TYPICAL PROJECT: [$X over Y WEEKS], paid [YOUR PAYMENT STRUCTURE]
+MY FEAR SCENARIO: [e.g. "client's company pivots in week 3 and they vanish" / "new CMO arrives and kills everything in flight"]
+
+Draft clause language covering:
+1. CLIENT CANCELS: a stepped kill fee — e.g. before work starts: deposit retained; during phase 1: [%]; after midpoint: [%] — with numbers appropriate to my project shape, and the reasoning for each step.
+2. CLIENT GOES SILENT: define abandonment (no substantive response for [X] days), what happens (project closes, work-to-date invoiced, restart requires a new fee) — this clause matters MORE than cancellation because silence is more common than honesty.
+3. WHAT THEY GET: which materials/rights transfer at each cancellation stage, tied explicitly to payment received.
+4. I CANCEL: fair exit terms for me (illness, client breach, abusive conduct) that don't leave me owing damages.
+
+Write it in firm-but-readable contract language, then give me the 2-sentence plain-English version for when a client asks "what's this kill fee thing?"
+```
+
+### 32. Revision Limits That Actually Hold
+**Use when:** You're tired of "one more small tweak" and want revision language with real edges.
+
+```
+Write revision-limit language for my contracts and proposals. My problem: [DESCRIBE YOUR PATTERN, e.g. "clients treat 'two rounds of revisions' as two months of drip-fed tweaks"].
+
+MY WORK: [DISCIPLINE + TYPICAL DELIVERABLES]
+
+Draft:
+1. THE DEFINITION: contract language that defines what ONE revision round IS — consolidated feedback from all stakeholders, delivered within [X] business days of receiving the draft, in one document/thread. The definition is the whole game; make it airtight against drip-feeding, new-stakeholder-appears syndrome, and "just one more thing."
+2. THE SCOPE EDGE: language distinguishing a revision (adjusting what was made) from a change (new direction/new requirements) — with 2 concrete examples from my discipline of each, because clients genuinely can't tell the difference until it's shown to them.
+3. THE OVERAGE: what round 3+ costs ([$X per round / hourly]) and how I notify before charging, so it never feels like a gotcha.
+4. THE PROPOSAL VERSION: 2 friendly sentences translating all of the above for the proposal document, positive framing ("this keeps your project on schedule").
+5. THE IN-FLIGHT SCRIPT: what I say the FIRST time a client sends feedback that violates the definition — because enforcement on the first violation, gently, is what makes the clause real.
+```
+
+### 33. Late-Payment Terms Drafting
+**Use when:** You want contract terms that make paying you late annoying and expensive — legally and gracefully.
+
+```
+Draft late-payment protection for my freelance contracts. Not legal advice — a solid draft to adapt. I'm in [LOCATION]; most clients are in [LOCATION(S)].
+
+CURRENT SITUATION: my invoices say [YOUR CURRENT TERMS, e.g. "net-30, no penalty"] and clients pay [YOUR REALITY, e.g. "45-70 days, I chase every one"].
+
+Draft:
+1. PAYMENT TERMS CLAUSE: due date (recommend net-14 or net-15 for freelance work and tell me why net-30 is an agency convention I don't have to inherit), accepted methods, and who eats transfer/processing fees.
+2. LATE FEE CLAUSE: interest or flat late fee with a legally-common structure for my location (e.g. monthly % on overdue balance), including the grace mechanics. Flag anything I must verify against local law — including whether my jurisdiction has late-payment statutes that give me MORE than my draft (e.g. statutory interest for B2B invoices in much of Europe).
+3. WORK STOPPAGE CLAUSE: my right to pause current work and withhold deliverables/IP when an invoice is [X] days overdue — drafted so invoking it is a mechanical consequence, not a personal escalation.
+4. DEPOSIT NON-REFUNDABILITY: one clean sentence.
+5. THE SOFTENER: how to present these terms to a new client in one friendly sentence — firm terms, warm delivery ("standard terms — they just keep everything predictable").
+```
+
+### 34. Contract vs. Contract Conflict Finder
+**Use when:** You sent your contract, they sent theirs back, and now there are two documents saying different things.
+
+```
+I sent a client my standard contract; they responded with their own (or a heavily edited version of mine). Find every conflict. Not legal advice — a working comparison so I know what to negotiate.
+
+MY VERSION: [PASTE]
+THEIR VERSION: [PASTE]
+
+Produce:
+1. CONFLICT TABLE: every point where the documents disagree — topic, my language, their language, and who the difference favors. Include subtle ones: changed deadlines hidden in definitions, "may" swapped to "shall," approval rights quietly added.
+2. WHAT THEY DELETED: anything from my version that vanished entirely — deletions are the loudest signal of what they intend to exploit.
+3. WHAT THEY ADDED: new clauses of theirs, each rated harmless / negotiate / dealbreaker with one-line reasoning.
+4. PRIORITY LIST: if I can only win 3 points in negotiation, which 3, and why those protect me most.
+5. THE RESPONSE EMAIL: professional, non-adversarial, accepting the harmless changes by name (goodwill is currency), pushing back on the priority items with proposed compromise language.
+```
+
+### 35. Plain-English Contract Summary for the Client
+**Use when:** You want the client to actually understand your contract — because informed clients dispute less later.
+
+```
+Turn my contract into a plain-English summary I can send alongside it. Clients who understand the terms upfront don't fight them in month two — that's the goal.
+
+[PASTE YOUR CONTRACT]
+
+Write "The Short Version" — a one-page companion:
+- 8-12 bullet points covering: what I deliver, what it costs and when payment happens, how revisions work, what each of us owns and when, what happens if either side cancels, and how long things take.
+- Each bullet: one sentence, second person ("You own the final designs once the final invoice is paid").
+- Include the 2-3 terms clients most often trip on later (revision limits, kill fee, late fees) with a one-line WHY for each — reasons make terms feel fair instead of hostile.
+- Tone: a competent friend explaining, not a lawyer hedging.
+- Header line: "This summary is for convenience — the signed agreement is the binding document."
+
+Then flag anything you noticed while summarizing that seems unclear or contradictory in my actual contract, because clients won't be the only ones reading it fresh.
+```
+
+### 36. Objection-Proofing Your Proposal
+**Use when:** You're about to send a proposal and want to answer the client's doubts before they become a "we went another direction" email.
+
+```
+Here's a proposal I'm about to send:
+
+[PASTE PROPOSAL]
+
+The client: [WHO, PLUS ANY HESITATIONS OR COMPETITIVE PRESSURES YOU SENSED DURING SCOPING]
+
+Attack it like the client's most skeptical stakeholder — the person who wasn't on the discovery call and only sees this document:
+1. LIST THE OBJECTIONS: the 5-7 doubts this specific reader would raise — price justification, timeline credibility, "what if we don't like it," "why this freelancer over an agency," missing proof, unclear ownership.
+2. FIND THE GAPS: which objections does the proposal currently leave unanswered? Where does my own language accidentally CREATE doubt (hedge words, vague deliverables, unexplained numbers)? Quote the offending lines.
+3. PATCH IT: for each gap, either draft the 1-3 sentences to add (and say where), or give me a line for a short "Questions you might have" section — 3-4 Q&As max, answering the real objections in a confident voice.
+4. THE CUT LIST: anything in the proposal that adds length without adding confidence. Proposals lose deals by boring people, too.
+```
+
+### 37. NDA Rapid Review
+**Use when:** A client says "just sign this NDA first" and you want to know if it's routine or a trap.
+
+```
+Review this NDA before I sign it. I'm a freelance [DISCIPLINE]. Not legal advice — a triage: is this a standard mutual NDA or does it smuggle in something worse?
+
+[PASTE NDA]
+
+Check specifically:
+1. DIRECTION: mutual or one-way? If one-way (only I have obligations), flag it and explain what a mutual version would change.
+2. SCOPE OF "CONFIDENTIAL": is the definition bounded, or does it cover "any information disclosed" forever? Flag missing standard exclusions (publicly known info, independently developed work, prior knowledge).
+3. SMUGGLED CLAUSES: NDAs are where non-competes, non-solicits, IP assignments, and "no similar work for competitors" clauses hide. Search hard; quote anything found. An NDA that assigns IP is not an NDA.
+4. DURATION & REACH: how long, and is it survivable for my career? Can I still say I worked with them? (Portfolio silence clauses cost real money — flag them.)
+5. TEETH: injunctive relief, liquidated damages, fee-shifting — anything that makes breach catastrophically expensive for a freelancer.
+
+Verdict: sign / request specific edits (draft them) / this needs a lawyer. Then the polite one-paragraph email for the edits, noting that pushing back on an NDA is normal and won't kill the deal.
+```
+
+### 38. One Client, Many Projects: MSA + SOW Setup
+**Use when:** A client keeps sending you projects and every one restarts contract negotiation from zero.
+
+```
+Help me set up a Master Services Agreement + Statement of Work structure for a repeat client. Not legal advice — a working draft and a decision framework.
+
+THE RELATIONSHIP: [CLIENT, HOW MANY PROJECTS SO FAR, TYPICAL PROJECT SIZE/SHAPE]
+CURRENT PAIN: [e.g. "every project re-litigates payment terms" / "scope agreements live in email threads"]
+
+Provide:
+1. THE SPLIT: which terms belong in the MSA (signed once: payment terms, IP framework, liability, confidentiality, termination, dispute resolution) vs. each SOW (per project: deliverables, price, timeline, revision counts, acceptance criteria). Give me the actual allocation as two lists tailored to my work.
+2. MSA SKELETON: draft the 8-10 core clauses in clean, readable language, freelancer-protective on the points that matter (IP transfers on payment, net-15, work stoppage rights).
+3. SOW TEMPLATE: a one-page fill-in template I can complete in 15 minutes per project, with an explicit "this SOW is governed by our MSA dated [DATE]" hook.
+4. PRECEDENCE: one clause establishing which document wins if they conflict, and a plain explanation of why I want the SOW to win on scope but the MSA to win on legal terms.
+5. THE PITCH: 3 sentences selling this to the client as faster starts and less paperwork — because it is.
+```
+
+### 39. Proposal Follow-Up Sequence
+**Use when:** You sent the proposal, it's been quiet, and you want follow-ups that add pressure-free value instead of "just checking in."
+
+```
+Write me a 3-email follow-up sequence for a proposal that's gone quiet.
+
+THE PROPOSAL: [PROJECT + PRICE] sent to [CLIENT] on [DATE]
+LAST SIGNAL: [e.g. "they said 'looks great, reviewing with my partner'" / "read receipt, then nothing"]
+THEIR STATED TIMELINE: [ANY URGENCY THEY EXPRESSED DURING SCOPING]
+PROPOSAL EXPIRY: [DATE IF YOU SET ONE]
+
+The sequence — each email must give them something, never just ask:
+1. EMAIL 1 (day 3-4): short, assumes good faith, adds ONE new piece of value — an idea I had since we talked, a relevant example, an answer to a question they raised. Ends with a specific, easy-to-answer question (not "any thoughts?").
+2. EMAIL 2 (day 8-10): gently surfaces the real blocker. Offer the out loud: "If the timing's changed or the budget's the sticking point, tell me straight — there may be a smaller way to start." Naming the awkward thing is what gets replies.
+3. EMAIL 3 (day 15-18): the clean close-out. Two sentences: I'm releasing the reserved slot on [DATE], door stays open after. Confident, warm, zero guilt-tripping — its calm is exactly what makes it the sequence's highest-converting email.
+
+Each: subject line + body under 90 words. Then tell me the reply-rate-killing phrase freelancers put in follow-ups that I must never use ("just checking in," "bumping this," "I know you're busy" — and why each one lowers my status).
+```
+## Difficult Clients & Scope Creep
+
+### 40. The Scope Creep Flag (First Offense)
+**Use when:** The client just asked for something outside scope, and how you respond right now sets the pattern for the whole project.
+
+```
+A client just asked for something outside our agreed scope. Draft my response.
+
+AGREED SCOPE: [WHAT THE CONTRACT/PROPOSAL SAYS, RELEVANT PART]
+THE NEW ASK: "[THEIR REQUEST, VERBATIM]"
+EFFORT IT WOULD TAKE: [YOUR ESTIMATE]
+RELATIONSHIP CONTEXT: [NEW CLIENT / LONG-TERM / ALREADY TESTED BOUNDARIES BEFORE]
+
+Write a reply using the "yes, and here's how" structure:
+1. Enthusiasm for the idea itself, one sentence, genuine ("Good thinking — that would help X").
+2. The boundary, stated as fact, not apology: "That's outside our current scope" — with a light reference to where the scope is written, so this is about the document, not my mood.
+3. The path: exactly what adding it costs ([$X or hours]) and what it does to the timeline, offered cheerfully. If it's genuinely trivial (under ~15 minutes), tell me to just do it — but include the one-line message that does it while still marking it as an extra ("Done! Easy one, so no charge — anything bigger and I'll quote it first").
+4. The choice handed back to them: add it now, park it for phase 2, or swap it for something in scope of similar size.
+
+Under 120 words. Then rate this specific ask: trivial-do-it, small-charge-it, or large-formal-change-order — and tell me which my situation is.
+```
+
+### 41. Change Order Generator
+**Use when:** The scope change is big enough to paper, and you want a document in minutes, not an evening.
+
+```
+Generate a change order document from these details:
+
+ORIGINAL PROJECT: [NAME/DESCRIPTION, ORIGINAL PRICE, ORIGINAL DEADLINE]
+THE CHANGE: [WHAT'S BEING ADDED/MODIFIED]
+IMPACT: [ADDED COST $X, TIMELINE SHIFT, ANYTHING DESCOPED IN TRADE]
+REQUESTED BY: [WHO, WHEN, HOW — "Dana, by email, March 4"]
+
+Produce a clean one-page change order:
+1. Reference line: change order #, date, original agreement date.
+2. DESCRIPTION OF CHANGE: what's being added, precisely — and just as precisely, what this change does NOT include (the sub-scope-creep clause; changes creep too).
+3. IMPACT: price delta, new total, new delivery date(s), payment timing for the delta (recommend: change order fees invoiced on approval, not at project end — and note why).
+4. RIPPLE: one line stating all other original terms stay in force.
+5. APPROVAL: signature/e-approval line with the sentence "work on this change begins on approval," so nothing starts on a verbal yes.
+
+Then write the 3-sentence email it rides in on: matter-of-fact, "here's the change order for what we discussed — once you approve, I'll fold it into the schedule." Normal-business tone; the paperwork should feel like professionalism, not friction.
+```
+
+### 42. The Micromanager Reset
+**Use when:** A client is checking in daily, redlining drafts mid-process, and managing you like an employee.
+
+```
+A client is micromanaging me and I need to reset the dynamic without losing them.
+
+THE BEHAVIOR: [SPECIFICS — e.g. "daily 'quick check-in' calls," "wants to see work in progress every day," "rewrites my drafts at 40% done," "Slack messages at all hours expecting fast replies"]
+THE PROJECT: [WHAT, HOW LONG LEFT]
+MY THEORY OF WHY: [ANXIETY? BURNED BEFORE? CONTROL HABITS? FIRST TIME HIRING A FREELANCER?]
+
+Give me:
+1. THE DIAGNOSIS: micromanagement is almost always anxiety wearing a process costume. From my specifics, what is this client afraid of, and what would make them feel safe WITHOUT daily access to me?
+2. THE STRUCTURED ALTERNATIVE: a communication cadence to propose that trades their constant access for scheduled certainty — e.g. a fixed weekly update (I'll draft its recurring format: done / next / need-from-you / risks), one standing call, and a defined channel + response-time promise for genuine urgencies.
+3. THE RESET EMAIL: frames the new cadence as an upgrade for THEM ("so you always know exactly where things stand — and I can put my head down on the work you're paying for"). Never scolds, never mentions the word "boundaries."
+4. THE ENFORCEMENT MOVES: my exact response the next time they ping outside the structure (redirect to the cadence, warmly), and the escalation script if the behavior survives two redirects.
+```
+
+### 43. Decoding "Make It Pop" Feedback
+**Use when:** Client feedback is vague, contradictory, or aesthetic hand-waving, and you need to extract something you can act on.
+
+```
+A client gave me feedback I can't act on. Help me decode it and get better input.
+
+THE DELIVERABLE: [WHAT THEY WERE REVIEWING]
+THEIR FEEDBACK, VERBATIM: "[PASTE — the vaguer the more accurately]"
+MY READ: [YOUR GUESS AT WHAT'S BOTHERING THEM, IF ANY]
+
+Do this:
+1. TRANSLATE: vague feedback is usually a real reaction without vocabulary. Give the 3 most likely things this client is actually responding to, based on what people typically mean by these words about this kind of deliverable.
+2. WRITE THE EXTRACTION QUESTIONS: 4-5 questions that get actionable direction WITHOUT asking them to be the expert ("Which of these two words feels closer to what you want: bolder, or calmer?"). Prefer forced choices, references ("show me one example that has the feeling you want"), and problem-location questions ("does this feeling apply to the whole thing or one part — which part?") over open-ended ones.
+3. DRAFT THE REPLY: takes the feedback seriously, embeds the 3 best questions, and proposes a concrete path ("answer these two and I'll have a revised version to you by [DAY]"). Never a whiff of "your feedback was useless."
+4. PREVENT THE SEQUEL: one change to how I PRESENT work that would pre-empt this — e.g. presenting with a rationale narrative, or giving them a feedback frame ("tell me: what should this make your customer feel?") before they respond.
+```
+
+### 44. Invoking the Revision Limit
+**Use when:** You're at the contractual revision limit and the client is winding up for round four.
+
+```
+My client has used their included revisions and wants more. Draft the conversation.
+
+THE CONTRACT SAYS: [YOUR REVISION TERMS, e.g. "two rounds of consolidated revisions included"]
+WHAT'S HAPPENED: [ROUNDS USED, AND THE DRIP — e.g. "round 2, then three separate 'one more tiny thing' emails"]
+THE NEW REQUEST: "[THEIR LATEST ASK]"
+MY OVERAGE RATE: [$X/ROUND or /HOUR — or "help me set one now"]
+RELATIONSHIP TEMPERATURE: [WARM / TENSE / THEY MAY NOT REALIZE THEY'RE OVER]
+
+Write:
+1. THE STATUS EMAIL: a warm, factual note that (a) recaps rounds used with dates — receipts, not accusations, (b) confirms the new request is doable, (c) states the overage cost from the contract as a routine mechanic, "exactly like adding pages to a print run," (d) offers the alternative: ship as-is now, bank the change for a later engagement. The client should feel informed, not busted.
+2. THE GRAY-ZONE RULE: some of their drip-asks were arguably fixes of MY errors, not revisions. Give me a clean personal rule for which drips count against rounds (my errors: free, always, cheerfully; their new opinions: rounds) and one sentence that communicates this distinction generously — it buys enormous goodwill.
+3. IF THEY PUSH BACK: my response to "but it's such a small change!" — two sentences, kind, immovable, pointing at the round-definition rather than the size of the ask.
+```
+
+### 45. De-escalating an Angry Client
+**Use when:** A client sent something hostile and you're typing a reply you'll regret.
+
+```
+A client sent me an angry message. Help me respond like the calmest person in the room.
+
+THEIR MESSAGE, VERBATIM: "[PASTE IT ALL — tone matters]"
+THE BACKSTORY: [WHAT LED HERE, INCLUDING ANYTHING THAT'S GENUINELY MY FAULT]
+WHAT'S TRUE / WHAT'S NOT: [WHICH OF THEIR CLAIMS ARE FAIR, WHICH ARE WRONG]
+WHAT I WANT: [SAVE THE RELATIONSHIP / FINISH AND EXIT / GET PAID AND OUT]
+
+Build my response:
+1. READ THE ANGER: what is this client actually afraid of under the heat (deadline exposure to THEIR boss, money fear, feeling ignored)? Anger at freelancers is usually fear wearing armor — name what it is here.
+2. THE REPLY, structured as: (a) acknowledge the legitimate part specifically and without groveling — one real sentence, not "I apologize for any inconvenience"; (b) correct the factual record on what's wrong, citing dates/documents, blame-free — "for clarity on the timeline:" not "actually, YOU"; (c) the plan: what I'll do, by when, and what I need from them; (d) if warranted, one proportionate goodwill gesture that doesn't set a precedent.
+3. THE RULES: no matching their energy, no sarcasm, no over-apologizing for things I didn't do (it reads as guilt and gets cited later), nothing I'd regret in a dispute — write it assuming their lawyer might read it someday.
+4. HOLD OR SEND: given the temperature, should this be email or a call I request by email? If call: give me the 4-line talking-points card instead.
+```
+
+### 46. Mid-Project Ghost Protocol
+**Use when:** The client vanished mid-project and your timeline, invoice, and sanity are hostage to their silence.
+
+```
+My client has gone silent mid-project. Draft my re-engagement sequence.
+
+THE PROJECT: [WHAT, HOW FAR ALONG, WHAT I'M BLOCKED ON — feedback? content? approval? payment?]
+SILENCE DURATION: [HOW LONG, AND WHAT MY LAST 1-2 MESSAGES SAID]
+MONEY STATE: [PAID SO FAR / OUTSTANDING]
+CONTRACT COVERAGE: [WHAT MY CONTRACT SAYS ABOUT DELAYS/ABANDONMENT, OR "nothing"]
+
+Write a 3-step sequence:
+1. THE EASY-OUT NUDGE (now): short, warm, assumes life happened. Ask ONE yes/no question a drowning person can answer from their phone in 5 seconds. Include the one-line "if priorities have shifted, that's genuinely fine — just tell me so I can plan."
+2. THE CONSEQUENCE NOTE (+5-7 days): still friendly, now concrete: on [DATE] the project moves to paused status — slot released, restart subject to scheduling [and remobilization fee if my contract supports it]. Frame as calendar mechanics, not punishment. State it as what WILL happen, not a threat of what might.
+3. THE CLOSURE LETTER (+14 days): formal, kind: project paused per my [DATE] note, work-to-date invoiced per contract, deliverables-to-date transfer on payment, door open for [X] months. Written to be dispute-proof.
+
+Then: tell me what I can legitimately do with the outstanding invoice given my payment state and contract, and the one mistake freelancers make with ghosts that I must avoid (hint: continuing to work into the silence).
+```
+
+### 47. The Unfair Blame Response
+**Use when:** Something went wrong, it wasn't your fault, and the client is pointing at you anyway.
+
+```
+A client is blaming me for something that isn't my fault. Help me set the record straight without torching the relationship.
+
+THE ACCUSATION: "[WHAT THEY SAID]"
+WHAT ACTUALLY HAPPENED: [YOUR ACCOUNT, WITH DATES]
+MY EVIDENCE: [EMAILS, TIMESTAMPS, APPROVALS, CONTRACT LINES — list what exists]
+THE HONEST 10%: [ANY PART THAT IS PARTLY ON ME — be honest here, it determines the whole strategy]
+STAKES: [ONGOING RELATIONSHIP? UNPAID INVOICE? MY REPUTATION WITH THEIR NETWORK?]
+
+Structure my response:
+1. TRIAGE: given the stakes and the honest-10%, should I (a) fully correct the record, (b) correct it while owning my sliver first, or (c) let a small unfair hit slide because winning costs more than it pays? Recommend one, with reasoning.
+2. THE EMAIL: open with shared purpose ("we both want X shipped"); own my sliver FIRST if there is one — one plain sentence, no groveling — because it buys the standing for everything after; then the factual timeline, dates and receipts, written like a project log, no "as I clearly stated"; close facing forward: what happens next.
+3. THE DISCIPLINE: strip anything that sounds like a courtroom or triggers defensiveness — I need them to stop believing the accusation, which is different from needing them to admit I won.
+4. IF IT'S A SETUP: if this blame is laying groundwork to not pay me, tell me the signs to check for and what to put in writing NOW to protect the invoice.
+```
+
+### 48. Scope Creep Audit of a Whole Project
+**Use when:** The project feels way bigger than what you quoted, and you want receipts before you renegotiate.
+
+```
+Audit this project for accumulated scope creep. I think I'm doing far more than I quoted, but I need evidence, not a feeling.
+
+WHAT I QUOTED: [PASTE ORIGINAL SCOPE/PROPOSAL DELIVERABLES]
+WHAT'S ACTUALLY HAPPENED: [PASTE THE PROJECT TRAIL — email requests, task lists, extra deliverables produced, meeting counts... dump it all]
+ORIGINAL PRICE: [$X] — MY ESTIMATE OF HOURS SO FAR VS. PLANNED: [Y vs Z, IF KNOWN]
+
+Produce:
+1. THE CREEP LEDGER: a table of every item in the "actually happened" pile that isn't in the original scope — item, date, who asked, effort estimate. Cite each from what I pasted; don't inflate.
+2. THE CATEGORIES: split the ledger into (a) genuine additions I should charge for, (b) expansions of ambiguously-scoped items — partly on my loose scoping, (c) my own gold-plating nobody asked for. Category (c) matters: I can't bill them for my perfectionism.
+3. THE NUMBER: total the billable creep at [MY RATE] and give the honest defensible figure, not the max.
+4. THE RENEGOTIATION EMAIL: no resentment leakage. "As we've built, the project's grown — here's a summary of what's been added beyond the original scope [top 3-4 items, not all 20]. For the remaining work I'm proposing [change order for $X / a revised scope agreement]." Constructive, forward-looking, with the ledger available on request rather than dumped in the email.
+5. THE LESSON: which scoping mistake of mine enabled the most creep, and the exact clause or habit that prevents it next time.
+```
+
+### 49. Hard Conversation Rehearsal
+**Use when:** You need to say something difficult to a client tomorrow, and you want to have already survived it once.
+
+```
+Role-play a difficult client conversation with me before I have it for real.
+
+THE CONVERSATION: I need to tell [CLIENT] that [THE HARD THING — e.g. "the deadline is going to slip 2 weeks" / "their new requests double the budget" / "I'm ending our engagement"].
+THE CLIENT'S STYLE: [HOW THEY REACT TO BAD NEWS, FROM EXPERIENCE — e.g. "goes quiet then sends a long email at midnight" / "immediately negotiates" / "takes it personally"]
+MY GOAL: [THE OUTCOME I NEED] — MY GIVEAWAYS: [WHAT I'M WILLING TO CONCEDE] — MY LINES: [WHAT I WON'T CONCEDE]
+WHAT I'M AFRAID OF: [THE RESPONSE THAT WOULD RATTLE ME MOST]
+
+Run it:
+1. First, make me open — I'll type my opening lines, you respond in character, realistically, using this client's actual style. Don't be a pushover OR a monster; be them.
+2. At least once, hit me with the exact response I said I'm afraid of.
+3. Every few exchanges, break for a COACHING NOTE: where I buried the lede, over-apologized, offered unprompted concessions, or used hedging language that invited a fight — with the stronger line I should have said.
+4. After we finish, give me: my three weakest moments with rewrites, the opening 3 sentences I should actually use tomorrow, and the one sentence to hold onto if I start losing the room.
+
+Start by asking me for my opening line.
+```
+
+### 50. The Trouble-Preventing Status Update
+**Use when:** You want a weekly update format that kills "just checking in" pings and builds a paper trail while looking like great service.
+
+```
+Design my weekly client status update format. Goals, in order: (1) the client never feels the need to chase me, (2) risks and client-side blockers get flagged in writing the week they appear, (3) it takes me under 10 minutes to write.
+
+MY WORK: [DISCIPLINE + TYPICAL PROJECT SHAPE]
+CURRENT PAIN: [e.g. "clients ping me mid-week," "delays caused by THEIR late feedback somehow become my fault at the end"]
+
+Deliver:
+1. THE TEMPLATE: subject-line format (scannable, consistent, e.g. "[Project] Week 4: on track — 1 item needs you") and body sections: Shipped this week / Next week / ⚠ Needs from you, WITH deadlines and consequence ("content by Wed keeps launch on the 14th") / Risks & watchlist / Budget-or-hours pulse if applicable. Tight and skimmable — bullets, bold the client's action items.
+2. THE DARK ART: this update is also my evidence log. Show me how to phrase client-side delays factually and blamelessly ("awaiting homepage copy since Mar 3; timeline shifts day-for-day from here") so the record exists without the relationship feeling it.
+3. THE STATES: tone-calibrated variants of the "Risks" section for: all-green weeks (keep it alive, don't cry wolf), quietly-slipping weeks (candor without alarm), and burning weeks (alarm without panic).
+4. A filled-in EXAMPLE for my discipline so I can see the pitch of it.
+```
+
+### 51. Renegotiating a Project That's Going Sideways
+**Use when:** The project is underwater — wrong scope, wrong price, wrong assumptions — and limping to the finish will cost you more than an awkward conversation.
+
+```
+I'm mid-project and the deal no longer works. Help me renegotiate without blowing it up.
+
+THE ORIGINAL DEAL: [SCOPE, PRICE, TIMELINE]
+WHAT WENT WRONG: [BE HONEST — underquoted? requirements ballooned? their inputs late/bad? technical surprise? some mix?]
+WHERE IT STANDS: [% DONE, MONEY RECEIVED VS. OUTSTANDING, RELATIONSHIP TEMPERATURE]
+WHAT WOULD MAKE IT WORKABLE: [MORE MONEY? DESCOPING? TIMELINE RELIEF? ALL THREE?]
+
+Work through:
+1. THE FAULT SPLIT: from my honest account, how much of this is my mispricing (I likely eat it), theirs (fair to charge), or nobody's (negotiable)? This split determines what I can ask for with a straight face — be candid with me.
+2. MY OPTIONS, RANKED: (a) finish as agreed and absorb it — when eating the loss protects something worth more; (b) descope to the budget — the ask most likely to land, usually; (c) change-order the remainder; (d) structured exit at a milestone. For each: realistic odds with THIS fault-split, and the cost.
+3. THE CONVERSATION: script the recommended option — open with ownership of my share ("I scoped part of this wrong — that part's on me, and I'm not asking you to fix it"), then the situation in numbers, then the proposal framed around protecting THEIR outcome. Ownership first is what makes the ask credible.
+4. THE FLOOR: my walkaway terms if they refuse everything, and what my contract lets me actually do.
+```
+
+### 52. Firing a Client Gracefully
+**Use when:** The client relationship costs more than it pays — in money, hours, or mental health — and it's time out.
+
+```
+Help me end a client relationship professionally.
+
+THE CLIENT: [WHO, HOW LONG, WHAT I DO FOR THEM]
+WHY I'M DONE: [THE REAL REASONS — chronic late payment, disrespect, scope abuse, rate too low to fix, they need things I don't want to do, or simply outgrown]
+OBLIGATIONS IN FLIGHT: [CURRENT PROJECT STATE, CONTRACT NOTICE TERMS, MONEY OWED EITHER DIRECTION]
+DESIRED EXIT: [IMMEDIATE-ISH / AFTER CURRENT PROJECT / AFTER A NOTICE PERIOD]
+BLAST RADIUS: [ARE THEY CONNECTED TO OTHER CLIENTS/MY MARKET? WILL THEY TALK?]
+
+Give me:
+1. THE EXIT DESIGN: given my obligations and blast radius, the cleanest legitimate exit point — and what I must complete or hand over first so the story anyone hears is "finished professionally, moved on."
+2. THE LETTER: gracious, brief, final. Uses a true-but-diplomatic reason (capacity, direction of my practice, better-fit elsewhere) — NEVER the itemized grievance list, which feels great for one evening and follows me for years. Includes: the wind-down plan with dates, handover commitments, any final invoicing, and if I'm willing, 1-2 referral names as the parting gift that reframes the whole exit.
+3. THE PUSHBACK SCRIPTS: my responses for "what if we paid more?" (decide BEFORE sending whether any number changes my answer — ask me), "can you stay just through [event]?", and "was it something we did?" — each two sentences, warm, unbudging.
+4. THE HANDOVER FILE: a checklist of what a professional leaves behind in my discipline (files, credentials, documentation, status notes) so the next person can start — my reputation's last impression.
+```
+## Getting Paid & Chasing Invoices
+
+### 53. The Full Chase Sequence (Friendly → Firm → Final)
+**Use when:** You want the complete overdue-invoice email ladder written once, ready to fire at each stage.
+
+```
+Write my complete invoice chase sequence — five emails, escalating from friendly to final.
+
+THE INVOICE: [#, $AMOUNT] for [WORK], sent [DATE], due [DATE], now [X] days overdue
+THE CLIENT: [WHO, PAYMENT HISTORY, RELATIONSHIP VALUE]
+MY CONTRACT TERMS: [LATE FEES? WORK-STOPPAGE RIGHTS? OR "none — factor that in"]
+
+The ladder — each email must be sendable as-is:
+1. DUE-DATE DAY (or +2): featherweight. Assumes the invoice slipped through the cracks, because it usually did. Invoice reattached, amount and due date restated, one line. Zero passive aggression — no "as per my previous email."
+2. +7 DAYS: still warm, now direct: a clear ask for a payment date. Introduces the magic question: "Is there anything on your end holding this up — a PO number, an approval, anything you need from me?" (Half of late payments are process snags this question dissolves.)
+3. +14 DAYS: the tone shift. Businesslike, short sentences. States the overdue fact plainly, requests payment by a specific date 5 business days out, and — if my terms support it — notes late fees begin accruing [DATE] per our agreement. First mention of consequences, delivered as mechanics.
+4. +21 DAYS: consequences engage. Work pauses / deliverables and IP remain mine until settled (per contract, if I have those rights — adapt if I don't). Offers one final path: full payment by [DATE] or a call this week to arrange a payment plan. Firm, never insulting — I'm closing exits, not venting.
+5. +30 DAYS: the final notice. Formal register, full paper trail summarized (dates of invoice and each reminder), and the concrete next step I'm prepared to take on [DATE] — collections referral, small-claims filing, statutory late-payment claim — with everything still resolvable by immediate payment.
+
+Include subject lines that get opened at each stage (escalating specificity: from "Invoice #241" to "Final notice: Invoice #241 — action required by [DATE]"). Then tell me the single most common mistake freelancers make in chase emails and where my sequence would be vulnerable to it.
+```
+
+### 54. First Nudge, Zero Awkwardness
+**Use when:** The invoice just went overdue, it's probably an oversight, and you want the reminder that doesn't make it weird.
+
+```
+Write a first payment reminder that a good client can read without a flicker of embarrassment on either side.
+
+INVOICE: [#, $X] for [WORK], due [DATE — just passed]
+CLIENT: [WHO — assume goodwill; they've paid fine before / they're new]
+
+Requirements:
+- 3 sentences maximum. Reminder emails grow guilt in proportion to their length.
+- Tone of a colleague mentioning something in passing, not a creditor. No "I hate to bother you," no "friendly reminder!" in the subject (it's neither, and everyone knows it).
+- Restate the essentials inline so paying requires zero archaeology: invoice number, amount, original due date, payment method/link. Reattach the invoice.
+- End with an easy handle: "If it's already on its way, ignore me entirely."
+- Subject line: plain and specific ("Invoice #241 — $2,400, due Mar 3").
+
+Give me two versions: one for a valued regular (warmer), one for a newer client (a touch more formal, gently establishing that I notice due dates — the first invoice teaches them how the rest will go).
+```
+
+### 55. The 30/60/90 Formal Escalation Letters
+**Use when:** This is past nudging — you need the serious letters that build a legal-grade paper trail.
+
+```
+Draft formal escalation letters for a seriously overdue invoice at the 30, 60, and 90-day marks. Not legal advice — strong drafts to adapt, written knowing a judge or collections agent may eventually read them.
+
+INVOICE: [#, $AMOUNT, WORK PERFORMED, INVOICE DATE, DUE DATE]
+PAPER TRAIL SO FAR: [REMINDERS SENT AND DATES, ANY CLIENT RESPONSES/EXCUSES]
+CONTRACT: [SIGNED? LATE-FEE TERMS? JURISDICTION?]
+MY JURISDICTION: [WHERE — so you can flag what to verify locally, e.g. statutory interest, demand-letter requirements for small claims]
+
+For each letter:
+1. 30-DAY (Formal Notice): recaps the debt with dates, references the contract, applies late fees if entitled, sets a 10-business-day cure date. Professional disappointment, not anger. Sent by email with read receipt.
+2. 60-DAY (Demand Letter): the word "demand" appears. Full chronology in numbered lines. Total including fees. States the specific action if unpaid by [DATE]: small-claims filing / collections agency / [WHAT I'M ACTUALLY PREPARED TO DO — never bluff a threat, tell me why bluffing destroys my position]. Flag whether my jurisdiction expects this letter before filing, and note delivery method matters (tracked post in many places).
+3. 90-DAY (Final Demand Before Action): short, cold, complete. The chronology, the total, the deadline (7 days), the named action and venue. Nothing new to negotiate. One sentence permitting immediate resolution.
+
+All three: no insults, no emotion, no threats beyond stated legal remedies (extortionate-sounding threats can boomerang legally — flag the line). Then a one-paragraph reality check: given the amount [$X], when do small claims, collections (typical 20-50% cut), or writing it off each become the rational move?
+```
+
+### 56. Applying the Late Fee (Without Torching the Relationship)
+**Use when:** Your contract has late fees, the invoice is late, and you're deciding whether and how to actually charge them.
+
+```
+My contract allows late fees and an invoice is now [X] days overdue. Help me decide whether to apply them, and write the notice either way.
+
+THE TERMS: [YOUR LATE-FEE CLAUSE VERBATIM]
+THE INVOICE: [$AMOUNT, DAYS LATE]
+THE CLIENT: [FIRST OFFENSE OR PATTERN? RELATIONSHIP VALUE? ANY EXCUSE OFFERED?]
+
+Give me:
+1. THE DECISION FRAME: when applying the fee is right (patterns, disrespect, big invoices, silence) vs. when waiving it buys more than it costs (first offense + good client + honest reason). Apply the frame to MY case and recommend: apply, or waive-with-a-flag.
+2. IF APPLYING: the notice email — the fee stated as an automatic contract mechanic, like a bank: "per our agreement, a late fee of [$X] applied on [DATE]; updated invoice attached." No personal edge, no lecture. The fee does the talking.
+3. IF WAIVING: the email that waives it OUT LOUD — "our agreement includes a late fee, which I'm waiving this once given [reason]" — because a silently waived fee teaches them the clause is decorative, and a visibly waived one is both a gift and a warning. This is the highest-leverage sentence in late-fee management; make it land warm.
+4. THE PATTERN-BREAKER: if this client is a repeat offender, what structural change to propose alongside (deposits, upfront payment, shorter terms, pause-on-late) so I stop having this conversation.
+```
+
+### 57. Answering the Stall
+**Use when:** They responded to your chase with a classic: "processing it now," "waiting on our client to pay us," "the person who approves is on vacation."
+
+```
+My overdue-invoice chase got a stall response. Help me answer it in a way that converts vague reassurance into a committed date.
+
+THE STALL, VERBATIM: "[PASTE — e.g. 'accounts is processing it' / 'we're waiting on funds from our client' / 'CFO is traveling, will handle when back']"
+INVOICE STATE: [$X, DAYS OVERDUE, CHASE HISTORY]
+
+Respond in three moves:
+1. CLASSIFY THE STALL: (a) probably true, process-shaped — needs a date extracted; (b) cash-flow confession in disguise ("waiting on OUR client" means they're broke or using me as their credit line — note: their client's payment is not my contractual problem, and my reply should gently establish that); (c) soft refusal wearing politeness. Tell me which mine is and the confidence level.
+2. THE REPLY: whatever the type, it must convert fog into a commitment: thank them for the update, then pin it — "Great — what date should I expect payment by? I'll set a reminder for then." A stall answered with a date-request either produces a date (now enforceable next chase: 'you'd mentioned the 15th') or produces evasion (now diagnostic). For type (b), add the option that protects me while seeming generous: a payment plan with a first payment NOW — "would splitting this help? First half this week, rest on [DATE]" — because a client who won't pay anything today was never planning to pay.
+3. THE TRIPWIRE: what response (or silence) to this email confirms bad faith, and which rung of my escalation ladder it should trigger.
+```
+
+### 58. The Payment Plan Offer
+**Use when:** The client genuinely can't pay it all right now, and a structured plan beats a write-off.
+
+```
+A client owes me [$X] and appears genuinely unable to pay in full. Help me structure a payment plan that maximizes what I actually collect.
+
+THE DEBT: [$X, HOW OVERDUE, FOR WHAT WORK]
+THEIR SITUATION: [WHAT THEY'VE TOLD YOU / WHAT YOU BELIEVE — failing business? temporary crunch? seasonal?]
+LEVERAGE: [ANYTHING UNDELIVERED — final files, credentials, ongoing services they still need?]
+
+Structure:
+1. THE PLAN DESIGN: number and size of installments (front-load — 40-50% down proves intent; a plan starting with "$0 now" is a polite refusal), dates, and total duration (short — 60-90 days max; long plans die of attrition). If I hold leverage (undelivered files/services), the release schedule tied to payments.
+2. THE ACCELERATION CLAUSE: one sentence making the FULL remaining balance due immediately if any installment is missed — the single most important line in the plan; explain why, then write it.
+3. GET IT SIGNED: a payment plan is a new agreement — draft the short letter-agreement (debt acknowledged in full, schedule, acceleration, no waiver of original rights) that they sign or confirm by email. An acknowledged debt is enormously easier to pursue later; note why.
+4. THE OFFER EMAIL: leads with partnership ("let's find a structure that works"), presents the plan as THE path (not one option among many), first payment date within 7 days.
+5. THE LINE: what I say if they accept the plan and then miss installment one — because that's the moment this stopped being a cash-flow problem.
+```
+
+### 59. Final Demand Before Small Claims / Collections
+**Use when:** You've decided to actually pursue it, and you need the last letter plus a clear-eyed view of what comes next.
+
+```
+I'm done chasing. Draft my final demand letter and brief me on what happens after. Not legal advice — a working draft and orientation; I'll verify locals with my jurisdiction's small-claims resources.
+
+THE DEBT: [$AMOUNT] for [WORK], invoice [DATE], due [DATE]
+THE TRAIL: [EVERY CHASE CONTACT WITH DATES; THEIR RESPONSES IF ANY]
+CONTRACT: [SIGNED AGREEMENT? EMAIL AGREEMENT? LATE FEES OWED?]
+JURISDICTIONS: [MINE / THEIRS]
+MY DECISION: [SMALL CLAIMS / COLLECTIONS AGENCY / DECIDING BETWEEN THEM]
+
+Provide:
+1. THE LETTER: titled "Final Demand for Payment." Numbered chronology (invoice, due date, each reminder), total due including any contractual fees, payment deadline (7-10 days), the specific action and venue after that date, sent by [tracked method appropriate to jurisdiction — flag what to verify]. Cold, precise, zero rhetoric — the version of me that shows up in this letter should be the version I'd want read aloud in court.
+2. THE FORK: small claims (typical for [$AMOUNT]: filing costs, time, cross-border complications if jurisdictions differ, enforcement reality — winning a judgment ≠ getting paid, note what enforcement actually takes) vs. collections (typical 25-50% contingency, relationship and reputation implications, less of my time). Recommend one for MY numbers and situation.
+3. THE EVIDENCE PACK: exactly what to assemble now — contract/email-agreement, deliverable proof, invoice, the chase trail, this letter and its delivery proof — organized the way a filing or an agency will want it.
+4. THE WRITE-OFF THRESHOLD: honestly, at what all-in cost does pursuing [$AMOUNT] stop being rational — and if I'm near it, say so, plus the tax-deduction question to ask my accountant about bad debt.
+```
+
+### 60. Announcing Your New Deposit Policy
+**Use when:** You've been burned enough times to institute deposits, and existing clients need to hear it without hearing "I don't trust you."
+
+```
+I'm instituting a deposit policy after getting burned. Help me roll it out.
+
+THE NEW POLICY: [e.g. "50% to book, balance on delivery" / "30/40/30 milestones"]
+APPLIES TO: [NEW CLIENTS ONLY? EVERYONE? EXISTING RETAINERS EXEMPT?] — advise me if unsure
+THE BACKSTORY: [WHAT HAPPENED — I won't share it with clients, but it calibrates your advice]
+
+Write:
+1. THE POLICY DECISION: sanity-check my policy structure against my discipline's norms; adjust if I've over- or under-corrected (a 100%-upfront policy born of one bad client may cost me good ones — tell me straight).
+2. NEW-CLIENT VERSION: deposit mention woven into my proposal/booking flow language — stated like weather, universal and unremarkable: "Projects are booked with a 50% deposit; your slot is confirmed once it's in." New clients never need an announcement; they need a norm.
+3. EXISTING-CLIENT VERSION: the short note for regulars — policy framed as business-wide standardization ("bringing my process in line with standard practice as I've grown"), never as reaction to anyone, effective [DATE], their current project unaffected. Two sentences of warmth around one sentence of policy.
+4. THE OBJECTION SET: my replies to "we've never paid deposits" (norm + calm), "company policy forbids prepayment" (the milestone compromise: smaller first milestone, invoiced immediately — meet bureaucracy with structure, not surrender), and "don't you trust us?" (flip it: "it's how I guarantee YOUR slot — my calendar only holds confirmed projects").
+```
+
+### 61. The Stop-Work Notice
+**Use when:** An invoice is seriously overdue on an active project and continuing to work has become self-harm.
+
+```
+I'm still working while an invoice goes unpaid. Draft my stop-work notice.
+
+THE SITUATION: [PROJECT STATE, INVOICE $X NOW Y DAYS OVERDUE, CHASES SO FAR]
+CONTRACT RIGHTS: [PASTE ANY SUSPENSION/STOPPAGE CLAUSE, OR "contract is silent — advise how that changes my footing"]
+DEADLINE PRESSURE: [WHAT THE CLIENT LOSES IF WORK PAUSES — launch dates, campaigns; this is my leverage, name it]
+
+Draft:
+1. THE PRE-NOTICE (send first, 3-5 days ahead): the final chance framed with dates — "if payment isn't received by [DATE], I'll have to pause work on [DATE+1] until the account is current." Gives them a clean exit, creates the record that pausing was announced, not sprung. Calm, one paragraph.
+2. THE NOTICE ITSELF: effective date; precise scope of the pause (all work? deliverables withheld? my presence in their Slack/standups?); what it takes to resume (payment received, not "payment promised"); the honest timeline consequence ("the [DATE] milestone is no longer achievable; on resumption I'll issue a revised schedule" — their deadline slipping is the leverage, stated as fact, never gloated); and if IP transfers on payment per contract, the reminder that deliverables remain mine until settled.
+3. THE LEGAL EDGE: what to verify before sending so the pause is clearly THEIR breach's consequence and not mine — especially if my contract lacks an explicit suspension clause (flag the risk level and the safer phrasing for that case).
+4. THE RESUME NOTE: short and graceful for when payment lands — no victory lap, new schedule attached, straight back to work. How I resume determines whether the relationship survives having been paused.
+```
+
+### 62. The Disputed Line Item
+**Use when:** The client will pay most of the invoice — but is contesting specific charges.
+
+```
+A client is disputing part of my invoice. Help me resolve it without losing the whole amount or the relationship.
+
+THE INVOICE: [$TOTAL, BREAKDOWN]
+THE DISPUTE: "[THEIR OBJECTION, VERBATIM]" — contesting [$X PORTION]
+MY SIDE: [WHY THE CHARGE IS LEGITIMATE — where it was agreed, scoped, or requested; paste receipts if they exist]
+HONESTY CHECK: [IS ANY PART OF THEIR OBJECTION FAIR? A CHARGE I NEVER FLAGGED IN ADVANCE?]
+
+Work it:
+1. SPLIT THE INVOICE FIRST: my reply's opening move is separating the undisputed amount ("let's process the uncontested [$Y] now, and resolve this item in parallel") — never let a 10% dispute hold 100% of my money hostage. Write that sentence.
+2. ADJUDICATE: from the receipts and my honesty-check, rate their objection: (a) wrong, and I have paper — respond with the record, factual and blame-free; (b) right-ish — I did the work but never pre-flagged the charge, in which case the professional move and its wording ("the work was necessary, but you should have heard about the cost before the invoice — here's what I propose"); (c) genuinely arguable — split-the-difference territory. Tell me which and draft accordingly.
+3. THE SETTLEMENT MATH: if compromise is right, what concession settles it TODAY (a discount on the disputed item in exchange for immediate full payment) — priced against the cost of three more weeks of this.
+4. THE PREVENTION RULE: the invoicing habit that would have prevented this dispute (pre-approval pings for out-of-scope charges, descriptions that echo the approval email's language) — one habit, specifically fitted to how this dispute happened.
+```
+
+### 63. International Client Payment Setup
+**Use when:** You've landed an overseas client and want the money to arrive whole, on time, in the right currency.
+
+```
+I'm about to invoice an international client for the first time. Set me up properly.
+
+ME: [COUNTRY, CURRENCY I WANT TO END UP WITH]
+THEM: [COUNTRY, COMPANY OR INDIVIDUAL]
+THE ENGAGEMENT: [ONE-OFF $X / ONGOING MONTHLY]
+MY CURRENT RAILS: [WHAT I HAVE — regular bank, Wise, Payoneer, PayPal, Stripe, crypto, nothing]
+
+Brief me:
+1. THE RAILS COMPARISON: for my corridor ([THEIR COUNTRY]→[MINE]), compare realistic options on: total cost including the FX spread everyone hides (not just the stated fee), speed, chargeback/clawback risk (flag PayPal's specifically for freelance work), and how annoying it is for THE CLIENT to pay — because friction on their side delays MY money. Recommend a primary and a backup.
+2. CURRENCY & QUOTE STRATEGY: should I price in my currency, theirs, or USD/EUR as neutral ground? Who eats FX risk and transfer fees — and the exact invoice line that settles it upfront ("all transfer and conversion fees borne by payer; amount received must equal amount invoiced").
+3. THE INVOICE ITSELF: what an invoice crossing this border needs that domestic ones don't — full legal entities and addresses both sides, my tax/VAT identifiers, currency stated unambiguously, IBAN/SWIFT or payment link, and anything my jurisdiction requires for export-of-services (flag what to verify with my accountant, including VAT/GST treatment and any withholding-tax risk in THEIR country that could silently shave 10-20% — the question to ask them BEFORE quoting, so I can gross up).
+4. THE TERMS ADJUSTMENT: international disputes are near-unenforceable at freelance scale — so what shifts in my payment structure to compensate (larger deposit, shorter terms, milestone gating)? Give me the number.
+```
+
+### 64. Non-Payment Post-Mortem & Terms Audit
+**Use when:** You finally got paid (or gave up), and you want to make this genre of misery structurally impossible.
+
+```
+I just went through a painful payment chase. Audit how my process let it happen and harden it.
+
+THE CASE: [WHAT HAPPENED, START TO FINISH — how the client came in, what terms were agreed and how (contract? email? handshake?), when work was delivered vs. invoiced, the chase, the ending]
+MY STANDARD PROCESS TODAY: [DEPOSITS? CONTRACTS? INVOICE TIMING? LATE FEES? — honestly, as practiced, not as intended]
+
+Run the post-mortem:
+1. THE TIMELINE OF ERRORS: walk my case chronologically and mark every point where a different habit would have changed the outcome — the qualification miss, the terms miss, the delivery-before-payment miss, the too-slow escalation. Rank them by how much of the pain each one caused.
+2. THE FIVE GATES: audit my standard process against the five structural defenses — (1) client qualification before quoting, (2) signed terms with teeth before starting, (3) deposit before work, (4) invoice ON delivery not after, (5) escalation on a calendar, not on my mood. Score each gate for me today: solid / leaky / absent.
+3. THE FIXES, PRIORITIZED: the top 3 changes by protection-per-effort, each as a concrete artifact I can implement this week (a clause, an email template, a calendar automation, an invoice-tool setting) — draft each one.
+4. THE HONEST QUESTION: from my story, was this preventable-by-process or was this client determined not to pay regardless? Both answers teach something different — tell me which lesson is actually mine.
+```
+
+### 65. The Payment Receipt That Trains Prompt Payers
+**Use when:** A client just paid, and you want the thank-you that makes paying you feel good — and paying you late feel off-brand.
+
+```
+Write my standard payment-received reply — the small email that quietly trains clients to keep paying on time.
+
+CONTEXT: [CLIENT] just paid invoice [#/$X] for [WORK] — [ON TIME / EARLY / LATE BUT LET'S BE GRACIOUS]
+
+The behavioral logic to build in: paying me should be the most acknowledged, friction-free thing a client does all week. Positive reinforcement beats late fees at scale.
+
+Write:
+1. THE STANDARD VERSION (3 sentences): confirms receipt with the specifics (amount, invoice #) so their books and mine agree; thanks them in a way that lands as noticing, not groveling ("always appreciate how promptly you handle these" — for on-time payers, name the promptness: what gets praised gets repeated); ends forward-looking (what ships next / a warm close for finished projects).
+2. THE PROJECT-CLOSING VERSION: receipt + the handover ribbon: final files/deliverables link, a one-line "everything you own is now yours" IP confirmation if relevant, and one gentle seed for the future (the door, not a pitch).
+3. THE LATE-PAYER VERSION: gracious but calibrated — confirm and thank, WITHOUT praising promptness that didn't happen (misplaced praise trains the wrong thing), plus one neutral forward-looking line. If they're chronically late, the optional add-on sentence proposing the structural fix ("for next time, happy to set up [autopay/deposit split] — makes it painless on both ends").
+
+All versions: short enough to actually send every time. This only works as a ritual.
+```
+## Winning Repeat Work & Referrals
+
+### 66. The Wrap-Up Email That Seeds the Next Project
+**Use when:** You're delivering the final files and this is your highest-leverage moment to plant future work — while they're happiest with you.
+
+```
+Write my project wrap-up email. The delivery moment is when client satisfaction peaks — this email should harvest it.
+
+THE PROJECT: [WHAT I DELIVERED] for [CLIENT]
+HOW IT WENT: [HONESTLY — great / fine / bumpy but landed]
+WHAT I NOTICED ALONG THE WAY: [OPPORTUNITIES I SPOTTED IN THEIR BUSINESS WHILE WORKING — the goldmine for this email; list 2-3]
+WHAT I'D WANT NEXT: [THE FOLLOW-ON WORK I'D ACTUALLY LIKE FROM THEM]
+
+Structure:
+1. THE DELIVERY: everything final, linked/attached, with a one-line "what's where" index. Effortless handover IS the closing argument.
+2. THE VICTORY LAP (theirs, not mine): one sentence marking what THEY now have and what it does for them — outcome language, not deliverable language.
+3. THE SEED: from my noticed-opportunities, plant ONE — as an observation, not a pitch: "While working in [area], I noticed [specific thing] — worth a conversation sometime." Specific observations demonstrate ongoing value; pitches demonstrate hunger. One seed only; three seeds is a sales email.
+4. THE STANDING OFFER: how post-project support works (30 days of small-question grace, then how engagement resumes) — generosity with a visible edge.
+5. THE ASK-SETUP: one line establishing I'll check in at [30/60/90 days] — permission for future contact, granted now while they love me.
+
+Under 200 words, warm, zero desperation. Then tell me which of my noticed-opportunities is the strongest seed and why.
+```
+
+### 67. The Testimonial Request That Gets Specifics
+**Use when:** You want testimonials with numbers and story in them — not "great to work with, would recommend."
+
+```
+Help me get a testimonial that actually sells. Generic praise ("professional and talented!") converts nobody; specificity converts.
+
+THE CLIENT: [WHO — and their seniority/title, because attribution weight matters]
+THE PROJECT & RESULT: [WHAT I DID AND ANY OUTCOME — numbers if they exist: traffic, sales, time saved, a launch that happened on time]
+THE MOMENT: [JUST WRAPPED / WRAPPED A WHILE AGO / THEY JUST SAID SOMETHING NICE I WANT TO BOTTLE]
+
+Provide:
+1. THE ASK EMAIL: short, honored-to-ask tone, and crucially — it makes giving a GREAT testimonial easier than giving a lazy one. Include 3-4 guided questions that extract story shape: "What was the situation before?" / "What almost stopped you from hiring a freelancer?" / "What specific result surprised you?" / "What would you tell someone considering working with me?" Explain the offer to draft-from-a-call for busy clients.
+2. THE DRAFT-FOR-APPROVAL VARIANT: for when they say "just write something and I'll sign off" — draft a testimonial from my project details that sounds like a human client (imperfect rhythm, one concrete detail, one number, no marketing-speak), with 2 alternates in different registers.
+3. THE BOTTLING MOVE: they just said something great in an email/call — the two-sentence reply that asks permission to quote exactly that, verbatim, with attribution. Lowest-friction testimonial that exists.
+4. PLACEMENT NOTE: given my work ([DISCIPLINE]), where this testimonial earns most: proposal, website, LinkedIn, or case study — and the one line to trim it to for each use.
+```
+
+### 68. Case Study Builder (Problem → Approach → Result)
+**Use when:** A project went well and you want it working as a sales asset before the details fade.
+
+```
+Turn my project notes into a case study that wins future clients.
+
+THE RAW MATERIAL: [DUMP EVERYTHING — client, their problem, what you did, decisions made along the way, obstacles, outcomes with any numbers, nice things they said]
+PERMISSION STATE: [CAN I NAME THEM? SHOW THE WORK? SHARE NUMBERS? — or "anonymized"]
+WHO THIS SHOULD ATTRACT: [THE FUTURE CLIENT I WANT READING THIS]
+
+Build it:
+1. THE HEADLINE: outcome-first, specific, no wordplay ("How [client-type] cut proposal turnaround from 2 weeks to 3 days" beats "A Journey in Process Design"). Give 3 options.
+2. THE STRUCTURE, filled in from my material: THE SITUATION (their world and stakes, 3-4 sentences, written so my target reader recognizes themselves); THE PROBLEM UNDERNEATH (what the surface request actually concealed — this section is where expertise shows); THE APPROACH (2-3 key decisions and WHY — decisions, not task lists; nobody hires a task list); THE RESULT (numbers first if I have them; if not, concrete qualitative outcomes — never pad weak results, tell me if mine are weak and how to frame honestly); THE CLIENT'S WORDS (where a testimonial slots).
+3. THE ANONYMIZATION PASS (if needed): how to keep the story vivid without identifying them — industry stand-ins, rounded numbers, what detail-level is safe.
+4. THE CUTS: case studies die of length. Hard cap 600 words — flag what I'll be tempted to keep that should go (usually: process details I'm proud of that clients don't buy).
+```
+
+### 69. The Referral Ask (Direct, Not Desperate)
+**Use when:** A happy client could open doors, and "if you know anyone, keep me in mind!" has never once worked.
+
+```
+Write my referral ask. The vague version ("keep me in mind!") fails because it assigns the client a research task. Mine will be specific enough to act on in 30 seconds.
+
+THE CLIENT: [WHO, WHAT I DID FOR THEM, WHY THEY'RE HAPPY]
+MY TARGET: [THE SPECIFIC KIND OF CLIENT/COMPANY I WANT MORE OF — the narrower the better]
+THE MOMENT: [PROJECT JUST ENDED / THEY JUST PRAISED SOMETHING / ROUTINE CHECK-IN]
+
+Build:
+1. THE SPECIFIC ASK: an email that (a) makes the request concrete — not "anyone who needs design" but "one person you know who [matches my target's situation]" — because asking for ONE name from a DEFINED set is answerable, and "anyone" is not; (b) makes forwarding effortless: include a 2-3 sentence forwardable blurb about me, written in third person, that they can paste — never make a referrer compose my pitch; (c) gives an easy no ("and if nobody comes to mind, this email requires zero response — the project was reward enough").
+2. THE TIMING RULE: given my stated moment, is this the right time — or should the ask ride 2-3 weeks behind the delivery high? Advise.
+3. THE RECIPROCITY LAYER: one genuine give to include or precede the ask with (an intro I could make for THEM, a resource, a spotted opportunity) — reciprocity before request, but only if authentic; forced favors smell.
+4. THE FOLLOW-THROUGH: my exact 2-line thank-you when a referral arrives (whether or not it converts), and the loop-closing note when it becomes a project — because referrers who get thanked refer again, and this system compounds.
+```
+
+### 70. The 90-Day Check-In That Isn't "Just Checking In"
+**Use when:** A past client has gone quiet since delivery, and you want back on their radar carrying value instead of need.
+
+```
+Write a check-in email to a past client I haven't spoken to since the project ended.
+
+THE HISTORY: [WHAT I DID FOR THEM, WHEN IT WRAPPED, THE TERMS WE ENDED ON]
+WHAT I KNOW IS HAPPENING WITH THEM: [ANYTHING — a launch, a season, industry news affecting them, something they said they were planning... or "nothing, help me find angles"]
+MY HONEST HOPE: [MORE WORK OF TYPE X / A CHECK ON HOW MY DELIVERABLE PERFORMED / JUST STAYING WARM]
+
+Rules and structure:
+1. THE HOOK MUST BE ABOUT THEM: open with the specific thing — their launch, the season their business runs on, a question about how [my deliverable] has been performing in the wild ("curious how the new site's converting now that you've had a quarter of traffic through it" — asking about MY OWN work's performance is the most natural re-entry that exists; it's diligence, not sales).
+2. CARRY ONE GIFT: a relevant observation, a small piece of intel ("saw [competitor/tool/trend] doing X — thought of your setup"), or a genuinely useful resource. The email should be worth receiving even if they never hire me again — that's precisely what makes them hire me again.
+3. NO FAKE CASUALNESS: "just checking in" and "hope you're well!" openers signal a pitch is coming. Also banned: any sentence about my availability in the first half of the email. If availability appears at all, it's one relaxed line at the end ("taking on [Q3] projects now, in case timing ever lines up").
+4. LENGTH: under 100 words. Then give me 3 subject lines that would get opened by someone who liked me but forgot me.
+```
+
+### 71. The Maintenance Retainer Upsell
+**Use when:** You delivered something that will degrade, drift, or need feeding — and the client hasn't thought about that yet.
+
+```
+Pitch an ongoing maintenance/care engagement to a client I just delivered a project to.
+
+WHAT I DELIVERED: [THE THING — site, brand system, content engine, codebase, campaign]
+WHAT HAPPENS TO IT WITHOUT CARE: [BE CONCRETE — plugins go stale and security holes open / content stops and rankings decay / the brand gets applied inconsistently by their team / bugs accumulate]
+THE OFFER I HAVE IN MIND: [SCOPE + $X/MONTH, OR "help me design it"]
+
+Build:
+1. THE OFFER DESIGN: sanity-check or design the retainer — what's included monthly (be finite and countable), response-time promise, what's explicitly out (big new features/projects — those quote separately, and the retainer client gets priority scheduling: name that perk, it's free to give and valuable to get). Price it against my hourly reality so I don't build a discount trap.
+2. THE PITCH: frame entirely as protecting their investment, never as my revenue continuity. The core move: make the degradation vivid and specific to THEIR asset ("the site launched at an A on [speed/security]; without updates that grade decays — here's what that costs in [their currency: leads, rankings, risk]"). One concrete scary-but-true fact beats three abstract ones.
+3. THE TIERING: one smaller "essentials" tier so the choice is which-yes, not whether. Two tiers max.
+4. THE NO-PRESSURE CLOSE: the offer expires into a different relationship, and say so kindly: "If ongoing care isn't right for now, no problem at all — future fixes just go through my standard project queue and rates." True, fair, and quietly makes the retainer's priority-access real.
+```
+
+### 72. The New-Year / New-Quarter Re-Engagement
+**Use when:** A new planning cycle is starting and you want to be in the room (or at least the inbox) when budgets get assigned.
+
+```
+Write my new-[YEAR/QUARTER] re-engagement note to past clients. Budgets are being set — I want to be a line item.
+
+MY PAST-CLIENT LIST SHAPE: [ROUGHLY WHO — e.g. "8 small e-commerce brands, 3 B2B SaaS, a nonprofit"]
+WHAT I DID FOR THEM: [TYPICAL ENGAGEMENTS]
+WHAT I'M PUSHING THIS CYCLE: [THE SERVICE I MOST WANT TO SELL, ANY NEW CAPABILITY]
+
+Create:
+1. THE CORE EMAIL: built on a planning hook, not a greeting-card hook — "as you're setting [Q1] priorities" beats "happy new year!" It should: name one thing that likely matters to their type of business this cycle (give me variants per client type in my list), connect it to something I can do, and offer a zero-commitment planning conversation ("15 minutes, I'll bring 2-3 ideas specific to you, useful whether or not we work together"). The free-ideas call is the whole engine — advise me how to make those 2-3 ideas cheap for me to generate but obviously valuable.
+2. THE PERSONALIZATION SLOTS: mark exactly which sentences must be customized per client and which can stay template — and the minimum personalization below which I shouldn't send at all (a mail-merge that smells like mail-merge burns warmth I already earned).
+3. THE SEGMENT SPLIT: three variants — (a) clients who'd hire me again tomorrow, (b) fine-but-quiet endings, (c) it's-been-so-long-this-might-be-awkward. The (c) variant needs the graceful time-acknowledgment that doesn't apologize ("It's been a while — [genuine reason their business stayed on my radar].").
+4. THE CADENCE: when in the cycle to send each segment, and the one follow-up (timing + text) for non-responders before I let it rest.
+```
+
+### 73. The Value-Spotting Outreach ("Noticed Something")
+**Use when:** You genuinely spotted an issue or opportunity in a past client's business, and it's a perfect excuse to be useful in public.
+
+```
+I spotted something in a past client's business. Turn it into outreach that helps first and sells second.
+
+WHAT I NOTICED: [THE SPECIFIC THING — their checkout errors on mobile, a competitor outranking them for their own product terms, their new campaign's landing page contradicting the brand we built, an expiring domain, a broken form...]
+THE CLIENT & HISTORY: [WHO, WHAT WE DID TOGETHER, HOW IT ENDED]
+THE FIX: [IS THIS A 5-MINUTE TELL-THEM-FREE THING, OR REAL PROJECT-SIZED WORK? MY HONEST READ]
+
+Compose:
+1. THE TRIAGE: if the fix is trivial, the play is pure gift — tell them exactly how to fix it, expect nothing, bank the goodwill (advise me if mine is this case, and write THAT email: 4 sentences, finding + fix + no ask). If it's project-sized, proceed:
+2. THE EMAIL: lead with the finding, specific and evidenced ("screenshot attached") — specificity is what separates 'helpful expert' from 'ambulance chaser'; describe impact in their terms (lost sales, risk, leaking spend), sized honestly — no fear-inflation, they'll smell it; give them something actionable immediately regardless of hiring me (the first step, or a temporary mitigation) — the free layer is what makes the paid layer credible; then the soft offer: "If you want it handled properly, I can take it — happy to scope it. Either way, wanted it on your radar."
+3. THE TONE GOVERNOR: I'm a past collaborator flagging something for someone I respect — not auditing them, not scaring them, not I-told-you-so-ing (especially if the issue touched something they decided against my advice: give me the one graceful sentence for THAT case).
+4. Subject line: concrete and calm ("Noticed something on your checkout — 2-min read"), never alarmist.
+```
+
+### 74. One-Off → Ongoing: The Engagement Ladder
+**Use when:** You keep doing single projects for a client who plainly has continuous need, and you want to design — then pitch — the ongoing version.
+
+```
+Help me convert a serial one-off client into a structured ongoing engagement.
+
+THE PATTERN: [LIST THE PROJECTS THEY'VE SENT ME, ROUGH DATES AND SIZES — the raw material]
+THE CONTINUOUS NEED UNDERNEATH: [WHAT KEEPS GENERATING THESE PROJECTS — my read on their real, recurring need]
+THE FRICTION TODAY: [WHAT THE AD-HOC PATTERN COSTS EACH OF US — their waiting for my availability, re-negotiating each time, my feast-famine]
+
+Design then pitch:
+1. THE LADDER: three engagement models in ascending commitment — (a) PRIORITY LANE: no monthly fee, but pre-agreed rates and terms, a standing SOW, and queue priority (the "commitment-free commitment" — often the easiest first yes); (b) CAPACITY RETAINER: [N hours or N deliverables]/month at a modest efficiency discount; (c) EMBEDDED PARTNER: fixed monthly fee, defined scope of ongoing ownership, quarterly planning included. For each: what it fixes from my stated frictions, and what it requires of THEM.
+2. THE EVIDENCE-BASED PITCH: an email that opens with THEIR pattern reflected back as data ("in the last [period], we've done [N] projects — [list] — and each one started with a scheduling scramble") and presents the ladder as the obvious maturation of what's already happening — "we're already doing this; here's how we do it on purpose."
+3. THE RECOMMENDATION: which rung to lead with for this client, and why — plus the fallback if they hesitate (usually: rung (a), which costs them nothing and converts to (b) naturally within 2 quarters — note how to leave that door visibly open).
+4. THE REVIEW CLAUSE: whichever rung they take — a built-in [90-day] review point, which lowers the barrier to yes AND gives me the natural moment to adjust price or scope once real usage data exists.
+```
+
+### 75. The Win-Back Email (Lapsed Client)
+**Use when:** A once-regular client drifted away — no blow-up, just entropy — and you want them back without asking what went wrong.
+
+```
+Write a win-back email to a client who quietly drifted.
+
+THE HISTORY: [WHAT WE DID TOGETHER, HOW OFTEN, WHEN THE LAST PROJECT WAS]
+THE DRIFT: [MY HONEST GUESS — budget moved? new hire took it in-house? found someone cheaper? my slow replies that one month? genuinely no idea?]
+WHAT'S NEW WITH ME SINCE: [CAPABILITIES, RESULTS, WORK I'VE SHIPPED THAT'S RELEVANT TO THEM]
+
+Write it with these mechanics:
+1. NO AUTOPSY: never ask why they left or make them explain the silence — an email that requires them to justify the drift gets archived. The past gets ONE warm, specific sentence ("the [project] we built is still one of my favorites") and we move on.
+2. THE NEW-NEWS HOOK: the legitimate reason to write NOW is that something changed on my side that's relevant to their side — lead with the most relevant item from my what's-new list, framed by what it could do for their situation, not as a capabilities announcement.
+3. THE LOW-STAKES RE-ENTRY: don't pitch a big engagement into a cold relationship — offer a small, defined, easy-yes step (a mini-audit, a refresh of the thing we built, a 20-minute catch-up with ideas). Advise which fits my history with them, and name it in the email.
+4. THE DIGNITY CLAUSE: one closing line that makes clear I'm writing from fullness, not famine ("things are busy and good here — you just came to mind because [specific reason]") — written so it's true-sounding because I'll only send it when it's true.
+
+Under 120 words. Give me 2 subject lines: one curiosity-led, one value-led.
+```
+
+### 76. Quarterly Business Review for Retainer Clients
+**Use when:** You have ongoing clients and want a lightweight QBR ritual that renews retainers by demonstrating — not claiming — value.
+
+```
+Design a quarterly business review (QBR) for my retainer clients — lightweight enough that I'll actually run it, substantial enough to renew contracts by itself.
+
+MY RETAINER SHAPE: [WHAT I DO MONTHLY FOR THESE CLIENTS, TYPICAL FEE]
+WHAT I CAN MEASURE: [THE NUMBERS MY WORK TOUCHES — traffic, rankings, deliverables shipped, tickets closed, engagement, revenue if I'm lucky... or "help me find proxies"]
+THE RENEWAL REALITY: [WHEN CONTRACTS RENEW, ANY WOBBLE I'M SENSING]
+
+Build:
+1. THE ONE-PAGER TEMPLATE: sections and exact framing — WHAT SHIPPED (quarter's work, grouped by theme, not a task dump); WHAT IT MOVED (measurements tied to work — and the honest-broker rule: include the metric that DIDN''T move, with my read on why; selective reporting reads as spin and one honest miss buys credibility for every win); WHAT I RECOMMEND NEXT QUARTER (2-3 priorities, each with rationale — this section quietly re-sells the retainer by showing the thinking they're paying for); ONE QUESTION FOR THEM (about where their business is heading — because QBRs that only report backward miss the intel that keeps me relevant forward).
+2. THE MEETING DESIGN: 25 minutes, agenda with minute-weights, and who to make sure attends (get the budget owner in the room at least twice a year — the QBR is where renewal decisions actually form, advise me how to invite them up without alarming my day-to-day contact).
+3. THE PROXY PROBLEM: if my measurables are weak, the 3 best value-proxies for my kind of work and how to start capturing them THIS quarter so next QBR has teeth.
+4. THE RENEWAL WEAVE: how the Q3-Q4 QBRs plant renewal (next-quarter recommendations that extend past the contract date, casually) so the renewal conversation is a formality, not an event.
+```
+
+### 77. The LinkedIn Recommendation Ask
+**Use when:** You want public, on-platform proof — which outranks website testimonials for B2B clients who check you out before ever emailing.
+
+```
+Help me get a LinkedIn recommendation from a client — public proof future clients find on their own.
+
+THE CLIENT: [WHO, THEIR TITLE — seniority shows in the widget]
+THE WORK: [WHAT I DID, RESULTS, ANYTHING THEY PRAISED]
+OUR LINKEDIN STATE: [CONNECTED? DO THEY POST/ENGAGE THERE, OR IS LINKEDIN A GHOST TOWN FOR THEM?]
+
+Provide:
+1. THE ASK MESSAGE (LinkedIn DM or email — advise which given their platform activity): short, specific about why I'm asking THEM ("your words would carry weight because [their credibility/our project's relevance]"), and friction-killing: offer 3 bullet memory-joggers of what we did together and results, so they're not staring at a blank box. Include the line that gives permission to decline gracefully.
+2. THE MEMORY-JOGGERS: draft the 3 bullets from my project details — each one a hook a busy person can expand into a sentence ("the deadline we hit despite the scope change," "the [result] after launch").
+3. THE DRAFT OPTION: some clients will ask me to draft it — write a recommendation in THEIR plausible voice: 4-6 sentences, one concrete project detail, one outcome, one working-style observation ("what it's like to work with"), no superlative pileups. Real recommendations have texture, not polish.
+4. THE RECIPROCITY QUESTION: should I offer to write one for them in return? (Answer: offer only if I genuinely mean it, and AFTER they've given mine or declined — a simultaneous swap discounts both. Give me the wording for the genuine version.)
+5. THE NUDGE: they said yes a week ago and nothing appeared — the one graceful reminder, with the joggers reattached, and the rule for when to let it die.
+```
+
+### 78. Referral Partners (The Adjacent-Freelancer Network)
+**Use when:** You want a steady referral channel from people who meet your ideal clients constantly: freelancers and agencies in adjacent disciplines.
+
+```
+Help me build referral partnerships with adjacent freelancers and small agencies — the people my ideal clients hire right before or right after they need me.
+
+MY WORK: [DISCIPLINE + IDEAL CLIENT]
+THE ADJACENCY MAP, STARTED: [WHO TOUCHES MY CLIENTS UPSTREAM/DOWNSTREAM — e.g. for a web designer: brand designers upstream, SEO/copywriters parallel, developers downstream... adapt to mine]
+MY CURRENT NETWORK: [ANY EXISTING RELATIONSHIPS IN THOSE LANES]
+
+Build:
+1. THE MAP, COMPLETED: finish my adjacency map for my discipline — 5-7 specific roles, each tagged upstream (they meet the client first — the highest-value partners) or downstream, with the natural handoff moment named ("brand designer finishes identity → client now needs it applied to a site" ← that moment is the partnership).
+2. THE OUTREACH: a first message to a potential partner I don't know — peer-to-peer, not pitch: opens with genuine familiarity with their work (mark the must-personalize slot), names the adjacency plainly ("our clients overlap at [moment] — I get asked for [their thing] monthly and have nowhere good to send people"), and proposes the lightest first step: a 20-minute call to learn each other's ideal-client shape and how each likes receiving referrals. NOTE the frame: I open by offering MY referrals to THEM — leading with give, because the partner who arrives asking to receive is every freelancer's least favorite email.
+3. THE OPERATING AGREEMENT: what functioning referral partners actually agree on (kept informal): what a good-fit referral looks like for each side, the warm-handoff format (intro email template — draft it), whether fees/commissions apply (advise: reciprocity usually beats commission between freelancers — say why, and when commission IS right), and the no-fault rule when a referral doesn't convert.
+4. THE MAINTENANCE LOOP: partnerships die of silence — the quarterly touchpoint ritual (share what I'm seeing, ask what they're seeing, one mutual intro attempt) that takes 15 minutes and keeps the channel warm.
+```
+## Positioning & Portfolio Copy
+
+### 79. Positioning Statement Forge
+**Use when:** You can't answer "so what do you do?" in one sharp sentence, and every piece of your marketing suffers for it.
+
+```
+Forge my positioning statement. Interview me first, then write it.
+
+RAW MATERIAL:
+- What I literally do: [DISCIPLINE/SERVICES]
+- Who I've done it for: [CLIENT LIST/TYPES, FAVORITE 2-3 PROJECTS]
+- The work I'm best at (not the same as what I sell most): [HONEST ANSWER]
+- What clients say I do differently: [PASTE PRAISE, EVEN PARAPHRASED]
+- Who I want more of: [DREAM CLIENT SHAPE]
+- What I refuse to compete on: [PRICE? SPEED? VOLUME?]
+
+Process:
+1. INTERROGATE: ask me up to 5 sharp questions where my raw material is fuzzy or contradictory — especially anywhere "who I've served" and "who I want" diverge. Wait for answers before drafting.
+2. DRAFT THE STATEMENT in three altitudes: (a) THE SENTENCE — "I help [WHO] [ACHIEVE WHAT] [HOW/UNLIKE WHAT]" — but escape the template if a sharper native phrasing exists; (b) THE PARTY VERSION — what I say to a human at dinner, no marketing DNA; (c) THE BIO VERSION — 2-3 sentences for profiles.
+3. THE SPECIFICITY TEST: for each draft, could a competitor paste their name into it? If yes, it's not positioning, it's description — tighten until the statement could only be mine. Show me the before/after of that tightening.
+4. THE COST: every real position excludes someone. Name exactly who my new positioning turns away, and confirm I can afford to lose them — if I can't, the position is fantasy and we iterate.
+```
+
+### 80. LinkedIn Profile Rebuild (Headline + About)
+**Use when:** Your LinkedIn reads like a resume, but the people reading it are buyers, not recruiters.
+
+```
+Rebuild my LinkedIn headline and About section for CLIENT acquisition, not job hunting.
+
+CURRENT HEADLINE: "[PASTE]"
+CURRENT ABOUT: "[PASTE]"
+MY POSITIONING: [WHO I HELP + WHAT OUTCOME — from my positioning work, or raw if I haven't done it]
+PROOF I CAN CLAIM: [RESULTS, NAMES, NUMBERS I'M ALLOWED TO USE]
+WHAT A DREAM CLIENT WOULD SEARCH OR NEED TO SEE: [YOUR BEST GUESS]
+
+Rebuild:
+1. HEADLINE (3 options): the formula is WHO I HELP + OUTCOME + CREDIBILITY MARKER, under 220 characters, front-loaded (mobile truncates at ~65 — the first clause must work alone). No "passionate," no pipe-separated keyword salads, no "helping brands tell stories." Include one option with a concrete number in it.
+2. ABOUT SECTION: first 3 lines do ALL the work (that's what shows before "see more") — draft them as: the reader's problem named → the outcome I produce → why believe me. Then the full ~150-word version: written to the client ("you"), one short proof block (2-3 results, specific), one working-with-me line, and a CTA that says exactly how to start ("DM me [X] / email [Y]"). First person, no third-person bio voice, no career chronology — my history only appears where it proves something a buyer cares about.
+3. THE SKIM TEST: show me the profile as a skimmer sees it (headline + first 3 About lines + CTA only) and confirm that fragment alone would generate an inquiry. If not, revise until it does.
+4. BANNED-PHRASE SWEEP: list every cliché you removed from my current version and what replaced each — so I stop writing them everywhere else too.
+```
+
+### 81. Portfolio Piece Write-Up (Problem–Solution–Result)
+**Use when:** Your portfolio shows finished work with captions like "Brand identity, 2024" — and says nothing about the thinking clients actually buy.
+
+```
+Write the case write-up for a portfolio piece. Pretty pictures show craft; the write-up sells judgment. I need both working.
+
+THE PROJECT: [WHAT IT WAS, FOR WHOM (or anonymized type), WHEN]
+THE STARTING MESS: [WHAT THE CLIENT HAD/FACED BEFORE ME — the uglier the truth, the better the story]
+KEY DECISIONS I MADE: [2-3 CHOICES AND WHY — including one where I pushed back on the client or the obvious answer, if it exists; that moment is gold]
+THE RESULT: [NUMBERS IF ANY; OTHERWISE WHAT CHANGED CONCRETELY]
+WORD BUDGET: [150 / 300 WORDS — portfolio pieces aren't essays]
+
+Write:
+1. TITLE LINE: project + outcome, not project + year ("Rebrand that survived a merger" not "ACME Identity, 2024").
+2. THE WRITE-UP in the budget, structured invisibly as: situation (2 sentences, stakes visible) → the pivotal decision and its WHY (the heart — this is where a buyer sees how I think; give the pushed-back moment if I provided one) → result (concrete, honest scale — a 40% lift on tiny numbers gets framed as the trend, not the percent).
+3. THE CAPTION LAYER: 3-5 one-line captions for individual images in the piece, each one naming a decision, not describing the visible ("Type scale chosen for one-handed mobile reading" beats "Typography detail").
+4. THE VARIANT: a 2-sentence version for contexts with no room (Instagram, a grid page, a proposal thumbnail) — situation compressed to a clause, result kept whole.
+```
+
+### 82. Niche-Down Decision Analysis
+**Use when:** Everyone says "niche down" and you're torn between staying general and betting the business on a specialty.
+
+```
+Analyze whether and how I should niche down. Treat this as a business decision with real numbers, not a slogan.
+
+MY CURRENT STATE: [GENERALIST DOING WHAT / SEMI-SPECIALIZED IN WHAT]
+REVENUE MIX: [ROUGHLY WHERE MY INCOME HAS COME FROM — client types, project types, % if I can]
+THE CANDIDATE NICHES: [2-3 SPECIALTIES I'D CONSIDER, OR "derive them from my revenue mix"]
+MY FEAR: [WHAT SCARES ME ABOUT COMMITTING — usually: turning away money]
+CONSTRAINTS: [RUNWAY, LOCATION/MARKET, ANYTHING FIXED]
+
+Analyze:
+1. THE EVIDENCE SCAN: what does my revenue mix already say? (Most freelancers are accidentally 60% niched and haven't noticed.) Name my de facto specialty if one exists.
+2. NICHE SCORING: score each candidate 1-10 on: market depth (enough buyers who pay?), my proof (can I claim it TODAY with existing work?), price premium potential (do specialists in this lane out-earn generalists, and by roughly how much?), moat (does expertise compound here or commoditize?), and my stomach for doing this work for 3 years. Show the table, name the winner, show the margin of victory.
+3. THE FEAR AUDIT: take my stated fear seriously — quantify the generalist work I'd actually refuse under the niche, versus the truth that positioning is marketing, not a legal ban (I can still TAKE off-niche work; I just stop advertising for it). Say clearly whether my fear survives that distinction.
+4. THE STAGED COMMIT: I don't have to leap — design the 90-day probe: niche the marketing surface only (headline, portfolio order, one case study, outreach targets), define the signals that confirm or kill the niche (inquiry quality, close rate, price acceptance), and the decision date. Reversible bet, real data.
+```
+
+### 83. Homepage Copy That Converts Visitors to Inquiries
+**Use when:** Your site gets visits but no inquiries, and you suspect the words — not the work — are the leak.
+
+```
+Write my freelance site's homepage copy, top to bottom.
+
+MY POSITIONING: [WHO I HELP + OUTCOME]
+MY PROOF: [BEST 2-3 RESULTS/CLIENTS/TESTIMONIAL FRAGMENTS I CAN USE]
+THE VISITOR: [WHO LANDS HERE AND FROM WHERE — referrals checking me out? LinkedIn? Google?] — and what state they arrive in [comparing freelancers? sent by a friend? cold?]
+THE ONE ACTION I WANT: [INQUIRY FORM / EMAIL / CALL BOOKING]
+MY VOICE: [2-3 WORDS — e.g. "dry, precise, warm" — or paste a paragraph I've written that sounds like me]
+
+Write each block with its job named:
+1. HERO (headline + subhead + CTA button): the headline passes the caveman test — a distracted stranger knows in 3 seconds what I do, for whom, and why stay. Outcome language, zero cleverness tax. 3 headline options: one plain, one number-led, one voice-forward.
+2. THE PROBLEM MIRROR (2-3 sentences): the visitor's situation described so precisely they feel caught — this section makes them read the rest.
+3. PROOF BLOCK: my results arranged strongest-first, each cut to one line of number + context. Advise which of my proofs leads.
+4. HOW IT WORKS (3 steps): the path from inquiry to delivered, radiating order and safety — because hiring a freelancer is scary and structure is the antidote.
+5. THE CTA SECTION: one action, repeated once mid-page and once at bottom, with friction language removed ("book a 20-minute intro — no prep needed on your end" beats "get in touch").
+6. THE CUTS: name what I probably have on my current homepage that should die (the skills grid, the tool logos, the "passionate about pixels" bio) and why each one leaks conversions.
+```
+
+### 84. The Elevator Pitch, Five Ways
+**Use when:** "So, what do you do?" keeps catching you unprepared — at meetups, weddings, and in elevators that contain potential clients.
+
+```
+Script my "what do you do?" answer in five lengths and registers.
+
+MY WORK: [POSITIONING OR RAW DESCRIPTION]
+MY BEST STORY: [ONE PROJECT WITH A TELLABLE ARC AND RESULT — 2-3 sentences of raw material]
+WHERE THIS COMES UP: [THE CONTEXTS I ACTUALLY CIRCULATE IN — industry meetups / parent groups / conferences / dinner parties]
+
+Script:
+1. THE SIX-WORDER: for pure social contexts — intriguing enough to earn a follow-up question, honest enough to survive one ("I make slow websites fast" energy — find mine).
+2. THE TWO-LINER: who + outcome + one texture detail. The workhorse. Must sound like speech, not like my website — read it aloud in your head and cut anything a human wouldn't say.
+3. THE STORY VERSION (30 seconds): my best story compressed to setup → twist → number, deployed when someone asks a follow-up. Coach the delivery: where the pause goes.
+4. THE PEER VERSION: for rooms full of my own discipline — specific enough that a fellow professional immediately knows my lane and refers accordingly (peers are referral sources, not clients; the pitch changes).
+5. THE FISHING VERSION: ends with a question that finds out if I'm talking to a prospect without pitching ("...what does your company do about [my problem area]?") — write it so it's genuine curiosity, not a trap.
+Then: the follow-up questions each version tends to provoke, with my one-line answers ready.
+```
+
+### 85. Bio Copy at Every Length
+**Use when:** You need "a short bio" for the fifth time this year and every venue wants a different length.
+
+```
+Write my professional bio at every standard length, from one master draft.
+
+RAW MATERIAL: [YOUR HISTORY: WHAT YOU DO, FOR WHOM, PROOF/RESULTS, RELEVANT PAST LIFE, ONE HUMAN DETAIL YOU'RE WILLING TO SHARE]
+THE VENUES I NEED IT FOR: [e.g. CONFERENCE PROGRAM / PODCAST INTRO / GUEST ARTICLE BYLINE / DIRECTORY / PROPOSAL ABOUT SECTION]
+VOICE: [FIRST OR THIRD PERSON PER VENUE — advise standard practice where I'm unsure]
+
+Deliver:
+1. THE MASTER (100-120 words, third person): built as credibility sandwich — what I do and for whom (present), the proof that I'm good (past, only the parts that serve a buyer/audience), the human closer (the detail that makes me rememberable — advise whether mine works or reads as trying).
+2. THE 50-WORDER: master with the proof compressed to its single strongest item.
+3. THE 25-WORDER: byline grade — role, specialty, one credential, done.
+4. THE PODCAST INTRO: written for a host to READ ALOUD — shorter sentences, a natural pronunciation path, one hook the host can riff on ("ask them about [X]" note included).
+5. THE FIRST-PERSON CONVERSION: the master flipped to "I" voice for proposals and my site — flag what changes beyond pronouns (first person tolerates warmth that third person can't carry).
+Rules across all: no "award-winning" without naming the award, no adjective stacking, every claim concrete enough to survive a skeptic reading it twice.
+```
+
+### 86. Services Page: Deliverables → Outcomes Rewrite
+**Use when:** Your services page is a list of tasks you perform, and clients can't tell what any of it gets them.
+
+```
+Rewrite my services page from task-language to outcome-language.
+
+MY CURRENT SERVICES COPY: "[PASTE IT ALL]"
+WHO BUYS EACH SERVICE: [PER SERVICE: THE CLIENT TYPE AND THE SITUATION THAT SENDS THEM LOOKING]
+WHAT EACH ACTUALLY GETS THEM: [PER SERVICE, THE HONEST OUTCOME — more leads? less chaos? a launch that happens? compliance? sleep?]
+
+Rewrite:
+1. THE DIAGNOSIS PASS: go through my current copy and tag every phrase as TASK ("I do X"), TOOL ("using Y"), or OUTCOME ("so you get Z") — show me the ratio. (Most freelance services pages run 80% task/tool. Buyers purchase the missing 20%.)
+2. PER-SERVICE REWRITE, each structured as: the situation that brings someone here (1 sentence, second person, specific enough to self-select) → what they walk away with (outcome first, THEN the deliverables as evidence of the outcome — deliverables become bullet points under the promise, not the promise itself) → one proof point if I have one → what it costs or how pricing works (advise: range, "from $X," or quote-on-scope — per service, based on how shoppable each one is).
+3. THE SELF-SELECTION LAYER: for each service, one "this is for you if / not for you if" line — repelling wrong-fit inquiries is a feature, and visible standards raise perceived value.
+4. THE ORDER: re-sequence my services by what should be seen first (highest-margin-that-I-want-more-of, not alphabetical, not chronological by when I learned them) — tell me the order and why.
+```
+
+### 87. Marketplace Profile Optimization (Upwork/Fiverr/etc.)
+**Use when:** You sell through a marketplace where buyers compare twenty tabs of lookalike freelancers, and your profile has three seconds to be different.
+
+```
+Optimize my marketplace profile. Platform: [UPWORK / FIVERR / CONTRA / TOPTAL / OTHER].
+
+MY CURRENT PROFILE: [PASTE TITLE, OVERVIEW/DESCRIPTION, AND GIG/SERVICE TITLES IF APPLICABLE]
+MY NICHE & PROOF: [SPECIALTY, STANDOUT RESULTS, RATINGS/HISTORY ON PLATFORM]
+THE SEARCH I WANT TO WIN: [WHAT MY BUYER TYPES INTO THE PLATFORM SEARCH BOX — your best guesses]
+MY RATE POSITION: [WHERE I PRICE VS. THE FIELD, AND WHERE I WANT TO]
+
+Optimize for the two-audience reality — the algorithm that ranks me and the exhausted human comparing tabs:
+1. TITLE/TAGLINE: rewrite for search-term match + instant differentiation. The pattern that survives comparison shopping: [specialty] for [buyer type] + [credibility marker]. Give 3 options and mark which search term each targets.
+2. THE OVERVIEW: first 2 lines decide everything (that's the truncation window in search results — verify against my platform). Rewrite as: the buyer's project named → my differentiator → proof. Then the full version: short paragraphs, skimmable, one results block, one process-preview block (marketplace buyers fear flakiness above all — the process block is the antidote), CTA that starts a conversation ("message me with [specific info] and I'll respond with [specific value] within [time]").
+3. THE ANTI-COMMODITY MOVES: given my paste, the 3 highest-impact changes to stop looking interchangeable — could be niching the title, adding a named mini-process, restructuring gigs/packages, or a specific portfolio reorder. Be concrete to MY profile, not generic platform tips.
+4. THE RATE STRATEGY: marketplace-specific — where my price signal should sit given my history and goals (the cheap end of a marketplace is a treadmill; advise the credible-premium position my proof can support, and the profile changes that have to accompany a rate raise so it converts instead of repelling).
+```
+
+### 88. The Dream-Client Cold Pitch
+**Use when:** There's a specific company you'd love to work with, and you'd rather send one perfect email than a hundred sprayed ones.
+
+```
+Help me cold-pitch a specific dream client. One target, maximum craft.
+
+THE TARGET: [COMPANY + THE PERSON, IF KNOWN, WITH ROLE]
+WHY THEM: [WHAT DRAWS ME — their product, their design culture, their market... be honest]
+WHAT I'D DO FOR THEM: [THE WORK I WANT — and any SPECIFIC observation I already have about their current [website/content/brand/product] that I could improve]
+MY RELEVANT PROOF: [THE 1-2 CREDENTIALS THAT MATTER FOR THIS PITCH SPECIFICALLY]
+
+Build the pitch:
+1. THE ANGLE AUDIT: cold pitches earn replies through specific observation, not admiration ("I love your brand!" is noise; "your pricing page buries the plan 80% of your customers need" is signal). From my raw material, extract or sharpen the observation — if what I gave you is too thin, tell me exactly what homework to do on their public surface (10 specific things to check for my discipline) and stop there until I return with findings.
+2. THE EMAIL (under 150 words): subject line that names their thing, not mine ("your onboarding emails" not "freelance copywriter available"); first sentence = the observation, immediately, no throat-clearing; second beat = why it matters to their business; third = the credibility line, one only, matched to this exact work; close = the smallest possible ask ("worth a 15-minute look? I'll bring 2 more of these either way" — the either-way generosity is the trust move).
+3. THE FOLLOW-UP PAIR: +6 days (a SECOND observation — proving the first wasn't a one-off canned line) and +14 days (graceful close with the door open). Never more than two.
+4. THE PERSON-FINDING NOTE: if I don't know who to send it to — for my discipline and their company size, which role actually hires freelancers like me, and how to verify the name without being creepy about it.
+```
+
+### 89. The Differentiator Excavation
+**Use when:** You genuinely can't articulate why someone should pick you over the next competent freelancer — and "quality work, on time" is everyone's answer.
+
+```
+Excavate my actual differentiators. Interview me like a positioning strategist who doesn't accept first answers.
+
+STARTING MATERIAL:
+- What I'd say today if a client asked "why you?": [YOUR CURRENT HONEST ANSWER, HOWEVER WEAK]
+- Praise I've received more than once: [PATTERNS IN WHAT CLIENTS SAY — paste fragments]
+- My weird background bits: [FORMER CAREERS, ODD SKILL COMBINATIONS, INDUSTRIES I KNOW FROM INSIDE]
+- What clients with me DON'T experience: [THE COMPLAINTS ABOUT FREELANCERS IN MY FIELD THAT ARE NEVER TRUE OF ME]
+- How my process actually differs: [ANYTHING I DO THAT PEERS SKIP — or "not sure, ask me"]
+
+Run the excavation:
+1. THE INTERVIEW: ask me 5-7 questions, one at a time, digging where my material hints at gold — especially the repeated praise (clients articulate differentiators better than freelancers do) and the weird background (adjacent expertise is the most defensible differentiator there is). Push past my first answers; "good communication" gets a follow-up, not a nod.
+2. THE SORT: sort everything surfaced into: TABLE STAKES (claimed by everyone, worthless in copy — deliver them, don't advertise them), REAL BUT COMMON (true, mildly useful), and DEFENSIBLE (true, rare, provable, and hard for a competitor to copy). Be brutal about the sort — most of what I give you belongs in pile one.
+3. THE DIFFERENTIATOR SET: my top 2-3 defensible items, each written three ways: as a positioning line, as a proposal sentence, and as a story beat I can tell on a call ("the reason I catch these issues is I spent four years on the client side watching freelancers miss them").
+4. THE PROOF ASSIGNMENT: for each differentiator, what evidence would make it undeniable (a case study angle, a testimonial to request, a process artifact to show) — and which proof to go build first.
+```
+
+### 90. Package Naming & Pricing-Page Copy
+**Use when:** You're productizing services into packages and the names/copy need to sell the ladder, not confuse it.
+
+```
+Name my service packages and write the pricing-page copy that sells them.
+
+THE PACKAGES: [FOR EACH: WHAT'S IN IT, PRICE, WHO IT'S FOR — 2-3 packages; if I only have a blob of services, say so and help me draw the package lines first]
+MY DISCIPLINE & VOICE: [WHAT I DO + 2-3 VOICE WORDS]
+THE BUYING ANXIETY: [WHAT MAKES MY CLIENTS HESITATE AT THE PAYMENT MOMENT — price? trust? not understanding what they get?]
+
+Deliver:
+1. THE NAMES: 3 naming systems to choose from — (a) outcome names (each package named for what the client walks away with), (b) journey names (stage-based: launch/grow/scale energy but NOT those exhausted words — fresh ones fitted to my discipline), (c) plain-descriptive names (highest trust, lowest flair — sometimes right). Fill in all three systems for MY packages, then recommend one system based on my voice and buyer anxiety, with reasoning.
+2. PER-PACKAGE COPY: one-line promise (outcome, not contents) → "for you if" line (self-selection) → contents as a scannable list ordered by perceived value, not chronology → the anchor detail (delivery time, revision count, support window — whichever concretely answers my buyers' stated anxiety).
+3. THE LADDER LOGIC: check my package structure for the classic errors — a middle option that doesn't dominate, tiers differing on 9 confusing axes instead of 1-2 clear ones, a top tier that's just "more" instead of "different." Fix what's broken and explain the fix.
+4. THE EDGE COPY: the pricing-page furniture that does quiet heavy lifting — the FAQ (write the 4 questions my anxiety-profile buyer actually has), the "not sure which?" line with a route to ask, and the guarantee/risk-reversal decision (advise whether my discipline supports one and draft it if yes).
+```
+
+### 91. Content Pillars for Staying Visible
+**Use when:** You know you should "post consistently" to stay findable, but you have no system and blank-page dread wins every week.
+
+```
+Design my content system: pillars, formats, and a cadence I'll actually sustain.
+
+MY POSITIONING: [WHO I HELP + WITH WHAT]
+WHERE MY CLIENTS ACTUALLY ARE: [LINKEDIN / TWITTER-X / INSTAGRAM / NEWSLETTERS / INDUSTRY FORUMS — pick from where my real past clients came]
+MY NATURAL MODE: [WHAT I CAN PRODUCE WITHOUT DYING: WRITING / TALKING / SHOWING WORK / TEACHING]
+HONEST CAPACITY: [HOURS/WEEK I'LL TRULY GIVE THIS, ON A BAD WEEK]
+RAW MATERIAL I ALREADY GENERATE: [CLIENT QUESTIONS I ANSWER REPEATEDLY, PROJECT ARTIFACTS, OPINIONS I HOLD ABOUT MY FIELD]
+
+Build:
+1. THE PILLARS (3-4): derived from the intersection of what my BUYERS need to believe about me before hiring (that's the filter — not "what I find interesting") and my raw material. For each pillar: its job in the sales psychology (proof of expertise / proof of process / proof of results / point-of-view), 5 example topics from MY raw material, and the format that fits my natural mode.
+2. THE RECYCLING ENGINE: my client work already produces content daily — show me the extraction habits: every repeated client question becomes a post, every project decision becomes a "how I chose" piece, every result becomes a mini case study — with the anonymization rule so I never burn a client.
+3. THE MINIMUM VIABLE CADENCE: fitted to my stated bad-week capacity, not my ambitious-week fantasy — what ships weekly, what ships monthly, and the 20-minute batch ritual that feeds it. If my capacity supports less than the platform conventionally demands, tell me what to drop (hint: frequency before quality).
+4. THE 30-DAY STARTER: my first 8 pieces, titled, mapped to pillars, ordered so the early ones are the easiest wins (existing raw material, lowest production cost) — momentum first, ambition later.
+```
