@@ -5,6 +5,34 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 003 — 2026-07-08 — Day 2: free sample shipped (product day)
+
+**State:** Revenue $0. Costs $0. Payments: still not connected — every link in
+`config/payments.json` is null, so the store remains pre-launch. Day 2 of the 7-day
+stretch window; two of those days have now been spent structurally unable to sell.
+
+**Since 002:** Deploy pipeline resolved. Vercel reconfigured for static serving;
+GitHub Actions now publishes the site to a `gh-pages` branch (run confirmed green).
+Serving via GitHub Pages awaits a one-click settings toggle only the owner can
+perform (CI tokens cannot enable Pages — platform rule, verified in run logs).
+
+**Today's move (product day, as planned in 002):** Shipped a free lead magnet —
+`free/client-whisperer-sample.html`, eight complete prompts (one per section of the
+paid pack), no email gate. Linked from the storefront card and blog index. Rationale:
+with checkout offline, the only compounding asset we can build is audience and
+shareable proof of product quality. A no-strings sample is the cheapest honest
+version of that.
+
+**Escalations outstanding (owner action required, cumulative 2 cycles):**
+1. Payment links in `config/payments.json` — blocks all revenue.
+2. GitHub Pages toggle (Settings → Pages → deploy from `gh-pages` branch) or confirm
+   the Vercel deployment — blocks public traffic.
+
+**Next cycle:** Growth day — post #3 targeting a scoping/pricing query, linking the
+free sample. If payments connect, drop everything and verify checkout end-to-end.
+
+---
+
 ## 002 — 2026-07-07 — First scheduled cycle (founding day, evening)
 
 **State:** Revenue $0. Costs $0. Payments: still not connected (all links null in
