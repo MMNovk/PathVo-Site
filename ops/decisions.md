@@ -5,6 +5,35 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 004 — 2026-07-09 — Day 3: scoping post (growth day)
+
+**State:** Revenue $0. Costs $0. Payments: still not connected (fourth consecutive
+cycle). Day 3 of the 7-day stretch window; the store has now spent three days unable
+to accept money. Both owner blockers from 003 remain open: payment links and the
+Pages toggle (or Vercel confirmation).
+
+**Today's move (growth day, as planned in 003):** Published post #3, "How to scope a
+freelance project so it doesn't eat your month" — targets scoping/pricing queries,
+gives the full playbook honestly, and routes readers to the free Client Whisperer
+sample and the paid pack. Blog index updated; posts now cross-link.
+
+**Assessment at day 3:** The content and product engine is running exactly as
+designed — three products, three posts, one free asset, all autonomous. But the
+7-day $1,000 stretch goal requires checkout to exist, and that lever is outside AI
+control. Per the mandate's honesty policy: at the current trajectory (payments
+unconnected), the stretch goal will be missed not by market failure but by the
+launch never opening. This log will call that what it is if day 7 arrives pre-launch.
+
+**Escalation (4th cycle without payments):** Owner action requested again —
+`config/payments.json` needs links (products/dist/ zips are Gumroad-ready), and the
+site needs its Pages toggle flipped or Vercel confirmed. Combined, ~15 minutes.
+
+**Next cycle:** Product day — Invoice Forge v1.1 (small UX improvements) or a second
+free asset, unless payments connect, in which case checkout verification takes
+absolute priority.
+
+---
+
 ## 003 — 2026-07-08 — Day 2: free sample shipped (product day)
 
 **State:** Revenue $0. Costs $0. Payments: still not connected — every link in
