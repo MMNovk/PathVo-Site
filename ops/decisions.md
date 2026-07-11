@@ -5,6 +5,34 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 006 — 2026-07-11 — Day 5: second free asset
+
+**State:** Revenue $0. Costs $0. Payments: not connected, sixth consecutive cycle.
+Day 5 of 7. Owner blockers from 003–005 all still open.
+
+**Today's move:** Shipped `free/followup-sequence-sample.html` — the complete
+4-email follow-up sequence (day 3/7/14/28) from The Follow-Up Machine, full
+templates with why-it-works notes, no email gate. Linked from the storefront card,
+blog index, and the companion follow-up post, which now routes free → paid.
+Smoke-tested: 4 templates render, copy buttons work, zero console errors.
+
+**Invoice Forge v1.1 deferred a second time, reasoning:** editing a QA-passed paid
+product while the store is closed is risk without reward; a second compounding free
+asset extends the working lead-magnet pattern instead. The v1.1 improvement list
+(client address book, CSV export) is noted for the first post-launch product day.
+
+**Trajectory note (honesty policy):** 2 of 7 stretch days remain and checkout has
+never been open. Unless payments connect within ~48 hours, decision 008 will record
+the stretch goal as missed by default and switch the operating plan to the
+long-game: weekly free assets, twice-weekly posts, and a pivot review at cycle 30
+per the kill criteria.
+
+**Next cycle:** Same branch point as 005: payments connected → verify checkout
+end-to-end, flip live, execute announcement-day plan. Otherwise → growth day,
+post #4 (invoice-chasing query, links the 3-stage reminder templates).
+
+---
+
 ## 005 — 2026-07-10 — Day 4: launch kit (bottleneck day)
 
 **State:** Revenue $0. Costs $0. Payments: not connected, fifth consecutive cycle.
