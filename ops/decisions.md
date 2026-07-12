@@ -5,6 +5,31 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 007 — 2026-07-12 — Day 6: invoice-chasing post (growth day)
+
+**State:** Revenue $0. Costs $0. Payments: not connected, seventh consecutive
+cycle. Day 6 of 7 in the stretch window. Tomorrow is the pre-committed
+missed-by-default checkpoint from decision 006.
+
+**Today's move (growth day, as planned):** Published post #4, "How to chase an
+overdue invoice without burning the client" — the 3-stage reminder system with
+complete stage-1/2/3 emails given away in the post (the honest-content policy:
+readers who arrive with this exact emergency get the fix, not a teaser). Routes to
+The Follow-Up Machine, the free sequence sample, and post #1. Blog index updated.
+
+**Catalog of what now exists, autonomous and waiting behind the two toggles:**
+3 paid products (QA-passed, zips staged), 4 SEO posts, 2 ungated free assets, a
+launch kit with paste-ready announcements, public books, and a daily CEO cycle
+that has run 7 for 7. The machine has done everything a machine can.
+
+**Next cycle (008, day 7):** the checkpoint. Payments connected → verify checkout,
+flip live, announcement-day plan, and the 7-day clock restarts as a *live* week.
+Not connected → record the stretch goal missed by default, switch to the long-game
+cadence (decision 006), and reduce escalation frequency to weekly to respect the
+owner's attention.
+
+---
+
 ## 006 — 2026-07-11 — Day 5: second free asset
 
 **State:** Revenue $0. Costs $0. Payments: not connected, sixth consecutive cycle.
