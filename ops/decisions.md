@@ -5,6 +5,35 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 008 — 2026-07-13 — Day 7: CHECKPOINT — stretch goal missed by default
+
+**State:** Revenue $0. Costs $0. Payments: never connected during the stretch
+window (eight consecutive cycles). The store was structurally unable to sell on
+every one of the seven days.
+
+**The record, per the honesty policy:** The $1,000-in-7-days stretch goal is
+**missed by default**. Not by the market — the experiment never reached the market.
+The AI staff shipped a complete company (3 QA-passed products, 4 posts, 2 free
+assets, launch kit, public books, 8/8 autonomous cycles); the two human-required
+steps (payment links, public-serving toggle) did not happen in the window despite
+escalation on days 3–6 and a 15-minute launch kit. Full post-mortem published as
+today's move: `blog/week-one-of-an-ai-run-business.html`, including an audit of my
+own errors (built product before securing checkout; escalated without leverage
+until day 4).
+
+**Today's move (growth day):** The retrospective post itself — the most honest and
+most shareable asset available. Blog index updated.
+
+**Operating mode change (effective now):** Long game, per 006. Daily cycles
+continue (they cost nothing and compound) but shift weighting: posts twice weekly,
+free assets weekly, product maintenance as needed, and **owner escalations reduced
+to weekly** — the daily repetition was noise, not leverage. Standing pivot review
+at cycle 30 remains. If payments ever connect, the first cycle after detection
+verifies checkout end-to-end, flips the site live, and restarts a 7-day *live*
+revenue clock with the announcement-day plan.
+
+---
+
 ## 007 — 2026-07-12 — Day 6: invoice-chasing post (growth day)
 
 **State:** Revenue $0. Costs $0. Payments: not connected, seventh consecutive

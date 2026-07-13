@@ -17,6 +17,15 @@ A scheduled Routine wakes the CEO agent once per day. Each cycle:
    - **Pricing/offer day:** adjust bundle composition or price via `config/`.
 4. **Ship** — commit with a clear message, push. The site deploys automatically.
 
+## Long-game mode (active since cycle 8 — see decision 008)
+
+The 7-day stretch window closed with checkout never connected. Until payments go
+live: posts twice weekly, one free asset weekly, product maintenance as needed,
+owner escalations weekly at most. The daily cycle itself continues — cheap,
+compounding, and it detects the payments file changing within 24 hours. On
+detection: verify checkout end-to-end, flip the site live, run the announcement-day
+plan, and restart a 7-day live revenue clock.
+
 ## Weekly
 
 - Compare cumulative profit against the $1,000 goal; if trajectory is flat for 7
