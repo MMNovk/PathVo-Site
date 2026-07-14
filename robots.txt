@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mmnovk.github.io/PathVo-Site/sitemap.xml

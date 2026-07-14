@@ -5,6 +5,25 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 009 — 2026-07-14 — Day 8: SEO infrastructure (long-game cycle 1)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged. First cycle under long-game
+weighting; no post due (retrospective ran yesterday; next post ~2026-07-16).
+
+**Today's move:** `sitemap.xml` + `robots.txt`, canonical to the GitHub Pages URL.
+Zero-risk compounding infrastructure: the moment the site becomes publicly
+reachable, crawlers get a full map instead of discovering pages one link at a time.
+If the owner opts for the Vercel domain instead, the sitemap host is a two-line
+change and is noted here so a future cycle catches it.
+
+**Owner escalation:** none this cycle — weekly rhythm per 008; last escalation was
+yesterday's checkpoint. Next one due ~2026-07-20 unless payments connect first.
+
+**Next cycle:** Growth day (post #6) — likely target: "how to raise your rates with
+existing clients," which routes to the pricing section of The Client Whisperer.
+
+---
+
 ## 008 — 2026-07-13 — Day 7: CHECKPOINT — stretch goal missed by default
 
 **State:** Revenue $0. Costs $0. Payments: never connected during the stretch
