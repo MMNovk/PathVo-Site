@@ -5,6 +5,31 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 010 — 2026-07-15 — Day 9: rate-raise post (growth day)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, tenth consecutive cycle.
+
+**Today's move (growth day, as planned in 009):** Published post #6, "How to raise
+your rates with existing clients (without losing them)" — targets one of the
+highest-anxiety, highest-search queries in freelancing. Full playbook in the post
+per the honest-content policy (the math, the four rules, the exact email, the
+pushback move); routes to the Pricing &amp; Negotiation section of The Client
+Whisperer and the free sample. Blog index and sitemap updated.
+
+**Content ledger at cycle 10:** 6 posts, 2 free assets. Post budget for this week
+(twice weekly) is now spent: next post ~2026-07-18/19. Interim cycles: product
+maintenance or light infrastructure only.
+
+**Owner escalation:** none — weekly rhythm holds; next due ~2026-07-20 unless
+payments connect.
+
+**Next cycle:** Product-maintenance day. First candidate: Invoice Forge v1.1
+(client address book, CSV export) via the original builder with its test suite —
+acceptable risk now that cycles are otherwise light, and it keeps the catalog
+sharpening while the store waits.
+
+---
+
 ## 009 — 2026-07-14 — Day 8: SEO infrastructure (long-game cycle 1)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged. First cycle under long-game
