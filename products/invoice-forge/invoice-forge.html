@@ -38,6 +38,7 @@ textarea{resize:vertical;min-height:60px}
 .logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;letter-spacing:.2px}
 .logo svg{display:block}
 .logo em{font-style:normal;color:var(--accent)}
+.ver{font-size:11px;font-weight:600;color:var(--faint);background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:2px 8px;margin-left:2px}
 .spacer{flex:1}
 .btn{
   display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;
@@ -96,6 +97,27 @@ td.actions{text-align:right;white-space:nowrap}
 }
 .empty h2{color:var(--text);font-size:17px;margin:14px 0 6px}
 .empty p{max-width:380px;margin:0 auto 20px}
+
+/* ---------- Client picker & modal ---------- */
+.client-tools{align-items:center}
+.client-tools select{flex:1.6}
+#btn-save-client{padding:8px 12px}
+#modal-back{
+  position:fixed;inset:0;background:rgba(8,10,15,.65);z-index:150;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.modal{background:var(--bg2);border:1px solid var(--line2);border-radius:12px;width:100%;max-width:460px;max-height:80vh;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.modal-head{display:flex;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+.modal-head h2{font-size:15px;font-weight:700;flex:1}
+.modal-head button{color:var(--dim);font-size:20px;line-height:1;padding:2px 8px;border-radius:6px}
+.modal-head button:hover{color:var(--text);background:var(--bg3)}
+#clients-list{overflow:auto;padding:12px 18px 16px}
+.client-row{display:flex;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.client-row:last-child{border-bottom:none}
+.client-row .cmain{flex:1;min-width:0}
+.client-row input{margin-bottom:2px}
+.client-row .cmeta{font-size:11.5px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.clients-empty{color:var(--dim);text-align:center;padding:22px 10px;font-size:13px}
 
 /* ---------- Editor ---------- */
 #editor-bar{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
@@ -194,7 +216,7 @@ legend{font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:upperca
 @media print{
   @page{margin:14mm}
   body{background:#fff}
-  #app-header,#view-list,#editor-bar,.form-panel,#toast{display:none !important}
+  #app-header,#view-list,#editor-bar,.form-panel,#toast,#modal-back{display:none !important}
   main{max-width:none;padding:0;margin:0}
   .editor-grid{display:block}
   .preview-panel{position:static}
@@ -211,7 +233,7 @@ legend{font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:upperca
 <header id="app-header">
   <div class="logo">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="1" y="1" width="18" height="18" rx="4" fill="#5b8cff"/><path d="M6 5.5h8M6 9h8M6 12.5h5" stroke="#0f1117" stroke-width="1.8" stroke-linecap="round"/></svg>
-    Invoice <em>Forge</em>
+    Invoice <em>Forge</em> <span class="ver">v1.1</span>
   </div>
   <div class="spacer"></div>
   <button class="btn ghost" id="btn-export" title="Download all data as a JSON backup file">Export backup</button>
@@ -227,6 +249,7 @@ legend{font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:upperca
     <div class="list-head">
       <h1>Invoices</h1><span class="count" id="inv-count"></span>
       <div class="spacer"></div>
+      <button class="btn" id="btn-csv" title="Download all invoices as a CSV spreadsheet">Export CSV</button>
       <select id="filter-status">
         <option value="">All statuses</option>
         <option value="draft">Draft</option>
@@ -270,6 +293,11 @@ legend{font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:upperca
 
         <fieldset>
           <legend>Bill to</legend>
+          <div class="row client-tools">
+            <select id="client-pick"><option value="">Saved clients&#8230;</option></select>
+            <button class="btn" id="btn-save-client" title="Save this client to your address book" disabled>Save client</button>
+            <button class="btn ghost" id="btn-manage-clients" title="Rename or delete saved clients">Manage</button>
+          </div>
           <div class="field"><label>Client / company</label><input data-bind="client.name" placeholder="Acme Manufacturing Co."></div>
           <div class="field"><label>Email</label><input data-bind="client.email" placeholder="accounts@client.com"></div>
           <div class="field"><label>Address</label><textarea data-bind="client.address" rows="2" placeholder="88 Commerce Street&#10;Austin, TX 78701"></textarea></div>
@@ -329,6 +357,13 @@ legend{font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:upperca
 
 <div id="toast"></div>
 
+<div id="modal-back" class="hidden">
+  <div class="modal">
+    <div class="modal-head"><h2>Saved clients</h2><button id="modal-close" title="Close">&#215;</button></div>
+    <div id="clients-list"></div>
+  </div>
+</div>
+
 <script>
 "use strict";
 /* ================= Invoice Forge — data & helpers ================= */
@@ -375,10 +410,12 @@ function load(){
     const raw = localStorage.getItem(LS_KEY);
     if(raw){
       const d = JSON.parse(raw);
-      if(d && Array.isArray(d.invoices)) return { profile: d.profile || {}, invoices: d.invoices };
+      if(d && Array.isArray(d.invoices))
+        return { profile: d.profile || {}, invoices: d.invoices,
+                 clients: Array.isArray(d.clients) ? d.clients : [] };
     }
   }catch(e){ /* corrupted or unavailable — start fresh */ }
-  return { profile:{}, invoices:[] };
+  return { profile:{}, invoices:[], clients:[] };
 }
 let db = load();
 let persistWarned = false;
@@ -561,6 +598,7 @@ function openEditor(id){
   $("#view-editor").classList.remove("hidden");
   $("#save-note").textContent = "";
   fillForm();
+  renderClientPick();
   renderItems();
   renderStatusSeg();
   renderPreview();
@@ -627,6 +665,7 @@ $("#editor-form").addEventListener("input", e => {
     setPath(current, el.dataset.bind, v);
     if(el.dataset.bind === "number") $("#editor-title").textContent = current.number || "Invoice";
     if(el.dataset.bind === "currency") updateItemAmounts();
+    if(el.dataset.bind === "client.name") updateSaveClientBtn();
   } else if(el.dataset.field){
     const row = el.closest("[data-idx]");
     const it = current.items[Number(row.dataset.idx)];
@@ -668,6 +707,85 @@ $("#btn-delete").addEventListener("click", () => {
   if(confirm("Delete invoice " + (current.number || "") + "? This cannot be undone.")){
     db.invoices = db.invoices.filter(i => i.id !== current.id);
     persist(); toast("Invoice deleted"); closeEditor();
+  }
+});
+
+/* ================= Client address book ================= */
+function renderClientPick(){
+  const sel = $("#client-pick");
+  const sorted = db.clients.slice().sort((a,b) => (a.name||"").localeCompare(b.name||""));
+  sel.innerHTML = '<option value="">Saved clients&#8230;</option>' +
+    sorted.map(c => '<option value="' + esc(c.id) + '">' + esc(c.name) + '</option>').join("");
+  updateSaveClientBtn();
+}
+function updateSaveClientBtn(){
+  $("#btn-save-client").disabled = !current || !(current.client.name||"").trim();
+}
+$("#client-pick").addEventListener("change", e => {
+  const c = db.clients.find(x => x.id === e.target.value);
+  e.target.value = "";
+  if(!c || !current) return;
+  current.client = { name: c.name||"", email: c.email||"", address: c.address||"" };
+  $('[data-bind="client.name"]').value = current.client.name;
+  $('[data-bind="client.email"]').value = current.client.email;
+  $('[data-bind="client.address"]').value = current.client.address;
+  updateSaveClientBtn();
+  renderPreview(); scheduleSave();
+  toast("Filled in " + c.name);
+});
+$("#btn-save-client").addEventListener("click", () => {
+  if(!current) return;
+  const name = (current.client.name||"").trim();
+  if(!name) return;
+  const existing = db.clients.find(c => (c.name||"").trim().toLowerCase() === name.toLowerCase());
+  if(existing){
+    existing.name = name;
+    existing.email = current.client.email||"";
+    existing.address = current.client.address||"";
+    toast("Updated " + name + " in your address book");
+  } else {
+    db.clients.push({ id:"cl_" + Date.now().toString(36) + Math.random().toString(36).slice(2,8),
+      name, email: current.client.email||"", address: current.client.address||"" });
+    toast("Saved " + name + " to your address book");
+  }
+  persist(); renderClientPick();
+});
+function renderClientsModal(){
+  const wrap = $("#clients-list");
+  const sorted = db.clients.slice().sort((a,b) => (a.name||"").localeCompare(b.name||""));
+  if(!sorted.length){
+    wrap.innerHTML = '<div class="clients-empty">No saved clients yet. Fill in a client on an invoice and press "Save client".</div>';
+    return;
+  }
+  wrap.innerHTML = sorted.map(c =>
+    '<div class="client-row" data-cid="' + esc(c.id) + '">' +
+      '<div class="cmain"><input data-crename value="' + esc(c.name) + '" placeholder="Client name">' +
+      '<div class="cmeta">' + esc([c.email, (c.address||"").split("\n")[0]].filter(Boolean).join(" · ") || "no details") + '</div></div>' +
+      '<button class="iconbtn del" data-cdel title="Delete client"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 4.5h10M6.5 4.5V3h3v1.5M5 4.5l.6 8.5h4.8l.6-8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
+    '</div>').join("");
+}
+$("#btn-manage-clients").addEventListener("click", () => { renderClientsModal(); $("#modal-back").classList.remove("hidden"); });
+$("#modal-close").addEventListener("click", () => $("#modal-back").classList.add("hidden"));
+$("#modal-back").addEventListener("click", e => { if(e.target.id === "modal-back") $("#modal-back").classList.add("hidden"); });
+$("#clients-list").addEventListener("change", e => {
+  if(!e.target.hasAttribute("data-crename")) return;
+  const c = db.clients.find(x => x.id === e.target.closest("[data-cid]").dataset.cid);
+  if(!c) return;
+  const name = e.target.value.trim();
+  if(!name){ e.target.value = c.name; return; }
+  c.name = name;
+  persist(); renderClientPick(); renderClientsModal();
+  toast("Client renamed");
+});
+$("#clients-list").addEventListener("click", e => {
+  const del = e.target.closest("[data-cdel]");
+  if(!del) return;
+  const id = del.closest("[data-cid]").dataset.cid;
+  const c = db.clients.find(x => x.id === id);
+  if(c && confirm('Remove "' + c.name + '" from your address book? Existing invoices are not affected.')){
+    db.clients = db.clients.filter(x => x.id !== id);
+    persist(); renderClientPick(); renderClientsModal();
+    toast("Client removed");
   }
 });
 
@@ -732,15 +850,45 @@ function renderPreview(){
 }
 
 /* ================= Backup: export / import ================= */
-$("#btn-export").addEventListener("click", () => {
-  const payload = { app:"invoice-forge", version:1, exportedAt:new Date().toISOString(), profile:db.profile, invoices:db.invoices };
-  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+function downloadFile(name, content, mime){
+  const blob = new Blob([content], {type:mime});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "invoice-forge-backup-" + todayStr() + ".json";
+  a.download = name;
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 2000);
-  toast("Backup downloaded (" + db.invoices.length + " invoice" + (db.invoices.length===1?"":"s") + ")");
+}
+$("#btn-export").addEventListener("click", () => {
+  const payload = { app:"invoice-forge", version:2, exportedAt:new Date().toISOString(),
+    profile:db.profile, invoices:db.invoices, clients:db.clients };
+  downloadFile("invoice-forge-backup-" + todayStr() + ".json", JSON.stringify(payload, null, 2), "application/json");
+  toast("Backup downloaded (" + db.invoices.length + " invoice" + (db.invoices.length===1?"":"s") +
+    ", " + db.clients.length + " client" + (db.clients.length===1?"":"s") + ")");
+});
+
+/* ================= CSV export ================= */
+function csvField(v){
+  v = String(v == null ? "" : v);
+  return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+}
+function invoicesToCsv(invoices){
+  const head = ["Invoice number","Client","Issue date","Due date","Status","Currency","Subtotal","Tax","Total"];
+  const lines = [head.map(csvField).join(",")];
+  invoices.slice().sort((a,b) => (a.number||"").localeCompare(b.number||"", undefined, {numeric:true}))
+    .forEach(inv => {
+      const T = totals(inv);
+      lines.push([
+        inv.number, inv.client.name || "", inv.issueDate || "", inv.dueDate || "",
+        effStatus(inv), inv.currency, T.subtotal.toFixed(2), T.tax.toFixed(2), T.total.toFixed(2)
+      ].map(csvField).join(","));
+    });
+  return lines.join("\r\n") + "\r\n";
+}
+$("#btn-csv").addEventListener("click", () => {
+  if(!db.invoices.length){ toast("Nothing to export yet — create an invoice first"); return; }
+  downloadFile("invoice-forge-invoices-" + todayStr() + ".csv",
+    "\uFEFF" + invoicesToCsv(db.invoices), "text/csv;charset=utf-8");
+  toast("CSV downloaded (" + db.invoices.length + " invoice" + (db.invoices.length===1?"":"s") + ")");
 });
 $("#btn-import").addEventListener("click", () => $("#import-file").click());
 $("#import-file").addEventListener("change", e => {
@@ -754,7 +902,8 @@ $("#import-file").addEventListener("change", e => {
       if(!d || !Array.isArray(d.invoices)) throw new Error("bad shape");
       const ok = confirm("Import " + d.invoices.length + " invoice(s)? This REPLACES all current data. Export a backup first if unsure.");
       if(!ok) return;
-      db = { profile: d.profile || {}, invoices: d.invoices.filter(i => i && i.id) };
+      db = { profile: d.profile || {}, invoices: d.invoices.filter(i => i && i.id),
+             clients: Array.isArray(d.clients) ? d.clients.filter(c => c && c.id && c.name) : [] };
       // basic normalization for safety
       db.invoices.forEach(i => {
         i.items = Array.isArray(i.items) ? i.items : [];

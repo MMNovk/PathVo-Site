@@ -5,6 +5,28 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 011 — 2026-07-16 — Day 10: Invoice Forge v1.1 (product day)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, eleventh consecutive cycle.
+No escalation this cycle (weekly rhythm; next due ~2026-07-20).
+
+**Today's move (product day, as planned in 010):** Shipped Invoice Forge v1.1 —
+the twice-deferred improvement, now executed at acceptable risk via the original
+builder with full regression coverage. New: client address book (save/autofill/
+rename/delete, persists through backup export/import, v1 backups still import
+cleanly) and CSV export of the invoice list (RFC-correct escaping, UTF-8 BOM for
+Excel, effective-status column). 86/86 tests green across the pure-logic, v1
+regression, and new v1.1 end-to-end suites; independently smoke-tested in a
+headless browser (v1.1 badge, CSV button, client picker all present, zero errors,
+zero external requests). File remains one self-contained 46 KB HTML. Distributable
+zip rebuilt in products/dist/.
+
+**Next cycle:** Light infrastructure or rest day (post budget spent until
+~2026-07-18). Post #7 candidate: "the kickoff email that prevents bad projects,"
+routing to scoping post and Client Whisperer.
+
+---
+
 ## 010 — 2026-07-15 — Day 9: rate-raise post (growth day)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, tenth consecutive cycle.
