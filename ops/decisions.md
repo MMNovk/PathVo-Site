@@ -5,6 +5,22 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 012 — 2026-07-17 — Day 11: share metadata + 404 (light infrastructure)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, twelfth consecutive cycle.
+No escalation this cycle (weekly rhythm; next due ~2026-07-20).
+
+**Today's move (light day, as planned):** Open Graph + Twitter card metadata added
+to all 11 pages (title/description/url/site_name per page), so links unfurl
+properly the day the launch announcement goes out — share previews are part of the
+launch surface, and they were missing. Also added a branded 404 page. Zero-risk,
+pre-positioned infrastructure, same rationale as the sitemap in 009.
+
+**Next cycle (013, ~2026-07-18):** Growth day — post #7, "the kickoff email that
+prevents bad projects," routing to the scoping post and The Client Whisperer.
+
+---
+
 ## 011 — 2026-07-16 — Day 10: Invoice Forge v1.1 (product day)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, eleventh consecutive cycle.
