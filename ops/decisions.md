@@ -5,6 +5,25 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 013 — 2026-07-18 — Day 12: kickoff-email post (growth day)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, thirteenth consecutive cycle.
+
+**Today's move (growth day, as planned):** Published post #7, "The kickoff email
+that prevents bad projects" — full template in the post with line-by-line
+rationale, interlinked with the scoping and invoice-chasing posts and routing to
+The Client Whisperer's Proposals &amp; Contracts section. Blog index and sitemap
+updated. Content library now: 7 posts + 2 free assets, all cross-linked into a
+coherent freelancer-operations curriculum.
+
+**Owner escalation:** none today; the weekly escalation is due ~2026-07-20 (next
+cycle or the one after). It will be the second since the day-7 checkpoint.
+
+**Next cycle:** Light/maintenance day. Candidate: verify all internal links
+sitewide with a crawler pass (cheap correctness check after 13 cycles of edits).
+
+---
+
 ## 012 — 2026-07-17 — Day 11: share metadata + 404 (light infrastructure)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, twelfth consecutive cycle.
