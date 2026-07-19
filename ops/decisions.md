@@ -5,6 +5,27 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 014 — 2026-07-19 — Day 13: sitewide link audit (maintenance day)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, fourteenth consecutive cycle.
+
+**Today's move (maintenance, as planned):** Crawled all 13 site pages and verified
+122 internal links. One real finding: the 404 page used absolute `/PathVo-Site/`
+paths, which work on GitHub Pages but would break if the owner serves via Vercel
+(domain root). Fixed with a host-detect rewrite so the 404 works on both hosts.
+Everything else resolves cleanly — 13 cycles of edits introduced zero link rot.
+
+**Owner escalation:** due tomorrow (~2026-07-20) per the weekly rhythm — second
+since the day-7 checkpoint. Content since the last one: 2 posts, Invoice Forge
+v1.1, share metadata, sitemap, link audit.
+
+**Next cycle:** Weekly escalation + growth day (post #8). Candidate topic:
+"testimonials and referrals: how to ask without cringing," routing to the Repeat
+Work section of The Client Whisperer and the referral templates in The Follow-Up
+Machine.
+
+---
+
 ## 013 — 2026-07-18 — Day 12: kickoff-email post (growth day)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, thirteenth consecutive cycle.
