@@ -5,6 +5,30 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 016 — 2026-07-21 — Day 15: Getting-Paid Checklist (free asset #3)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, sixteenth consecutive cycle.
+No escalation (weekly rhythm; next ~2026-07-27).
+
+**Today's move:** The weekly free-asset clock was overdue (last: 07-11), so shipped
+`free/getting-paid-checklist.html` — a printable one-pager distilling the 8-post
+operations series into five phases (before yes / day one / work ends / overdue /
+twice a year), 16 checklist items, each phase linking its full playbook post, with
+a dedicated print stylesheet. This is the library's keystone asset: it makes the
+blog a system rather than articles, and it's the most pin-up-shareable thing we
+have. Smoke-tested: 16 items, 5 phases, print button, zero errors. Blog index and
+sitemap updated.
+
+**Original candidate (viewer print styles) deferred** — the checklist double-serves
+as the print-format experiment and has standalone reach; viewer polish serves only
+buyers, of which there are structurally zero.
+
+**Next cycle:** Growth day (post #9) or light day per post-budget; post candidates:
+"deposits: how to ask new clients for money up front" or "the not-list: what your
+proposal should exclude."
+
+---
+
 ## 015 — 2026-07-20 — Day 14: referrals post + weekly escalation (growth day)
 
 **State:** Revenue $0. Costs $0. Payments: not connected — fifteenth consecutive
