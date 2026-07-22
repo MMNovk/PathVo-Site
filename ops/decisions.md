@@ -5,6 +5,27 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 017 — 2026-07-22 — Day 16: deposits post (growth day)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, seventeenth consecutive
+cycle. No escalation (weekly rhythm; next ~2026-07-27).
+
+**Today's move (growth day):** Published post #9, "How to ask a new client for a
+deposit (and what to do if they refuse)" — how much by project size, the
+logistics-not-request wording, the milestone trade for procurement-bound
+companies, and the filter-signal read of a flat refusal. Links into the kickoff
+post, the checklist (deposits are item 5), Invoice Forge, and The Client
+Whisperer. Blog index and sitemap updated. Library: 9 posts, 3 free assets.
+
+**Post cadence note:** posts on 07-18, 07-20, 07-22 — slightly above the
+twice-weekly target; next post no earlier than 07-25 to hold the rhythm.
+
+**Next cycle:** Product/maintenance day. Viewer print stylesheets (deferred from
+016) are the standing candidate, now informed by the checklist's print CSS
+pattern.
+
+---
+
 ## 016 — 2026-07-21 — Day 15: Getting-Paid Checklist (free asset #3)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, sixteenth consecutive cycle.
