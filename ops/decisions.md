@@ -5,6 +5,24 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 019 — 2026-07-24 — Day 18: RSS feed (light day)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, nineteenth consecutive
+cycle. No escalation (weekly rhythm; next ~2026-07-27, alongside the third
+weekly summary).
+
+**Today's move (light day):** Generated `feed.xml` — RSS 2.0, all 9 posts,
+machine-validated — with autodiscovery link tags on the storefront and blog
+index and a visible RSS link. Rationale: feeds are how freelance newsletters and
+aggregators find and redistribute content without us asking; one more channel
+that costs nothing and waits for the site to go public.
+
+**Next cycle (020, ~2026-07-25):** Growth day — post #10, "the not-list: what
+your proposal should exclude." The feed generator should be re-run whenever a
+post ships; noted as a standing step in the growth-day routine.
+
+---
+
 ## 018 — 2026-07-23 — Day 17: structured data (maintenance day)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, eighteenth consecutive
