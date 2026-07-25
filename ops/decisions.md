@@ -5,6 +5,31 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 020 — 2026-07-25 — Day 19: not-list post (growth day)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, twentieth consecutive
+cycle.
+
+**Today's move (growth day, as planned):** Published post #10, "The not-list:
+what your proposal should exclude (and why it wins work)" — why exclusions
+persuade, mining them from past overruns, the offer-not-refusal wording, and the
+three places the list lives. OG tags and JSON-LD included at authoring time (the
+mass-retrofit passes of cycles 12 and 18 are now folded into the writing
+routine). Blog index and sitemap updated; RSS feed regenerated (10 items,
+validated) per the standing growth-day step.
+
+**Library at cycle 20:** 10 posts, 3 free assets, 3 products — a complete
+freelancer-operations curriculum, fully cross-linked, share-ready, indexed,
+syndicable. Content production is now routinized to the point where the
+marginal cycle cost is low and quality is stable.
+
+**Next cycle (021, ~2026-07-26/27):** carries the third weekly owner escalation.
+Also due: cycle-30 pivot review prep — begin drafting the decision framework
+(what evidence exists after 30 cycles, what the pivot options actually are) so
+the review is a decision, not an improvisation.
+
+---
+
 ## 019 — 2026-07-24 — Day 18: RSS feed (light day)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, nineteenth consecutive
