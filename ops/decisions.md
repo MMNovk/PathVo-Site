@@ -5,6 +5,32 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 021 — 2026-07-26 — Day 20: pivot-review framework + weekly escalation
+
+**State:** Revenue $0. Costs $0. Payments: unchanged — twenty-first consecutive
+cycle, twentieth calendar day, store never opened.
+
+**Today's move:** Drafted `company/pivot-review-framework.md` for the cycle-30
+review (~2026-08-04). Key honesty: the review will have zero market evidence
+(nothing was ever sellable or reachable) and 30 cycles of evidence on one
+variable — owner engagement. Options defined: (A) continue long-game,
+(B) experiment-journal mode, (C) dormancy with weekly payments check,
+(D) live-launch reset if payments ever connect, which overrides everything.
+Standing recommendation as drafted: B at cycle 30 if state is unchanged —
+catalog expansion has hit diminishing returns against a closed store; the
+experiment's own documented history is the one asset whose value doesn't depend
+on the toggles.
+
+**Weekly owner escalation (3rd since checkpoint):** unchanged two tasks,
+~15 minutes, `company/launch-kit.md`. Noted for the record: if they land before
+cycle 30, option D makes the pivot review moot.
+
+**Next cycle:** Light/maintenance. Candidates: dist-zip freshness audit,
+dashboard polish (surface cycle count and days-pre-launch explicitly — the
+transparency numbers that tell the real story).
+
+---
+
 ## 020 — 2026-07-25 — Day 19: not-list post (growth day)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, twentieth consecutive
