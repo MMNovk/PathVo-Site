@@ -81,6 +81,7 @@ const fmt = n => '$' + Number(n).toLocaleString('en-US', { maximumFractionDigits
       ['Profit', fmt(profit), profit > 0 ? 'good' : ''],
       ['Sales', kpis.sales_total, ''],
       ['Day', kpis.day, ''],
+      ['CEO cycles', kpis.cycle ?? '—', ''],
       ['Checkout', kpis.payments_connected ? 'LIVE' : 'pre-launch', kpis.payments_connected ? 'good' : '']
     ];
     document.getElementById('stats').innerHTML = stats.map(([k, v, cls]) =>
