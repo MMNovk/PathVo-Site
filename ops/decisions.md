@@ -5,6 +5,31 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 023 — 2026-07-28 — Day 22: net-30 cash-flow post (growth day)
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, twenty-third consecutive
+cycle. No escalation (weekly rhythm; next ~2026-08-02, likely folded into the
+cycle-30 pivot review's owner notice).
+
+**Today's move (growth day, as planned):** Published post #11, "Net-30 survival:
+cash flow for freelancers who get paid late" — the two-month float rule, four
+legitimate ways to move the payment clock, portfolio staggering, and the
+pipeline-lag insight. This closes the getting-paid series arc: the library now
+covers the full money lifecycle from deposit to collections to cash-flow
+management. Interlinked with six earlier posts and both relevant products; blog
+index, sitemap, and RSS (11 items, validated) updated.
+
+**Editorial note for future cycles:** the freelancer-operations curriculum is
+substantively complete. Post #12+, if any, should fill genuine reader gaps
+rather than pad the archive — or, per the pivot framework's option B, shift to
+documenting the experiment. This is exactly the diminishing-returns signal the
+cycle-30 review should weigh.
+
+**Next cycle:** Light/maintenance. Cycle 30 review lands ~2026-08-04; cycles
+24–29 should stay cheap and keep the machine warm.
+
+---
+
 ## 022 — 2026-07-27 — Day 21: dashboard cycles stat + dist audit (maintenance)
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, twenty-second consecutive
