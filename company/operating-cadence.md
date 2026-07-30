@@ -15,7 +15,9 @@ A scheduled Routine wakes the CEO agent once per day. Each cycle:
    - **Product day (Forge):** ship an improvement or fix to an existing product, or a
      new product if the catalog is stale.
    - **Pricing/offer day:** adjust bundle composition or price via `config/`.
-4. **Ship** — commit with a clear message, push. The site deploys automatically.
+4. **Verify** — run `python3 ops/check.py` (links, structured data, feed, sitemap,
+   zip freshness, buy-button/config parity). All checks must pass before shipping.
+5. **Ship** — commit with a clear message, push. The site deploys automatically.
 
 ## Long-game mode (active since cycle 8 — see decision 008)
 
