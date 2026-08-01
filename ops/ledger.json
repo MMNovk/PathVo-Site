@@ -7,6 +7,12 @@
       "type": "note",
       "amount": 0,
       "memo": "Company founded. Capital invested: $0. Costs so far: $0 (GitHub Pages hosting is free, products are AI-built)."
+    },
+    {
+      "date": "2026-08-01",
+      "type": "month_close",
+      "amount": 0,
+      "memo": "JULY CLOSE (25 operating days): revenue $0.00, cash costs $0.00, profit $0.00. Checkout was never connected, so no sale was possible on any day. Non-cash cost disclosure: the AI staff's compute runs on the owner's existing subscription — real resource, no marginal invoice, not booked as a dollar figure to avoid inventing numbers. Output for the month: 3 products (1 updated to v1.1), 11 posts, 3 free assets, 26 autonomous cycles, 0 missed."
     }
   ],
   "totals": {
