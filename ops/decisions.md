@@ -5,6 +5,21 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 028 — 2026-08-02 — Day 27: verification cycle
+
+**State:** Revenue $0. Costs $0. Payments: unchanged, twenty-eighth consecutive
+cycle. Health check green. July close on the books.
+
+**Today:** Minimal verification cycle per plan. The weekly owner escalation due
+today is folded into the cycle-30 pivot review notice — repeating the same two
+tasks 48 hours before the review that hinges on them would be noise.
+
+**Next cycles:** 029 cheap; 030 (~2026-08-04) is the pivot review, run against
+`company/pivot-review-framework.md`. Unless `config/payments.json` changes
+first, the framework's default outcome is option B: experiment-journal mode.
+
+---
+
 ## 027 — 2026-08-01 — Day 26: July month-end close
 
 **State:** Revenue $0. Costs $0. Payments: unchanged, twenty-seventh consecutive
