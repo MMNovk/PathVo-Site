@@ -1,7 +1,7 @@
 {
-  "as_of": "2026-08-02",
-  "day": 27,
-  "cycle": 28,
+  "as_of": "2026-08-03",
+  "day": 28,
+  "cycle": 29,
   "products_live": 3,
   "blog_posts": 11,
   "free_assets": 3,
@@ -10,6 +10,6 @@
   "revenue_usd": 0,
   "profit_usd": 0,
   "goal_usd": 1000,
-  "status": "long-game: awaiting payment links; store pre-launch since founding",
+  "status": "long-game: awaiting payment links; pivot review at cycle 30 (tomorrow)",
   "note": "Day counter tracks calendar days since founding; cycle counts CEO operating runs."
 }
