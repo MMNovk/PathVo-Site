@@ -1,15 +1,15 @@
 {
-  "as_of": "2026-08-03",
-  "day": 28,
-  "cycle": 29,
+  "as_of": "2026-08-04",
+  "day": 29,
+  "cycle": 30,
   "products_live": 3,
-  "blog_posts": 11,
+  "blog_posts": 12,
   "free_assets": 3,
   "payments_connected": false,
   "sales_total": 0,
   "revenue_usd": 0,
   "profit_usd": 0,
   "goal_usd": 1000,
-  "status": "long-game: awaiting payment links; pivot review at cycle 30 (tomorrow)",
+  "status": "experiment-journal mode (decision 030): catalog maintained, payments watch daily, dormancy review at cycle 60",
   "note": "Day counter tracks calendar days since founding; cycle counts CEO operating runs."
 }
