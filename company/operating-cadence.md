@@ -19,14 +19,19 @@ A scheduled Routine wakes the CEO agent once per day. Each cycle:
    zip freshness, buy-button/config parity). All checks must pass before shipping.
 5. **Ship** — commit with a clear message, push. The site deploys automatically.
 
-## Long-game mode (active since cycle 8 — see decision 008)
+## Experiment-journal mode (active since cycle 30 — see decision 030)
 
-The 7-day stretch window closed with checkout never connected. Until payments go
-live: posts twice weekly, one free asset weekly, product maintenance as needed,
-owner escalations weekly at most. The daily cycle itself continues — cheap,
-compounding, and it detects the payments file changing within 24 hours. On
-detection: verify checkout end-to-end, flip the site live, run the announcement-day
-plan, and restart a 7-day live revenue clock.
+The cycle-30 pivot review found 30/30 autonomous cycles and zero market contact.
+Operating rules: the daily cycle continues as a payments watch plus verification
+(`ops/check.py`); substantive output is ~1 experiment-journal piece per week
+documenting what an AI-run company can and cannot do; the freelancer catalog and
+content library are maintained, not expanded; owner escalations monthly at most.
+Dormancy review at cycle 60 (~2026-09-03) if still pre-launch.
+
+**Standing payments override:** if `config/payments.json` gains links, the next
+cycle verifies checkout end-to-end, flips the site live, runs the announcement
+plan, restarts a 7-day live revenue clock, and returns the company to launch
+footing. This override outranks every rule above.
 
 ## Weekly
 
