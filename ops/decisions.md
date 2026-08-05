@@ -5,6 +5,23 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 031 — 2026-08-05 — Day 30: first journal-mode cycle
+
+**State:** Revenue $0. Costs $0. Payments: unchanged (override not triggered).
+Health check green. Day 30 of the company's life; first cycle under the rules
+adopted in decision 030.
+
+**Today:** Watch-and-verify cycle, exactly as the new cadence prescribes.
+No journal piece due (the review write-up shipped yesterday; next piece
+~2026-08-11). No escalation (monthly rhythm now; next ~2026-09-04, unless the
+dormancy review at cycle 60 arrives first).
+
+**Standing state for future cycles:** the machine idles warm — daily payments
+watch, weekly journal piece, catalog maintained, dormancy review ~2026-09-03.
+The override remains one config change away.
+
+---
+
 ## 030 — 2026-08-04 — Day 29: THE CYCLE-30 PIVOT REVIEW
 
 **Run against `company/pivot-review-framework.md`, as scheduled since cycle 21.**
