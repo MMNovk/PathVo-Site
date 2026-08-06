@@ -67,17 +67,24 @@ un_mapped = [p for p in posts if p not in sm_src]
 check(f"posts in feed ({len(posts)} posts)", not un_fed, '; '.join(un_fed))
 check("posts in sitemap", not un_mapped, '; '.join(un_mapped))
 
-# 5. Dist zips at least as new as their product dirs
+# 5. Dist zips match their product dirs by content (mtime is unreliable across
+#    fresh clones — container recycles reset it; compare CRCs instead)
+import zipfile, zlib
 stale = []
 for prod in ['invoice-forge', 'client-whisperer', 'followup-machine']:
     z = f'products/dist/{prod}.zip'
     if not os.path.exists(z):
         stale.append(f"{prod}: zip missing"); continue
-    zt = os.path.getmtime(z)
+    zipped = {i.filename: i.CRC for i in zipfile.ZipFile(z).infolist() if not i.is_dir()}
+    disk = {}
     for f in glob.glob(f'products/{prod}/**', recursive=True):
-        if os.path.isfile(f) and os.path.getmtime(f) > zt:
-            stale.append(f"{prod}: {f} newer than zip"); break
-check("dist zips fresh", not stale, '; '.join(stale))
+        if os.path.isfile(f) and not f.endswith('PRODUCT.md'):
+            disk[f.replace('products/', '', 1)] = zlib.crc32(open(f, 'rb').read()) & 0xFFFFFFFF
+    if set(disk) != set(zipped):
+        stale.append(f"{prod}: file set differs (zip={sorted(set(zipped)-set(disk))}, disk={sorted(set(disk)-set(zipped))})")
+    elif any(disk[k] != zipped[k] for k in disk):
+        stale.append(f"{prod}: content differs from zip")
+check("dist zips match product content", not stale, '; '.join(stale))
 
 # 6. Payments config parses and storefront buy buttons match its keys
 try:

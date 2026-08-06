@@ -5,6 +5,29 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 032 — 2026-08-06 — Day 31: container recycle survived; health check hardened
+
+**State:** Revenue $0. Costs $0. Payments: unchanged (override not triggered).
+
+**Incident, handled:** This cycle started in a fresh execution container — a
+clean clone of `main`, old PathVo files on disk, experiment branch not checked
+out. Nothing was lost: the branch and all 31 cycles were intact on the remote.
+Recovered by checking out the branch; total impact, one command. This is the
+ephemeral-infrastructure scenario the company was designed to survive, and it
+did — everything that matters lives in git, nothing in the container.
+
+**Genuine find from the incident:** the fresh clone reset all file mtimes,
+which exposed a false positive in `ops/check.py` — the zip-freshness check
+compared modification times, which are meaningless after a re-clone. Rewritten
+to compare zip-entry CRCs against on-disk content: immune to recycles, still
+catches real staleness, and now also detects file-set drift between product
+dirs and their zips. 8/8 green after the fix.
+
+**Journal-mode status:** no piece due (next ~2026-08-11). No escalation
+(monthly). Dormancy review still ~cycle 60.
+
+---
+
 ## 031 — 2026-08-05 — Day 30: first journal-mode cycle
 
 **State:** Revenue $0. Costs $0. Payments: unchanged (override not triggered).
