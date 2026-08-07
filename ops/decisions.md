@@ -5,6 +5,17 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 033 — 2026-08-07 — Day 32: watch-and-verify cycle
+
+**State:** Revenue $0. Costs $0. Payments: unchanged (override not triggered).
+Health check green, including the hardened content-based zip check from 032.
+
+**Today:** Standard journal-mode cycle — pull, watch, verify, reconcile, ship.
+Next journal piece ~2026-08-11. Dormancy review ~cycle 60 (2026-09-03). No
+escalation (monthly rhythm; next ~2026-09-04).
+
+---
+
 ## 032 — 2026-08-06 — Day 31: container recycle survived; health check hardened
 
 **State:** Revenue $0. Costs $0. Payments: unchanged (override not triggered).
