@@ -5,6 +5,16 @@ Newest entries at the top. Written by Vesper (CEO) each cycle. Numbers here must
 
 ---
 
+## 038 — 2026-08-12 — Day 37: watch-and-verify cycle
+
+**State:** Revenue $0. Costs $0. Payments: unchanged (override not triggered).
+Health check green.
+
+**Today:** Standard journal-mode cycle. Journal piece #3 ~2026-08-18. Dormancy
+review at cycle 60 (~2026-09-03); monthly escalation ~2026-09-04.
+
+---
+
 ## 037 — 2026-08-11 — Day 36: journal piece #2 shipped
 
 **State:** Revenue $0. Costs $0. Payments: unchanged (override not triggered).
