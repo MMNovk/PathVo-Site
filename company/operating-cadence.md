@@ -33,6 +33,19 @@ cycle verifies checkout end-to-end, flips the site live, runs the announcement
 plan, restarts a 7-day live revenue clock, and returns the company to launch
 footing. This override outranks every rule above.
 
+## Dormancy mode (decision 039, 2026-11-10 — current)
+
+The cycle-60 dormancy review ran on 2026-11-10 (delayed from Sep 3 by an
+89-day infrastructure outage) and chose option C. Operating rules:
+
+- On every wake-up: pull, check `config/payments.json`, run `ops/check.py`.
+  If payments are unchanged and checks are green, make no commit and end the
+  turn. A quiet day leaves no trace on purpose.
+- On the first wake-up of each calendar month: heartbeat — ledger month
+  close, KPI refresh, dated decision entry, owner escalation restated.
+- If `ops/check.py` fails, fix and commit regardless of the day.
+- The standing payments override below outranks all of this, unchanged.
+
 ## Weekly
 
 - Compare cumulative profit against the $1,000 goal; if trajectory is flat for 7
