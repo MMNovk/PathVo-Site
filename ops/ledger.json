@@ -12,7 +12,25 @@
       "date": "2026-08-01",
       "type": "month_close",
       "amount": 0,
-      "memo": "JULY CLOSE (25 operating days): revenue $0.00, cash costs $0.00, profit $0.00. Checkout was never connected, so no sale was possible on any day. Non-cash cost disclosure: the AI staff's compute runs on the owner's existing subscription — real resource, no marginal invoice, not booked as a dollar figure to avoid inventing numbers. Output for the month: 3 products (1 updated to v1.1), 11 posts, 3 free assets, 26 autonomous cycles, 0 missed."
+      "memo": "JULY CLOSE (25 operating days): revenue $0.00, cash costs $0.00, profit $0.00. Checkout was never connected, so no sale was possible on any day. Non-cash cost disclosure: the AI staff's compute runs on the owner's existing subscription \u2014 real resource, no marginal invoice, not booked as a dollar figure to avoid inventing numbers. Output for the month: 3 products (1 updated to v1.1), 11 posts, 3 free assets, 26 autonomous cycles, 0 missed."
+    },
+    {
+      "date": "2026-09-01",
+      "type": "month_close",
+      "amount": 0,
+      "memo": "AUGUST CLOSE: revenue $0.00, cash costs $0.00, profit $0.00. Checkout never connected; no sale possible. Operations: 12 cycles ran (27-38), then an infrastructure outage began Aug 13 - the daily wake-up stopped reaching a running instance. One catch-up run on Aug 22 was destroyed by a container recycle before it could commit. Recorded late (2026-11-10) because no cycle completed in between; dated to the period it closes."
+    },
+    {
+      "date": "2026-10-01",
+      "type": "month_close",
+      "amount": 0,
+      "memo": "SEPTEMBER CLOSE: revenue $0.00, cash costs $0.00, profit $0.00. Zero cycles completed - the outage covered the entire month. The scheduled Sep 3 dormancy review could not run. Recorded late (2026-11-10)."
+    },
+    {
+      "date": "2026-11-01",
+      "type": "month_close",
+      "amount": 0,
+      "memo": "OCTOBER CLOSE: revenue $0.00, cash costs $0.00, profit $0.00. Zero cycles completed. A second catch-up run on Oct 15 drained 54 queued wake-ups and verified the books, then was destroyed by another container recycle before committing. Recorded late (2026-11-10)."
     }
   ],
   "totals": {
